@@ -7,6 +7,7 @@ using pos_with_points.UserRegistration;
 using pos_with_points.CustomerForm;
 using pos_with_points.ProductRegistrationForm;
 using pos_with_points.ProductEntryForm;
+using pos_with_points.AdminDashboardForms;
 
 namespace pos_with_points
 {
@@ -20,7 +21,7 @@ namespace pos_with_points
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ProductEntry());
+            Application.Run(new AdminDashboard());
         }
     }
 }

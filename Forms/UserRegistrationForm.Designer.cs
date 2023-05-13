@@ -35,6 +35,7 @@ namespace pos_with_points.UserRegistration
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnResetPassword = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.cbUserRole = new System.Windows.Forms.ComboBox();
@@ -55,7 +56,6 @@ namespace pos_with_points.UserRegistration
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.user_role = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnResetPassword = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_UserData)).BeginInit();
             this.SuspendLayout();
@@ -84,6 +84,17 @@ namespace pos_with_points.UserRegistration
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User Registration";
+            // 
+            // btnResetPassword
+            // 
+            this.btnResetPassword.Location = new System.Drawing.Point(27, 215);
+            this.btnResetPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnResetPassword.Name = "btnResetPassword";
+            this.btnResetPassword.Size = new System.Drawing.Size(338, 28);
+            this.btnResetPassword.TabIndex = 24;
+            this.btnResetPassword.Text = "RESET PASSWORD";
+            this.btnResetPassword.UseVisualStyleBackColor = true;
+            this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
             // 
             // btnEdit
             // 
@@ -311,17 +322,6 @@ namespace pos_with_points.UserRegistration
             this.user_role.ReadOnly = true;
             this.user_role.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // btnResetPassword
-            // 
-            this.btnResetPassword.Location = new System.Drawing.Point(27, 215);
-            this.btnResetPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnResetPassword.Name = "btnResetPassword";
-            this.btnResetPassword.Size = new System.Drawing.Size(338, 28);
-            this.btnResetPassword.TabIndex = 24;
-            this.btnResetPassword.Text = "RESET PASSWORD";
-            this.btnResetPassword.UseVisualStyleBackColor = true;
-            this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
-            // 
             // UserRegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -332,6 +332,7 @@ namespace pos_with_points.UserRegistration
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UserRegistrationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserRegistrationForm";
             this.Load += new System.EventHandler(this.UserRegistrationForm_Load);
             this.groupBox1.ResumeLayout(false);

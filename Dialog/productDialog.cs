@@ -39,8 +39,15 @@ namespace pos_with_points.productDialogform
         private void btnSelect_Click(object sender, EventArgs e)
         {
             prodSelect = getRowValue("product_id");
-            this.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.Close();
+
+            if(prodSelect == "")
+            {
+                MessageBox.Show("No product selected!");
+            }
+            else{
+                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                this.Close();
+            }
 
         }
     }

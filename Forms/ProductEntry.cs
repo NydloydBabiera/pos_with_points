@@ -14,8 +14,10 @@ namespace pos_with_points.ProductEntryForm
 {
     public partial class ProductEntry : Form
     {
+        DatabaseClass member = new DatabaseClass();
         public static ProductEntry instance;
         public string prodSelected { get; set; }
+        public string prodIdSelected = "";
 
         public ProductEntry()
         {
@@ -34,13 +36,30 @@ namespace pos_with_points.ProductEntryForm
             {
                 if (prodDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    this.txtDescription.Text = prodDialog.prodSelect;
+                    this.txtProductName.Text = member.get_value("product_tbl", "product_name", "product_id = " + prodDialog.prodSelect);
+                    this.txtDescription.Text = member.get_value("product_tbl", "product_variant", "product_id = " + prodDialog.prodSelect);
+                    this.prodIdSelected = prodDialog.prodSelect;
                 }
             }
-
-
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            dateTimeEntryDate.Format = DateTimePickerFormat.Custom;
+            dateTimeEntryDate.CustomFormat = "yyyy-MM-dd";
 
+            member.clearItems();
+            member.setColumn("product_id");
+            member.setColumn("entry_date");
+            member.setColumn("quantity");
+
+            member.setValues(prodIdSelected);
+            member.setValues(dateTimeEntryDate.Text);
+            member.setValues(txtQuantity.Text);
+
+            member.AddRecord("product_inventory_tbl");
+
+            MessageBox.Show("Product added!");
+        }
     }
 }
