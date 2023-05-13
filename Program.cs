@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using pos_with_points.UserRegistration;
+using pos_with_points.CustomerForm;
+using pos_with_points.ProductRegistrationForm;
+using pos_with_points.ProductEntryForm;
+
+namespace pos_with_points
+{
+    static class Program
+    {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new ProductEntry());
+        }
+    }
+}
