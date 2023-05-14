@@ -50,10 +50,10 @@ namespace pos_with_points.ProductEntryForm
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 254);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 262);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(628, 282);
+            this.dataGridView1.Size = new System.Drawing.Size(628, 274);
             this.dataGridView1.TabIndex = 15;
             // 
             // groupBox1

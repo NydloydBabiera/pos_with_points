@@ -64,6 +64,12 @@
     <Compile Include="Forms\AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CustomerRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,12 @@
     </Compile>
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\POSform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\POSform.Designer.cs">
+      <DependentUpon>POSform.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ProductEntry.cs">
       <SubType>Form</SubType>
@@ -108,11 +120,17 @@
     <EmbeddedResource Include="Forms\AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomerRegistration.resx">
       <DependentUpon>CustomerRegistration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\POSform.resx">
+      <DependentUpon>POSform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProductEntry.resx">
       <DependentUpon>ProductEntry.cs</DependentUpon>

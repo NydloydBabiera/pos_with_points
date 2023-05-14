@@ -8,6 +8,8 @@ using pos_with_points.CustomerForm;
 using pos_with_points.ProductRegistrationForm;
 using pos_with_points.ProductEntryForm;
 using pos_with_points.AdminDashboardForms;
+using pos_with_points.POS;
+using pos_with_points.Login;
 
 namespace pos_with_points
 {
@@ -21,7 +23,7 @@ namespace pos_with_points
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminDashboard());
+            Application.Run(new LoginForm());
         }
     }
 }
