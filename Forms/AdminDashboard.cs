@@ -11,6 +11,7 @@ using pos_with_points.UserRegistration;
 using pos_with_points.CustomerForm;
 using pos_with_points.ProductRegistrationForm;
 using pos_with_points.ProductEntryForm;
+using pos_with_points.POS;
 
 namespace pos_with_points.AdminDashboardForms
 {
@@ -49,6 +50,12 @@ namespace pos_with_points.AdminDashboardForms
         {
             CustomerRegistration customerRegistration = new CustomerRegistration();
             customerRegistration.ShowDialog();
+        }
+
+        private void btnPOS_Click(object sender, EventArgs e)
+        {
+            POSform pOSForm = new POSform();
+            pOSForm.ShowDialog();
         }
     }
 }

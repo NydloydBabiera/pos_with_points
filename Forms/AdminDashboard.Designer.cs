@@ -89,6 +89,7 @@ namespace pos_with_points.AdminDashboardForms
             this.btnPOS.TabIndex = 4;
             this.btnPOS.Text = "POINT OF SALES";
             this.btnPOS.UseVisualStyleBackColor = true;
+            this.btnPOS.Click += new System.EventHandler(this.btnPOS_Click);
             // 
             // AdminDashboard
             // 
