@@ -97,6 +97,8 @@ namespace pos_with_points.Classes
             object obj;
             c_Connection.Open();
             c_Command = new SqlCommand("Select " + dbColumn + " from " + dbTable + " where " + whereClause, c_Connection);
+            Console.WriteLine("Select " + dbColumn + " from " + dbTable + " where " + whereClause);
+
             c_Command.CommandType = CommandType.Text;
             obj = c_Command.ExecuteScalar();
             c_Connection.Close();

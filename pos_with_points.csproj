@@ -52,6 +52,12 @@
     <Compile Include="ClassAndForms\DatabaseClass.cs" />
     <Compile Include="ClassAndForms\GlobalVariable.cs" />
     <Compile Include="ClassAndForms\SetupClass.cs" />
+    <Compile Include="Dialog\ListProducts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dialog\ListProducts.Designer.cs">
+      <DependentUpon>ListProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialog\productDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dialog\ListProducts.resx">
+      <DependentUpon>ListProducts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialog\productDialog.resx">
       <DependentUpon>productDialog.cs</DependentUpon>
     </EmbeddedResource>

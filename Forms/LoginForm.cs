@@ -43,8 +43,10 @@ namespace pos_with_points.Login
             userName = member.get_value("user_info_tbl", "userName", "userName = " + "'" +txtUsername.Text + "'");
             password = member.get_value("user_info_tbl", "user_password", "user_password = " + "'" + txtPassword.Text + "'" );
             userRole = member.get_value("user_info_tbl", "user_role", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
+            
+           
 
-            if(userName == "")
+            if (userName == "")
             {
                 MessageBox.Show("User account does not exist!");
 
@@ -54,6 +56,7 @@ namespace pos_with_points.Login
             }else if(userRole == "CASHIER")
             {
                 POSform pos = new POSform();
+                pos.userId = member.get_value("user_info_tbl", "user_info_id", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
                 pos.Show();
             }else if(userRole == "ADMIN")
             {
@@ -62,6 +65,11 @@ namespace pos_with_points.Login
             }
 
             txtPassword.Text = "";
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
