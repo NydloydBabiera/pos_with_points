@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using pos_with_points.Classes;
 using pos_with_points.POS;
 using pos_with_points.AdminDashboardForms;
+using pos_with_points.ChangePasswordForm;
+
 
 namespace pos_with_points.Login
 {
@@ -53,17 +55,29 @@ namespace pos_with_points.Login
             }else if(password == "")
             {
                 MessageBox.Show("Wrong password!");
-            }else if(userRole == "CASHIER")
-            {
-                POSform pos = new POSform();
-                pos.userId = member.get_value("user_info_tbl", "user_info_id", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
-                pos.Show();
-            }else if(userRole == "ADMIN")
-            {
-                AdminDashboard adminDashboard = new AdminDashboard();
-                adminDashboard.Show();
             }
+            
+            if (userName == password)
+            {
+                ChangePassword changePassword = new ChangePassword();
+                changePassword.userId = member.get_value("user_info_tbl", "user_info_id", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
+                changePassword.ShowDialog();
+            }
+            else
+            {
+                if (userRole == "CASHIER")
+                {
+                    POSform pos = new POSform();
+                    pos.userId = member.get_value("user_info_tbl", "user_info_id", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
+                    pos.ShowDialog();
+                }
+                else if (userRole == "ADMIN")
+                {
+                    AdminDashboard adminDashboard = new AdminDashboard();
+                    adminDashboard.Show();
+                }
 
+            }
             txtPassword.Text = "";
         }
 

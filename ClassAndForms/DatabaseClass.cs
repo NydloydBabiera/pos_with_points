@@ -34,6 +34,23 @@ namespace pos_with_points.Classes
 
             return c_DataTable;
         }
+
+        public DataTable getProdStock()
+        {
+
+            c_DataTable = new DataTable();
+            string sqlQry = "select * from product_tbl prod inner join product_inventory_tbl prodInv on prodInv.product_id = prod.product_id";
+
+            c_Connection.Open();
+            c_DataAdapter = new SqlDataAdapter(sqlQry, c_Connection);
+            c_DataAdapter.SelectCommand.ExecuteNonQuery();
+            c_DataAdapter.Fill(c_DataTable);
+            c_Connection.Close();
+
+            return c_DataTable;
+
+        }
+
         public DataTable getdataRestricted(string databaseTable, string whereClause)
         {
             c_DataTable = new DataTable();
@@ -75,21 +92,7 @@ namespace pos_with_points.Classes
         }
 
 
-        public DataTable getTransactionLine(string whereClause)
-        {
-            c_DataTable = new DataTable();
 
-            c_Connection.Open();
-            c_DataAdapter = new SqlDataAdapter(" Select * from TB_SalesTransaction trans "
-                        + " inner join TB_SalesTransactionLine line on line.sales_id = trans.sales_id "
-                        + " inner join TB_Product prod on prod.product_id = line.product_id "
-                        + " where trans.sales_id = " + whereClause, c_Connection);
-            c_DataAdapter.SelectCommand.ExecuteNonQuery();
-            c_DataAdapter.Fill(c_DataTable);
-            c_Connection.Close();
-
-            return c_DataTable;
-        }
 
         public string get_value(string dbTable, string dbColumn, string whereClause)
         {
@@ -97,7 +100,6 @@ namespace pos_with_points.Classes
             object obj;
             c_Connection.Open();
             c_Command = new SqlCommand("Select " + dbColumn + " from " + dbTable + " where " + whereClause, c_Connection);
-            Console.WriteLine("Select " + dbColumn + " from " + dbTable + " where " + whereClause);
 
             c_Command.CommandType = CommandType.Text;
             obj = c_Command.ExecuteScalar();
@@ -180,6 +182,25 @@ namespace pos_with_points.Classes
             c_Connection.Close();
 
             return c_DataTable;
+        }
+
+        public string getDataNoCondition(string dbTable, string dbColumn)
+        {
+
+            string VALUE;
+            object obj;
+            c_Connection.Open();
+            c_Command = new SqlCommand("Select " + dbColumn + " from " + dbTable, c_Connection);
+            c_Command.CommandType = CommandType.Text;
+            obj = c_Command.ExecuteScalar();
+            c_Connection.Close();
+
+            if (obj == null)
+                VALUE = "";
+            else
+                VALUE = obj.ToString();
+
+            return VALUE;
         }
     }
 

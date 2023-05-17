@@ -55,6 +55,7 @@ namespace pos_with_points.CustomerForm
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customer_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customer_points = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_CustomerData)).BeginInit();
             this.SuspendLayout();
@@ -234,7 +235,7 @@ namespace pos_with_points.CustomerForm
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DGV_CustomerData.DefaultCellStyle = dataGridViewCellStyle3;
-            this.DGV_CustomerData.Location = new System.Drawing.Point(481, 16);
+            this.DGV_CustomerData.Location = new System.Drawing.Point(481, 53);
             this.DGV_CustomerData.Name = "DGV_CustomerData";
             this.DGV_CustomerData.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -250,7 +251,7 @@ namespace pos_with_points.CustomerForm
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.DGV_CustomerData.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DGV_CustomerData.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DGV_CustomerData.Size = new System.Drawing.Size(691, 278);
+            this.DGV_CustomerData.Size = new System.Drawing.Size(691, 239);
             this.DGV_CustomerData.TabIndex = 11;
             this.DGV_CustomerData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CustomerData_CellClick);
             // 
@@ -308,11 +309,20 @@ namespace pos_with_points.CustomerForm
             this.customer_points.ReadOnly = true;
             this.customer_points.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(481, 25);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(691, 22);
+            this.txtSearch.TabIndex = 12;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
             // CustomerRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 320);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.DGV_CustomerData);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -325,6 +335,7 @@ namespace pos_with_points.CustomerForm
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_CustomerData)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -351,5 +362,6 @@ namespace pos_with_points.CustomerForm
         private System.Windows.Forms.DataGridViewTextBoxColumn customer_points;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }

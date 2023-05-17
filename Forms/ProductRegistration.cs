@@ -146,5 +146,11 @@ namespace pos_with_points.ProductRegistrationForm
             clearTexts();
             disableFields();
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+          DG_Product.DataSource =  member.searchData("product_tbl", " product_name like " + "'%" + txtSearch.Text + "%'" + " OR product_desc like " + "'%" + txtSearch.Text + "%'" + " OR product_variant like " + "'%" + txtSearch.Text + "%'" + " OR product_price like " + "'%" + txtSearch.Text + "%'");
+
+        }
     }
 }

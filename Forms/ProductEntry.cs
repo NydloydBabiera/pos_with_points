@@ -27,7 +27,8 @@ namespace pos_with_points.ProductEntryForm
 
         private void ProductEntry_Load(object sender, EventArgs e)
         {
-           
+            DGV_ProdStocks.AutoGenerateColumns = false;
+            DGV_ProdStocks.DataSource = member.getProdStock();
         }
 
         private void btnSelectProduct_Click(object sender, EventArgs e)

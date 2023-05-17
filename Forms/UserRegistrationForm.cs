@@ -162,5 +162,10 @@ namespace pos_with_points.UserRegistration
             }
           
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            DGV_UserData.DataSource = member.searchData("user_info_tbl", " firstName like " + "'%" + txtSearch.Text + "%'" + " OR middleName like " + "'%" + txtSearch.Text + "%'" + " OR lastName like " + "'%" + txtSearch.Text + "%'" + " OR userName like " + "'%" + txtSearch.Text + "%'" + " OR user_role like " + "'%" + txtSearch.Text + "%'");
+        }
     }
 }

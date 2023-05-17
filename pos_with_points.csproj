@@ -52,6 +52,12 @@
     <Compile Include="ClassAndForms\DatabaseClass.cs" />
     <Compile Include="ClassAndForms\GlobalVariable.cs" />
     <Compile Include="ClassAndForms\SetupClass.cs" />
+    <Compile Include="Dialog\CustomerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\CustomerDialog.Designer.cs">
+      <DependentUpon>CustomerDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialog\ListProducts.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dialog\CustomerDialog.resx">
+      <DependentUpon>CustomerDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialog\ListProducts.resx">
       <DependentUpon>ListProducts.cs</DependentUpon>
     </EmbeddedResource>

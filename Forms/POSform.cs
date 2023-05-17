@@ -11,6 +11,8 @@ using pos_with_points.CustomerForm;
 using pos_with_points.Classes;
 using pos_with_points.Login;
 using pos_with_points.ListProductItem;
+using pos_with_points.CustomerDialogForm;
+
 
 namespace pos_with_points.POS
 {
@@ -18,7 +20,9 @@ namespace pos_with_points.POS
     {
         DatabaseClass member = new DatabaseClass();
         public string userId { get; set; }
-
+        public string customerId { get; set; }
+        string transNum = "";
+        
 
 
         public POSform()
@@ -28,8 +32,8 @@ namespace pos_with_points.POS
 
         private void POSform_Load(object sender, EventArgs e)
         {
-
-          //  txtCashier.Text = member.get_value("user_info_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", " user_info_id = " +  userId );
+           
+            //  txtCashier.Text = member.get_value("user_info_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", " user_info_id = " +  userId );
             timer1.Start();
             
         }
@@ -112,6 +116,40 @@ namespace pos_with_points.POS
         private void btnAddons_Click(object sender, EventArgs e)
         {
             populateProductList(btnAddons.Text);
+        }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            populateCustomer();
+        }
+
+
+        private void populateTransactionNum()
+        {
+            transNum = member.getDataNoCondition("transactions_tbl", "COUNT(transaction_id)");
+            int currTransNum = Int32.Parse(transNum) + 1;
+            int counter = currTransNum.ToString("D").Length + 9;
+            txtTransactionNum.Text = currTransNum.ToString("D" + counter.ToString()); //
+
+        }
+
+
+        private void populateCustomer()
+        {
+            using (CustomerDialog customerDialog = new CustomerDialog())
+            {
+                if (customerDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    this.txtCustomerName.Text = member.get_value("customer_data_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", "customer_id = " + customerDialog.customerSelect);
+                    this.txtCustomerPoints.Text = member.get_value("customer_data_tbl", "customer_points", "customer_ids = " + customerDialog.customerSelect);
+                    this.customerId = customerDialog.customerSelect;
+                }
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            populateTransactionNum();
         }
     }
 }

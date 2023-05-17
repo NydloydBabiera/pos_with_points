@@ -139,5 +139,10 @@ namespace pos_with_points.CustomerForm
             DataGridViewRow selectedRow = DGV_CustomerData.Rows[selectedrowindex];
             customerId = Convert.ToString(selectedRow.Cells["customer_id"].Value);
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            DGV_CustomerData.DataSource = member.searchData("customer_data_tbl", " firstName like " + "'%" + txtSearch.Text + "%'" + " OR middleName like " + "'%" + txtSearch.Text + "%'" + " OR lastName like " + "'%" + txtSearch.Text + "%'" + " OR customer_address like " + "'%" + txtSearch.Text + "%'");
+        }
     }
 }

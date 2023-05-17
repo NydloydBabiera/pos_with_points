@@ -56,6 +56,7 @@ namespace pos_with_points.UserRegistration
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.user_role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_UserData)).BeginInit();
             this.SuspendLayout();
@@ -249,7 +250,7 @@ namespace pos_with_points.UserRegistration
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DGV_UserData.DefaultCellStyle = dataGridViewCellStyle3;
-            this.DGV_UserData.Location = new System.Drawing.Point(430, 12);
+            this.DGV_UserData.Location = new System.Drawing.Point(430, 49);
             this.DGV_UserData.Name = "DGV_UserData";
             this.DGV_UserData.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -264,7 +265,7 @@ namespace pos_with_points.UserRegistration
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.DGV_UserData.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DGV_UserData.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DGV_UserData.Size = new System.Drawing.Size(760, 259);
+            this.DGV_UserData.Size = new System.Drawing.Size(760, 222);
             this.DGV_UserData.TabIndex = 10;
             this.DGV_UserData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_UserData_CellClick);
             // 
@@ -322,11 +323,20 @@ namespace pos_with_points.UserRegistration
             this.user_role.ReadOnly = true;
             this.user_role.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(430, 21);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(759, 22);
+            this.txtSearch.TabIndex = 11;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
             // UserRegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1201, 281);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.DGV_UserData);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -339,6 +349,7 @@ namespace pos_with_points.UserRegistration
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_UserData)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -366,5 +377,6 @@ namespace pos_with_points.UserRegistration
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnResetPassword;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }
