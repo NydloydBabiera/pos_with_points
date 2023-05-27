@@ -10,6 +10,7 @@ using pos_with_points.ProductEntryForm;
 using pos_with_points.AdminDashboardForms;
 using pos_with_points.POS;
 using pos_with_points.Login;
+using pos_with_points.ChangePasswordForm;
 
 namespace pos_with_points
 {

@@ -49,8 +49,13 @@ namespace pos_with_points.CustomerDialogForm
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 this.Close();
             }
+        }
 
-         
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            customerSelect = "";
+            this.Close();
         }
     }
 }

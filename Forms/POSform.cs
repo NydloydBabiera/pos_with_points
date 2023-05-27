@@ -12,6 +12,7 @@ using pos_with_points.Classes;
 using pos_with_points.Login;
 using pos_with_points.ListProductItem;
 using pos_with_points.CustomerDialogForm;
+using pos_with_points.GetProductDialog;
 
 
 namespace pos_with_points.POS
@@ -20,9 +21,8 @@ namespace pos_with_points.POS
     {
         DatabaseClass member = new DatabaseClass();
         public string userId { get; set; }
-        public string customerId { get; set; }
         string transNum = "";
-        
+        string customerSelected = "";
 
 
         public POSform()
@@ -50,73 +50,6 @@ namespace pos_with_points.POS
             customerRegistration.ShowDialog();
         }
 
-        private void populateProductList(string prodDesc)
-        {
-            //requery product details using product description
-            String prodCount = member.get_value("product_tbl", "count(product_id)", " CONVERT(VARCHAR,product_desc) = " + "'" + prodDesc + "'");
-            String prodName = member.get_value("product_tbl", "product_name", " CONVERT(VARCHAR,product_desc) =  " + "'" + prodDesc + "'");
-            String prodVariant = member.get_value("product_tbl", "product_variant", " CONVERT(VARCHAR,product_desc) = " + "'" + prodDesc + "'");
-            String prodAmt = member.get_value("product_tbl", "product_price", " CONVERT(VARCHAR,product_desc) = " + "'" + prodDesc + "'");
-            prodLayoutPanel.Controls.Clear();
-            ListProducts[] listProducts = new ListProducts[Int32.Parse(prodCount)];
-
-            for (int x = 0; x < listProducts.Length; x++)
-            {
-                //get value of products
-                listProducts[x] = new ListProducts();
-                listProducts[x].prodName = prodName;
-                listProducts[x].prodVariant = prodVariant;
-                listProducts[x].prodPrice = prodAmt;
-
-                //add products in flow layout panel namely prodLayoutPanel
-                if (prodLayoutPanel.Controls.Count < 0)
-                {
-                    prodLayoutPanel.Controls.Clear();
-                }
-                else
-                {
-                   
-                    prodLayoutPanel.Controls.Add(listProducts[x]);
-
-                }
-            }
-        }
-
-        private void btnMkteaBarista_Click(object sender, EventArgs e)
-        {
-            populateProductList(btnMkteaBarista.Text);
-
-        }
-
-        private void btnFruitAuLait_Click(object sender, EventArgs e)
-        {
-            populateProductList(btnFruitAuLait.Text);
-        }
-
-        private void btnFruitTea_Click(object sender, EventArgs e)
-        {
-            populateProductList(btnFruitTea.Text);
-        }
-
-        private void btnPremFlavor_Click(object sender, EventArgs e)
-        {
-            populateProductList(btnPremFlavor.Text);
-        }
-
-        private void btnPeppermntSeries_Click(object sender, EventArgs e)
-        {
-            populateProductList(btnPeppermntSeries.Text);
-        }
-
-        private void btnNewFlavors_Click(object sender, EventArgs e)
-        {
-            populateProductList(btnNewFlavors.Text);
-        }
-
-        private void btnAddons_Click(object sender, EventArgs e)
-        {
-            populateProductList(btnAddons.Text);
-        }
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
@@ -140,16 +73,111 @@ namespace pos_with_points.POS
             {
                 if (customerDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    this.txtCustomerName.Text = member.get_value("customer_data_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", "customer_id = " + customerDialog.customerSelect);
-                    this.txtCustomerPoints.Text = member.get_value("customer_data_tbl", "customer_points", "customer_ids = " + customerDialog.customerSelect);
-                    this.customerId = customerDialog.customerSelect;
+                    if (customerDialog.customerSelect == "")
+                    {
+                        txtCustomerName.Text = "WALKIN CUSTOMER";
+                    }
+                    else
+                    {
+                        this.txtCustomerName.Text = member.get_value("customer_data_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", "customer_id = " + customerDialog.customerSelect);
+                        this.txtCustomerPoints.Text = member.get_value("customer_data_tbl", "customer_points", "customer_id = " + customerDialog.customerSelect);
+                        this.customerSelected = customerDialog.customerSelect;
+                    }
+                  
                 }
             }
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void getProducts()
+        {
+            getProductDialog dialogForm = new getProductDialog();
+            DialogResult result = dialogForm.ShowDialog();
+           
+
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+               
+                DataGridView selectedDataGridView = dialogForm.SelectedDataGridView;
+                MessageBox.Show(selectedDataGridView.Rows.ToString());
+                // Set the retrieved DataGridView as the data source of the target DataGridView
+                DGV_Orders.DataSource = selectedDataGridView.DataSource;
+               DisplayDataInMainForm(selectedDataGridView);
+            }
+            
+        }
+        public void DisplayDataInMainForm(DataGridView selectedDataGridView)
+        {
+            DGV_Orders.DataSource = selectedDataGridView.DataSource;
+        }
+
+        public void LoadData(DataGridView sourceDataGridView)
+        {
+            DGV_Orders.DataSource = sourceDataGridView.DataSource;
+        }
+
+        private void btnNewTransaction_Click(object sender, EventArgs e)
         {
             populateTransactionNum();
+            populateCustomer();
         }
+
+
+        private void DGV_ProductList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+
+            MessageBox.Show("product selected");
+            // Clear existing rows in the destinationGrid
+           // DGV_Orders.Rows.Clear();
+
+            // Iterate over the selected rows in the sourceGrid
+            //foreach (DataGridViewRow row in DGV_ProductList.SelectedRows)
+            //{
+            //    // Extract the data from the selected row
+            //    object[] rowData = new object[row.Cells.Count];
+            //    for (int i = 0; i < row.Cells.Count; i++)
+            //    {
+            //        if(i == 2)
+            //        {
+            //            rowData[i] = 1;
+            //        }else if(i == 0)
+            //        {
+            //            rowData[i] = row.Cells[i + 1].Value;
+            //        }else if(i == 1)
+            //        {
+            //            rowData[i] = row.Cells[i + 1].Value;
+            //        }
+            //        else
+            //        {
+            //            rowData[i] = row.Cells[i].Value;
+            //        }
+                    
+            //    }
+
+            //    // Add the data to the destinationGrid
+            //    DGV_Orders.Rows.Add(rowData);
+            //}
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSearchProduct_Click(object sender, EventArgs e)
+        {
+            getProducts();
+        }
+
+       
+        //private string getProdDetails(string columnName)
+        //{
+        //    int selectedrowindex = DGV_ProductList.SelectedCells[0].RowIndex;
+        //    DataGridViewRow selectedRow = DGV_ProductList.Rows[selectedrowindex];
+        //    return Convert.ToString(selectedRow.Cells[columnName].Value);
+        //}
+
     }
 }
+

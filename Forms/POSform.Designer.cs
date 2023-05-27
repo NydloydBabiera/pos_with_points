@@ -30,29 +30,32 @@ namespace pos_with_points.POS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POSform));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button14 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnSearchProduct = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.txtCashier = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.txtTransactionNum = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button13 = new System.Windows.Forms.Button();
+            this.btnUsePoints = new System.Windows.Forms.Button();
+            this.btnTotalSales = new System.Windows.Forms.Button();
             this.btnNewCustomer = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btnDiscount = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.txtTime = new System.Windows.Forms.TextBox();
-            this.button10 = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.btnCustomer = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.txtDate = new System.Windows.Forms.TextBox();
             this.btnPay = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnNewTransaction = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -63,27 +66,18 @@ namespace pos_with_points.POS
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DGV_Orders = new System.Windows.Forms.DataGridView();
             this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.product_variant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.product_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnMkteaBarista = new System.Windows.Forms.Button();
-            this.btnPremFlavor = new System.Windows.Forms.Button();
-            this.btnFruitAuLait = new System.Windows.Forms.Button();
-            this.btnFruitTea = new System.Windows.Forms.Button();
-            this.btnPeppermntSeries = new System.Windows.Forms.Button();
-            this.btnNewFlavors = new System.Windows.Forms.Button();
-            this.btnAddons = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.prodLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -91,17 +85,16 @@ namespace pos_with_points.POS
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.groupBox11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Orders)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.button14);
-            this.panel1.Controls.Add(this.groupBox10);
-            this.panel1.Controls.Add(this.groupBox6);
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -109,23 +102,51 @@ namespace pos_with_points.POS
             this.panel1.Size = new System.Drawing.Size(1344, 72);
             this.panel1.TabIndex = 0;
             // 
-            // button14
+            // label1
             // 
-            this.button14.Location = new System.Drawing.Point(825, 30);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(160, 36);
-            this.button14.TabIndex = 3;
-            this.button14.Text = "LOGOUT";
-            this.button14.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(421, 56);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "POINT OF SALES";
+            // 
+            // btnSearchProduct
+            // 
+            this.btnSearchProduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btnSearchProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchProduct.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchProduct.Image")));
+            this.btnSearchProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearchProduct.Location = new System.Drawing.Point(262, 0);
+            this.btnSearchProduct.Name = "btnSearchProduct";
+            this.btnSearchProduct.Size = new System.Drawing.Size(250, 60);
+            this.btnSearchProduct.TabIndex = 10;
+            this.btnSearchProduct.Text = "SEARCH PRODUCT";
+            this.btnSearchProduct.UseVisualStyleBackColor = true;
+            this.btnSearchProduct.Click += new System.EventHandler(this.btnSearchProduct_Click);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
+            this.btnLogout.Location = new System.Drawing.Point(1286, 0);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(46, 60);
+            this.btnLogout.TabIndex = 3;
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // groupBox10
             // 
+            this.groupBox10.BackColor = System.Drawing.Color.White;
             this.groupBox10.Controls.Add(this.txtCashier);
-            this.groupBox10.Location = new System.Drawing.Point(991, 21);
+            this.groupBox10.Location = new System.Drawing.Point(13, 167);
             this.groupBox10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox10.Size = new System.Drawing.Size(350, 48);
+            this.groupBox10.Size = new System.Drawing.Size(420, 49);
             this.groupBox10.TabIndex = 2;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Cashier";
@@ -134,85 +155,88 @@ namespace pos_with_points.POS
             // 
             this.txtCashier.Location = new System.Drawing.Point(6, 22);
             this.txtCashier.Name = "txtCashier";
-            this.txtCashier.Size = new System.Drawing.Size(338, 22);
+            this.txtCashier.Size = new System.Drawing.Size(406, 22);
             this.txtCashier.TabIndex = 0;
             // 
             // groupBox6
             // 
+            this.groupBox6.BackColor = System.Drawing.Color.White;
             this.groupBox6.Controls.Add(this.txtTransactionNum);
-            this.groupBox6.Location = new System.Drawing.Point(3, 21);
+            this.groupBox6.Location = new System.Drawing.Point(13, 8);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox6.Size = new System.Drawing.Size(516, 48);
+            this.groupBox6.Size = new System.Drawing.Size(418, 48);
             this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Transaction No.";
             // 
             // txtTransactionNum
             // 
-            this.txtTransactionNum.Location = new System.Drawing.Point(6, 22);
+            this.txtTransactionNum.Location = new System.Drawing.Point(6, 19);
             this.txtTransactionNum.Name = "txtTransactionNum";
-            this.txtTransactionNum.Size = new System.Drawing.Size(507, 22);
+            this.txtTransactionNum.Size = new System.Drawing.Size(403, 22);
             this.txtTransactionNum.TabIndex = 0;
             // 
-            // panel3
+            // btnUsePoints
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.Control;
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.button13);
-            this.panel3.Controls.Add(this.btnNewCustomer);
-            this.panel3.Controls.Add(this.button11);
-            this.panel3.Controls.Add(this.groupBox9);
-            this.panel3.Controls.Add(this.button10);
-            this.panel3.Controls.Add(this.btnCustomer);
-            this.panel3.Controls.Add(this.groupBox8);
-            this.panel3.Controls.Add(this.btnPay);
-            this.panel3.Controls.Add(this.button8);
-            this.panel3.Controls.Add(this.groupBox5);
-            this.panel3.Controls.Add(this.groupBox4);
-            this.panel3.Controls.Add(this.groupBox1);
-            this.panel3.Controls.Add(this.groupBox3);
-            this.panel3.Controls.Add(this.groupBox2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 540);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1344, 181);
-            this.panel3.TabIndex = 1;
+            this.btnUsePoints.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btnUsePoints.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsePoints.Image = ((System.Drawing.Image)(resources.GetObject("btnUsePoints.Image")));
+            this.btnUsePoints.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsePoints.Location = new System.Drawing.Point(255, 294);
+            this.btnUsePoints.Name = "btnUsePoints";
+            this.btnUsePoints.Size = new System.Drawing.Size(178, 51);
+            this.btnUsePoints.TabIndex = 10;
+            this.btnUsePoints.Text = "USE POINTS";
+            this.btnUsePoints.UseVisualStyleBackColor = true;
             // 
-            // button13
+            // btnTotalSales
             // 
-            this.button13.Location = new System.Drawing.Point(1159, 54);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(182, 39);
-            this.button13.TabIndex = 9;
-            this.button13.Text = "TOTAL SALES";
-            this.button13.UseVisualStyleBackColor = true;
+            this.btnTotalSales.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btnTotalSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTotalSales.Image = ((System.Drawing.Image)(resources.GetObject("btnTotalSales.Image")));
+            this.btnTotalSales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTotalSales.Location = new System.Drawing.Point(1030, 0);
+            this.btnTotalSales.Name = "btnTotalSales";
+            this.btnTotalSales.Size = new System.Drawing.Size(250, 60);
+            this.btnTotalSales.TabIndex = 9;
+            this.btnTotalSales.Text = "TOTAL SALES";
+            this.btnTotalSales.UseVisualStyleBackColor = true;
             // 
             // btnNewCustomer
             // 
-            this.btnNewCustomer.Location = new System.Drawing.Point(971, 54);
+            this.btnNewCustomer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btnNewCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btnNewCustomer.Image")));
+            this.btnNewCustomer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewCustomer.Location = new System.Drawing.Point(774, 0);
             this.btnNewCustomer.Name = "btnNewCustomer";
-            this.btnNewCustomer.Size = new System.Drawing.Size(182, 39);
+            this.btnNewCustomer.Size = new System.Drawing.Size(250, 60);
             this.btnNewCustomer.TabIndex = 8;
             this.btnNewCustomer.Text = "NEW CUSTOMER";
             this.btnNewCustomer.UseVisualStyleBackColor = true;
             this.btnNewCustomer.Click += new System.EventHandler(this.button12_Click);
             // 
-            // button11
+            // btnDiscount
             // 
-            this.button11.Location = new System.Drawing.Point(783, 54);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(182, 39);
-            this.button11.TabIndex = 7;
-            this.button11.Text = "DISCOUNT";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btnDiscount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnDiscount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btnDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDiscount.Image = ((System.Drawing.Image)(resources.GetObject("btnDiscount.Image")));
+            this.btnDiscount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDiscount.Location = new System.Drawing.Point(255, 223);
+            this.btnDiscount.Name = "btnDiscount";
+            this.btnDiscount.Size = new System.Drawing.Size(178, 58);
+            this.btnDiscount.TabIndex = 7;
+            this.btnDiscount.Text = "DISCOUNT";
+            this.btnDiscount.UseVisualStyleBackColor = true;
             // 
             // groupBox9
             // 
+            this.groupBox9.BackColor = System.Drawing.Color.White;
             this.groupBox9.Controls.Add(this.txtTime);
-            this.groupBox9.Location = new System.Drawing.Point(1159, 118);
+            this.groupBox9.Location = new System.Drawing.Point(249, 64);
             this.groupBox9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -223,96 +247,112 @@ namespace pos_with_points.POS
             // 
             // txtTime
             // 
-            this.txtTime.Location = new System.Drawing.Point(6, 22);
+            this.txtTime.Location = new System.Drawing.Point(6, 19);
             this.txtTime.Name = "txtTime";
             this.txtTime.Size = new System.Drawing.Size(165, 22);
             this.txtTime.TabIndex = 0;
             // 
-            // button10
+            // btnPrint
             // 
-            this.button10.Location = new System.Drawing.Point(1159, 12);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(182, 36);
-            this.button10.TabIndex = 6;
-            this.button10.Text = "PRINT";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.Location = new System.Drawing.Point(518, 1);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(250, 60);
+            this.btnPrint.TabIndex = 6;
+            this.btnPrint.Text = "PRINT";
+            this.btnPrint.UseVisualStyleBackColor = true;
             // 
             // btnCustomer
             // 
-            this.btnCustomer.Location = new System.Drawing.Point(971, 12);
+            this.btnCustomer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btnCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btnCustomer.Image")));
+            this.btnCustomer.Location = new System.Drawing.Point(374, 119);
             this.btnCustomer.Name = "btnCustomer";
-            this.btnCustomer.Size = new System.Drawing.Size(182, 36);
+            this.btnCustomer.Size = new System.Drawing.Size(59, 45);
             this.btnCustomer.TabIndex = 5;
-            this.btnCustomer.Text = "CUSTOMER";
             this.btnCustomer.UseVisualStyleBackColor = true;
             this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
             // groupBox8
             // 
+            this.groupBox8.BackColor = System.Drawing.Color.White;
             this.groupBox8.Controls.Add(this.txtDate);
-            this.groupBox8.Location = new System.Drawing.Point(971, 118);
+            this.groupBox8.Location = new System.Drawing.Point(10, 64);
             this.groupBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox8.Size = new System.Drawing.Size(182, 48);
+            this.groupBox8.Size = new System.Drawing.Size(233, 48);
             this.groupBox8.TabIndex = 4;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Date";
             // 
             // txtDate
             // 
-            this.txtDate.Location = new System.Drawing.Point(6, 22);
+            this.txtDate.Location = new System.Drawing.Point(6, 19);
             this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(165, 22);
+            this.txtDate.Size = new System.Drawing.Size(223, 22);
             this.txtDate.TabIndex = 0;
             // 
             // btnPay
             // 
-            this.btnPay.Location = new System.Drawing.Point(525, 11);
+            this.btnPay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPay.Image = ((System.Drawing.Image)(resources.GetObject("btnPay.Image")));
+            this.btnPay.Location = new System.Drawing.Point(13, 473);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(258, 165);
+            this.btnPay.Size = new System.Drawing.Size(420, 109);
             this.btnPay.TabIndex = 1;
-            this.btnPay.Text = "PAY";
             this.btnPay.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // btnNewTransaction
             // 
-            this.button8.Location = new System.Drawing.Point(783, 11);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(182, 36);
-            this.button8.TabIndex = 4;
-            this.button8.Text = "NEW TRANSACTION";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.btnNewTransaction.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btnNewTransaction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewTransaction.Image = ((System.Drawing.Image)(resources.GetObject("btnNewTransaction.Image")));
+            this.btnNewTransaction.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewTransaction.Location = new System.Drawing.Point(6, 0);
+            this.btnNewTransaction.Name = "btnNewTransaction";
+            this.btnNewTransaction.Size = new System.Drawing.Size(250, 60);
+            this.btnNewTransaction.TabIndex = 4;
+            this.btnNewTransaction.Text = "NEW TRANSACTION";
+            this.btnNewTransaction.UseVisualStyleBackColor = true;
+            this.btnNewTransaction.Click += new System.EventHandler(this.btnNewTransaction_Click);
             // 
             // groupBox5
             // 
+            this.groupBox5.BackColor = System.Drawing.Color.White;
             this.groupBox5.Controls.Add(this.textBox5);
-            this.groupBox5.Location = new System.Drawing.Point(223, 80);
+            this.groupBox5.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(13, 351);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(296, 96);
+            this.groupBox5.Size = new System.Drawing.Size(418, 116);
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "TOTAL";
             // 
             // textBox5
             // 
-            this.textBox5.Font = new System.Drawing.Font("Arial", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(9, 21);
+            this.textBox5.Font = new System.Drawing.Font("Arial", 35.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(9, 48);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(277, 62);
+            this.textBox5.Size = new System.Drawing.Size(399, 62);
             this.textBox5.TabIndex = 0;
             this.textBox5.Text = "9,999,999.99";
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // groupBox4
             // 
+            this.groupBox4.BackColor = System.Drawing.Color.White;
             this.groupBox4.Controls.Add(this.txtCustomerPoints);
-            this.groupBox4.Location = new System.Drawing.Point(423, 4);
+            this.groupBox4.Location = new System.Drawing.Point(296, 116);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Size = new System.Drawing.Size(96, 48);
+            this.groupBox4.Size = new System.Drawing.Size(72, 48);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Points";
@@ -321,17 +361,18 @@ namespace pos_with_points.POS
             // 
             this.txtCustomerPoints.Location = new System.Drawing.Point(6, 22);
             this.txtCustomerPoints.Name = "txtCustomerPoints";
-            this.txtCustomerPoints.Size = new System.Drawing.Size(80, 22);
+            this.txtCustomerPoints.Size = new System.Drawing.Size(58, 22);
             this.txtCustomerPoints.TabIndex = 0;
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.txtCustomerName);
-            this.groupBox1.Location = new System.Drawing.Point(3, 4);
+            this.groupBox1.Location = new System.Drawing.Point(13, 116);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(420, 48);
+            this.groupBox1.Size = new System.Drawing.Size(277, 48);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Customer";
@@ -340,15 +381,16 @@ namespace pos_with_points.POS
             // 
             this.txtCustomerName.Location = new System.Drawing.Point(6, 22);
             this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(411, 22);
+            this.txtCustomerName.Size = new System.Drawing.Size(267, 22);
             this.txtCustomerName.TabIndex = 0;
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.White;
             this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Location = new System.Drawing.Point(9, 59);
+            this.groupBox3.Location = new System.Drawing.Point(13, 287);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 58);
+            this.groupBox3.Size = new System.Drawing.Size(226, 58);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Discount";
@@ -358,17 +400,18 @@ namespace pos_with_points.POS
             this.textBox3.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(9, 21);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(185, 32);
+            this.textBox3.Size = new System.Drawing.Size(211, 32);
             this.textBox3.TabIndex = 0;
             this.textBox3.Text = "9,999,999.99";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.White;
             this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Location = new System.Drawing.Point(9, 118);
+            this.groupBox2.Location = new System.Drawing.Point(13, 223);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 58);
+            this.groupBox2.Size = new System.Drawing.Size(226, 58);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sub total";
@@ -378,88 +421,105 @@ namespace pos_with_points.POS
             this.textBox2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(9, 21);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(185, 32);
+            this.textBox2.Size = new System.Drawing.Size(211, 32);
             this.textBox2.TabIndex = 0;
             this.textBox2.Text = "9,999,999.99";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // panel4
+            // timer1
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.Control;
-            this.panel4.Controls.Add(this.groupBox11);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(0, 72);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(519, 468);
-            this.panel4.TabIndex = 2;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.btnCustomer);
+            this.panel2.Controls.Add(this.btnUsePoints);
+            this.panel2.Controls.Add(this.groupBox8);
+            this.panel2.Controls.Add(this.groupBox6);
+            this.panel2.Controls.Add(this.groupBox9);
+            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Controls.Add(this.groupBox10);
+            this.panel2.Controls.Add(this.groupBox5);
+            this.panel2.Controls.Add(this.btnDiscount);
+            this.panel2.Controls.Add(this.groupBox2);
+            this.panel2.Controls.Add(this.btnPay);
+            this.panel2.Controls.Add(this.groupBox4);
+            this.panel2.Controls.Add(this.groupBox3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(901, 72);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(443, 585);
+            this.panel2.TabIndex = 3;
             // 
             // groupBox11
             // 
-            this.groupBox11.Controls.Add(this.dataGridView1);
+            this.groupBox11.BackColor = System.Drawing.Color.White;
+            this.groupBox11.Controls.Add(this.DGV_Orders);
             this.groupBox11.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox11.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox11.Location = new System.Drawing.Point(0, 0);
+            this.groupBox11.Location = new System.Drawing.Point(0, 72);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(519, 468);
+            this.groupBox11.Size = new System.Drawing.Size(908, 585);
             this.groupBox11.TabIndex = 1;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Orders";
             // 
-            // dataGridView1
+            // DGV_Orders
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGV_Orders.AllowUserToAddRows = false;
+            this.DGV_Orders.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DGV_Orders.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGV_Orders.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Orders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DGV_Orders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Orders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.product_name,
             this.product_variant,
             this.quantity,
             this.product_price});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle18;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 25);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
-            this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle20;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView1.Size = new System.Drawing.Size(513, 440);
-            this.dataGridView1.TabIndex = 0;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Orders.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DGV_Orders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGV_Orders.Location = new System.Drawing.Point(3, 25);
+            this.DGV_Orders.Name = "DGV_Orders";
+            this.DGV_Orders.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Orders.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.DGV_Orders.RowHeadersVisible = false;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DGV_Orders.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.DGV_Orders.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DGV_Orders.Size = new System.Drawing.Size(902, 557);
+            this.DGV_Orders.TabIndex = 0;
             // 
             // product_name
             // 
-            this.product_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.product_name.HeaderText = "Item";
             this.product_name.Name = "product_name";
             this.product_name.ReadOnly = true;
             this.product_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.product_name.Width = 500;
             // 
             // product_variant
             // 
@@ -475,6 +535,7 @@ namespace pos_with_points.POS
             this.quantity.HeaderText = "Qty";
             this.quantity.Name = "quantity";
             this.quantity.ReadOnly = true;
+            this.quantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.quantity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // product_price
@@ -485,126 +546,44 @@ namespace pos_with_points.POS
             this.product_price.ReadOnly = true;
             this.product_price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // btnMkteaBarista
+            // panel3
             // 
-            this.btnMkteaBarista.Location = new System.Drawing.Point(525, 79);
-            this.btnMkteaBarista.Name = "btnMkteaBarista";
-            this.btnMkteaBarista.Size = new System.Drawing.Size(248, 61);
-            this.btnMkteaBarista.TabIndex = 3;
-            this.btnMkteaBarista.Text = "MILKTEA BARISTA";
-            this.btnMkteaBarista.UseVisualStyleBackColor = true;
-            this.btnMkteaBarista.Click += new System.EventHandler(this.btnMkteaBarista_Click);
-            // 
-            // btnPremFlavor
-            // 
-            this.btnPremFlavor.Location = new System.Drawing.Point(525, 281);
-            this.btnPremFlavor.Name = "btnPremFlavor";
-            this.btnPremFlavor.Size = new System.Drawing.Size(248, 58);
-            this.btnPremFlavor.TabIndex = 4;
-            this.btnPremFlavor.Text = "PREMIUM FLAVORS";
-            this.btnPremFlavor.UseVisualStyleBackColor = true;
-            this.btnPremFlavor.Click += new System.EventHandler(this.btnPremFlavor_Click);
-            // 
-            // btnFruitAuLait
-            // 
-            this.btnFruitAuLait.Location = new System.Drawing.Point(525, 151);
-            this.btnFruitAuLait.Name = "btnFruitAuLait";
-            this.btnFruitAuLait.Size = new System.Drawing.Size(248, 57);
-            this.btnFruitAuLait.TabIndex = 5;
-            this.btnFruitAuLait.Text = "FRUIT AU LAIT";
-            this.btnFruitAuLait.UseVisualStyleBackColor = true;
-            this.btnFruitAuLait.Click += new System.EventHandler(this.btnFruitAuLait_Click);
-            // 
-            // btnFruitTea
-            // 
-            this.btnFruitTea.Location = new System.Drawing.Point(525, 214);
-            this.btnFruitTea.Name = "btnFruitTea";
-            this.btnFruitTea.Size = new System.Drawing.Size(248, 61);
-            this.btnFruitTea.TabIndex = 6;
-            this.btnFruitTea.Text = "FRUIT TEA";
-            this.btnFruitTea.UseVisualStyleBackColor = true;
-            this.btnFruitTea.Click += new System.EventHandler(this.btnFruitTea_Click);
-            // 
-            // btnPeppermntSeries
-            // 
-            this.btnPeppermntSeries.Location = new System.Drawing.Point(525, 345);
-            this.btnPeppermntSeries.Name = "btnPeppermntSeries";
-            this.btnPeppermntSeries.Size = new System.Drawing.Size(248, 53);
-            this.btnPeppermntSeries.TabIndex = 7;
-            this.btnPeppermntSeries.Text = "PEPPERMINT SERIES";
-            this.btnPeppermntSeries.UseVisualStyleBackColor = true;
-            this.btnPeppermntSeries.Click += new System.EventHandler(this.btnPeppermntSeries_Click);
-            // 
-            // btnNewFlavors
-            // 
-            this.btnNewFlavors.Location = new System.Drawing.Point(525, 404);
-            this.btnNewFlavors.Name = "btnNewFlavors";
-            this.btnNewFlavors.Size = new System.Drawing.Size(248, 62);
-            this.btnNewFlavors.TabIndex = 8;
-            this.btnNewFlavors.Text = "NEW FLAVORS";
-            this.btnNewFlavors.UseVisualStyleBackColor = true;
-            this.btnNewFlavors.Click += new System.EventHandler(this.btnNewFlavors_Click);
-            // 
-            // btnAddons
-            // 
-            this.btnAddons.Location = new System.Drawing.Point(525, 472);
-            this.btnAddons.Name = "btnAddons";
-            this.btnAddons.Size = new System.Drawing.Size(248, 61);
-            this.btnAddons.TabIndex = 9;
-            this.btnAddons.Text = "ADD ONS";
-            this.btnAddons.UseVisualStyleBackColor = true;
-            this.btnAddons.Click += new System.EventHandler(this.btnAddons_Click);
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // prodLayoutPanel
-            // 
-            this.prodLayoutPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.prodLayoutPanel.Location = new System.Drawing.Point(779, 72);
-            this.prodLayoutPanel.Name = "prodLayoutPanel";
-            this.prodLayoutPanel.Size = new System.Drawing.Size(565, 468);
-            this.prodLayoutPanel.TabIndex = 10;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(783, 99);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 77);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "USE POINTS";
-            this.button1.UseVisualStyleBackColor = true;
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.btnSearchProduct);
+            this.panel3.Controls.Add(this.btnTotalSales);
+            this.panel3.Controls.Add(this.btnLogout);
+            this.panel3.Controls.Add(this.btnNewCustomer);
+            this.panel3.Controls.Add(this.btnPrint);
+            this.panel3.Controls.Add(this.btnNewTransaction);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 657);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1344, 64);
+            this.panel3.TabIndex = 1;
             // 
             // POSform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1344, 721);
-            this.Controls.Add(this.prodLayoutPanel);
-            this.Controls.Add(this.btnAddons);
-            this.Controls.Add(this.btnNewFlavors);
-            this.Controls.Add(this.btnMkteaBarista);
-            this.Controls.Add(this.btnPeppermntSeries);
-            this.Controls.Add(this.btnPremFlavor);
-            this.Controls.Add(this.btnFruitTea);
-            this.Controls.Add(this.btnFruitAuLait);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.groupBox11);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "POSform";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "POSform";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.POSform_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             this.groupBox8.ResumeLayout(false);
@@ -619,9 +598,10 @@ namespace pos_with_points.POS
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.panel4.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Orders)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -631,17 +611,10 @@ namespace pos_with_points.POS
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtCustomerName;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn product_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn product_variant;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn product_price;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.TextBox textBox5;
@@ -649,29 +622,30 @@ namespace pos_with_points.POS
         private System.Windows.Forms.TextBox txtCustomerPoints;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TextBox txtTransactionNum;
-        private System.Windows.Forms.Button btnMkteaBarista;
-        private System.Windows.Forms.Button btnPremFlavor;
-        private System.Windows.Forms.Button btnFruitAuLait;
-        private System.Windows.Forms.Button btnFruitTea;
-        private System.Windows.Forms.Button btnPeppermntSeries;
-        private System.Windows.Forms.Button btnNewFlavors;
-        private System.Windows.Forms.Button btnAddons;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button btnTotalSales;
         private System.Windows.Forms.Button btnNewCustomer;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button btnDiscount;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.TextBox txtTime;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnCustomer;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.TextBox txtDate;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button btnNewTransaction;
+        private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.TextBox txtCashier;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnUsePoints;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.FlowLayoutPanel prodLayoutPanel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView DGV_Orders;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSearchProduct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn product_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn product_variant;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn product_price;
     }
 }

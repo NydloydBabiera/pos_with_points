@@ -48,19 +48,39 @@ namespace pos_with_points.ProductEntryForm
         {
             dateTimeEntryDate.Format = DateTimePickerFormat.Custom;
             dateTimeEntryDate.CustomFormat = "yyyy-MM-dd";
+            if (prodIdSelected != "")
+            {
+                member.clearItems();
+                member.setColumn("product_id");
+                member.setColumn("entry_date");
+                member.setColumn("quantity");
 
-            member.clearItems();
-            member.setColumn("product_id");
-            member.setColumn("entry_date");
-            member.setColumn("quantity");
+                member.setValues(prodIdSelected);
+                member.setValues(dateTimeEntryDate.Text);
+                member.setValues(txtQuantity.Text);
 
-            member.setValues(prodIdSelected);
-            member.setValues(dateTimeEntryDate.Text);
-            member.setValues(txtQuantity.Text);
+                member.AddRecord("product_inventory_tbl");
 
-            member.AddRecord("product_inventory_tbl");
+                MessageBox.Show("Product added!");
+            }
+            else
+            {
+                MessageBox.Show("No product selected");
 
-            MessageBox.Show("Product added!");
+            }
+        }
+
+        private void btnCance_Click(object sender, EventArgs e)
+        {
+            prodIdSelected = "";
+            txtDescription.Text = "";
+            txtProductName.Text = "";
+            txtQuantity.Text = "";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

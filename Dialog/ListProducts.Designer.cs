@@ -29,21 +29,11 @@ namespace pos_with_points.ListProductItem
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblProdName = new System.Windows.Forms.Label();
             this.lblVariant = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Aqua;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(85, 66);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // lblProdName
             // 
@@ -59,40 +49,51 @@ namespace pos_with_points.ListProductItem
             this.lblVariant.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVariant.Location = new System.Drawing.Point(94, 38);
             this.lblVariant.Name = "lblVariant";
-            this.lblVariant.Size = new System.Drawing.Size(171, 22);
+            this.lblVariant.Size = new System.Drawing.Size(159, 22);
             this.lblVariant.TabIndex = 2;
             this.lblVariant.Text = "Medium";
             // 
             // lblPrice
             // 
             this.lblPrice.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(271, 4);
+            this.lblPrice.Location = new System.Drawing.Point(0, 0);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(71, 57);
+            this.lblPrice.Size = new System.Drawing.Size(88, 72);
             this.lblPrice.TabIndex = 3;
             this.lblPrice.Text = "105";
             this.lblPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(257, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(85, 66);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "SELECT";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ListProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblVariant);
             this.Controls.Add(this.lblProdName);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "ListProducts";
             this.Size = new System.Drawing.Size(345, 72);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.ListProducts_Load);
+            this.Click += new System.EventHandler(this.ListProducts_Click);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ListProducts_KeyPress);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblProdName;
         private System.Windows.Forms.Label lblVariant;
         private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.Button button1;
     }
 }

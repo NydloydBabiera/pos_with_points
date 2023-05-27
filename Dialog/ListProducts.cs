@@ -22,6 +22,7 @@ namespace pos_with_points.ListProductItem
         private string _prodName;
         private string _prodVariant;
         private string _prodPrice;
+        private string _prodId;
 
         [Category("Custom Props")]
         public string prodName
@@ -47,10 +48,37 @@ namespace pos_with_points.ListProductItem
             set { _prodPrice = value; lblPrice.Text = value; }
         }
 
+        [Category("Custom Props")]
+        public string prodId
+        {
+            get { return _prodId; }
+            set { _prodId = value; }
+        }
+
+
+
 
         #endregion
 
+        private void ListProducts_Load(object sender, EventArgs e)
+        {
+           
 
+        }
 
+        private void ListProducts_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+        }
+
+        private void ListProducts_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(lblProdName.Text + " selected");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(lblProdName.Text+ "["+prodId +"]" + " selected");
+        }
     }
 }

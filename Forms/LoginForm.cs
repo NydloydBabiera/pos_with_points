@@ -62,6 +62,8 @@ namespace pos_with_points.Login
                 ChangePassword changePassword = new ChangePassword();
                 changePassword.userId = member.get_value("user_info_tbl", "user_info_id", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
                 changePassword.ShowDialog();
+                this.Hide();
+
             }
             else
             {
@@ -70,11 +72,13 @@ namespace pos_with_points.Login
                     POSform pos = new POSform();
                     pos.userId = member.get_value("user_info_tbl", "user_info_id", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
                     pos.ShowDialog();
+                    this.Hide();
                 }
                 else if (userRole == "ADMIN")
                 {
                     AdminDashboard adminDashboard = new AdminDashboard();
                     adminDashboard.Show();
+                    this.Hide();
                 }
 
             }

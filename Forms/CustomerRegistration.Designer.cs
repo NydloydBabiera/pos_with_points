@@ -29,12 +29,15 @@ namespace pos_with_points.CustomerForm
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerRegistration));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -56,12 +59,16 @@ namespace pos_with_points.CustomerForm
             this.customer_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customer_points = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnClose = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_CustomerData)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnDelete);
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.btnEdit);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.label5);
@@ -75,21 +82,51 @@ namespace pos_with_points.CustomerForm
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.txtMiddleName);
             this.groupBox1.Controls.Add(this.txtFirstName);
-            this.groupBox1.Location = new System.Drawing.Point(14, 16);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.groupBox1.Location = new System.Drawing.Point(18, 15);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.groupBox1.Size = new System.Drawing.Size(461, 278);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.groupBox1.Size = new System.Drawing.Size(888, 288);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "User Registration";
+            this.groupBox1.Text = "Customer Registration";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.Location = new System.Drawing.Point(688, 235);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(160, 39);
+            this.btnDelete.TabIndex = 24;
+            this.btnDelete.Text = "DELETE";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(67, 26);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(227, 200);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(231, 192);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.Location = new System.Drawing.Point(184, 235);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(194, 34);
+            this.btnEdit.Size = new System.Drawing.Size(160, 39);
             this.btnEdit.TabIndex = 22;
             this.btnEdit.Text = "EDIT";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -97,10 +134,14 @@ namespace pos_with_points.CustomerForm
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(30, 192);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.Location = new System.Drawing.Point(16, 235);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(194, 34);
+            this.btnAdd.Size = new System.Drawing.Size(160, 39);
             this.btnAdd.TabIndex = 21;
             this.btnAdd.Text = "ADD";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -109,27 +150,32 @@ namespace pos_with_points.CustomerForm
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 166);
+            this.label5.Location = new System.Drawing.Point(300, 181);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 16);
+            this.label5.Size = new System.Drawing.Size(67, 18);
             this.label5.TabIndex = 20;
             this.label5.Text = "Address";
             // 
             // txtAddress
             // 
             this.txtAddress.AcceptsReturn = true;
-            this.txtAddress.Location = new System.Drawing.Point(131, 160);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtAddress.Location = new System.Drawing.Point(432, 174);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(294, 22);
+            this.txtAddress.Size = new System.Drawing.Size(377, 26);
             this.txtAddress.TabIndex = 19;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(231, 234);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(520, 235);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(194, 34);
+            this.btnCancel.Size = new System.Drawing.Size(160, 39);
             this.btnCancel.TabIndex = 18;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -138,52 +184,60 @@ namespace pos_with_points.CustomerForm
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(387, 47);
+            this.label4.Location = new System.Drawing.Point(761, 47);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 16);
+            this.label4.Size = new System.Drawing.Size(0, 18);
             this.label4.TabIndex = 17;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 132);
+            this.label3.Location = new System.Drawing.Point(300, 143);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 16);
+            this.label3.Size = new System.Drawing.Size(84, 18);
             this.label3.TabIndex = 15;
             this.label3.Text = "Last Name";
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(131, 126);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtLastName.Location = new System.Drawing.Point(432, 136);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(294, 22);
+            this.txtLastName.Size = new System.Drawing.Size(377, 26);
             this.txtLastName.TabIndex = 14;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 92);
+            this.label2.Location = new System.Drawing.Point(300, 107);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 16);
+            this.label2.Size = new System.Drawing.Size(101, 18);
             this.label2.TabIndex = 13;
             this.label2.Text = "Middle Name";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 47);
+            this.label1.Location = new System.Drawing.Point(300, 56);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 16);
+            this.label1.Size = new System.Drawing.Size(85, 18);
             this.label1.TabIndex = 12;
             this.label1.Text = "First Name";
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(30, 234);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(352, 235);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(194, 34);
+            this.btnSave.Size = new System.Drawing.Size(160, 39);
             this.btnSave.TabIndex = 11;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -191,18 +245,18 @@ namespace pos_with_points.CustomerForm
             // 
             // txtMiddleName
             // 
-            this.txtMiddleName.Location = new System.Drawing.Point(131, 86);
-            this.txtMiddleName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtMiddleName.Location = new System.Drawing.Point(432, 100);
+            this.txtMiddleName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtMiddleName.Name = "txtMiddleName";
-            this.txtMiddleName.Size = new System.Drawing.Size(294, 22);
+            this.txtMiddleName.Size = new System.Drawing.Size(377, 26);
             this.txtMiddleName.TabIndex = 10;
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(131, 47);
-            this.txtFirstName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtFirstName.Location = new System.Drawing.Point(432, 56);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(294, 22);
+            this.txtFirstName.Size = new System.Drawing.Size(377, 26);
             this.txtFirstName.TabIndex = 9;
             // 
             // DGV_CustomerData
@@ -211,9 +265,10 @@ namespace pos_with_points.CustomerForm
             this.DGV_CustomerData.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.DGV_CustomerData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGV_CustomerData.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -229,18 +284,19 @@ namespace pos_with_points.CustomerForm
             this.customer_points});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DGV_CustomerData.DefaultCellStyle = dataGridViewCellStyle3;
-            this.DGV_CustomerData.Location = new System.Drawing.Point(481, 53);
+            this.DGV_CustomerData.Location = new System.Drawing.Point(18, 344);
+            this.DGV_CustomerData.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DGV_CustomerData.Name = "DGV_CustomerData";
             this.DGV_CustomerData.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -251,7 +307,7 @@ namespace pos_with_points.CustomerForm
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.DGV_CustomerData.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DGV_CustomerData.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DGV_CustomerData.Size = new System.Drawing.Size(691, 239);
+            this.DGV_CustomerData.Size = new System.Drawing.Size(888, 269);
             this.DGV_CustomerData.TabIndex = 11;
             this.DGV_CustomerData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CustomerData_CellClick);
             // 
@@ -311,28 +367,48 @@ namespace pos_with_points.CustomerForm
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(481, 25);
+            this.txtSearch.Location = new System.Drawing.Point(18, 312);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(691, 22);
+            this.txtSearch.Size = new System.Drawing.Size(887, 26);
             this.txtSearch.TabIndex = 12;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
+            // btnClose
+            // 
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(726, 622);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(180, 39);
+            this.btnClose.TabIndex = 24;
+            this.btnClose.Text = "EXIT";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // CustomerRegistration
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 320);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(925, 681);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.DGV_CustomerData);
             this.Controls.Add(this.groupBox1);
-            this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CustomerRegistration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CustomerRegistration";
             this.Load += new System.EventHandler(this.CustomerRegistration_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_CustomerData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -363,5 +439,8 @@ namespace pos_with_points.CustomerForm
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

@@ -144,5 +144,26 @@ namespace pos_with_points.CustomerForm
         {
             DGV_CustomerData.DataSource = member.searchData("customer_data_tbl", " firstName like " + "'%" + txtSearch.Text + "%'" + " OR middleName like " + "'%" + txtSearch.Text + "%'" + " OR lastName like " + "'%" + txtSearch.Text + "%'" + " OR customer_address like " + "'%" + txtSearch.Text + "%'");
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            // Display a message box with buttons Yes, No, and Cancel
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo);
+
+            // Check the user's choice
+            if (result == DialogResult.Yes)
+            {
+                member.DeleteRecords("customer_data_tbl", "customer_id = " + customerId);
+
+                MessageBox.Show("Data deleted successfully!");
+                DGV_CustomerData.DataSource = member.getdata("customer_data_tbl", "customer_id");
+            }
+        }
     }
 }

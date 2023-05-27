@@ -12,6 +12,7 @@ using pos_with_points.CustomerForm;
 using pos_with_points.ProductRegistrationForm;
 using pos_with_points.ProductEntryForm;
 using pos_with_points.POS;
+using pos_with_points.Login;
 
 namespace pos_with_points.AdminDashboardForms
 {
@@ -24,7 +25,7 @@ namespace pos_with_points.AdminDashboardForms
 
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
-
+            timer1.Start();
         }
 
         private void btnInventory_Click(object sender, EventArgs e)
@@ -56,6 +57,26 @@ namespace pos_with_points.AdminDashboardForms
         {
             POSform pOSForm = new POSform();
             pOSForm.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+           
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
+                lblDataTime.Text = DateTime.Now.ToString("MMMM dd, yyyy") + "\n" + DateTime.Now.ToLongTimeString(); ;
+            
         }
     }
 }

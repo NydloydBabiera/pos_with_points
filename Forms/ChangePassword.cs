@@ -38,5 +38,10 @@ namespace pos_with_points.ChangePasswordForm
             MessageBox.Show("Password changed successfully!");
             this.Close();
         }
+
+        private void btnCance_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

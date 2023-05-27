@@ -92,15 +92,13 @@ namespace pos_with_points.Classes
         }
 
 
-
-
         public string get_value(string dbTable, string dbColumn, string whereClause)
         {
             string VALUE;
             object obj;
             c_Connection.Open();
             c_Command = new SqlCommand("Select " + dbColumn + " from " + dbTable + " where " + whereClause, c_Connection);
-
+            
             c_Command.CommandType = CommandType.Text;
             obj = c_Command.ExecuteScalar();
             c_Connection.Close();

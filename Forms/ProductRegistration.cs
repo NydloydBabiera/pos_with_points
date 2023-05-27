@@ -104,6 +104,7 @@ namespace pos_with_points.ProductRegistrationForm
                 cbActive.Text = getRowValue("is_active");
                 txtPrice.Text = getRowValue("product_price");
 
+                enableFields();
                 btnSave.Text = "UPDATE";
             }
             
@@ -151,6 +152,26 @@ namespace pos_with_points.ProductRegistrationForm
         {
           DG_Product.DataSource =  member.searchData("product_tbl", " product_name like " + "'%" + txtSearch.Text + "%'" + " OR product_desc like " + "'%" + txtSearch.Text + "%'" + " OR product_variant like " + "'%" + txtSearch.Text + "%'" + " OR product_price like " + "'%" + txtSearch.Text + "%'");
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            // Display a message box with buttons Yes, No, and Cancel
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo);
+
+            // Check the user's choice
+            if (result == DialogResult.Yes)
+            {
+                member.DeleteRecords("product_tbl", "product_id = " + prod_id);
+
+                MessageBox.Show("Data deleted successfully!");
+                DG_Product.DataSource = member.getdata("product_tbl", "product_id");
+            }
         }
     }
 }

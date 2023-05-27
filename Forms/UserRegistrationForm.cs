@@ -167,5 +167,25 @@ namespace pos_with_points.UserRegistration
         {
             DGV_UserData.DataSource = member.searchData("user_info_tbl", " firstName like " + "'%" + txtSearch.Text + "%'" + " OR middleName like " + "'%" + txtSearch.Text + "%'" + " OR lastName like " + "'%" + txtSearch.Text + "%'" + " OR userName like " + "'%" + txtSearch.Text + "%'" + " OR user_role like " + "'%" + txtSearch.Text + "%'");
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            // Display a message box with buttons Yes, No, and Cancel
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo);
+
+            // Check the user's choice
+            if (result == DialogResult.Yes)
+            {
+                member.DeleteRecords("user_info_tbl", "user_info_id = " + userId);
+
+                MessageBox.Show("Data deleted successfully!");
+                DGV_UserData.DataSource = member.getdata("user_info_tbl", "user_info_id");
+            }
+        }
     }
 }

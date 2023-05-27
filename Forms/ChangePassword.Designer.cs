@@ -29,6 +29,7 @@ namespace pos_with_points.ChangePasswordForm
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangePassword));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnCance = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,7 +50,7 @@ namespace pos_with_points.ChangePasswordForm
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.txtChangePassword);
             this.groupBox1.Controls.Add(this.txtNewPassword);
-            this.groupBox1.Location = new System.Drawing.Point(13, 10);
+            this.groupBox1.Location = new System.Drawing.Point(12, 10);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 7, 3, 7);
@@ -60,13 +61,18 @@ namespace pos_with_points.ChangePasswordForm
             // 
             // btnCance
             // 
-            this.btnCance.Location = new System.Drawing.Point(282, 114);
+            this.btnCance.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btnCance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCance.Image = ((System.Drawing.Image)(resources.GetObject("btnCance.Image")));
+            this.btnCance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCance.Location = new System.Drawing.Point(325, 109);
             this.btnCance.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.btnCance.Name = "btnCance";
-            this.btnCance.Size = new System.Drawing.Size(264, 32);
+            this.btnCance.Size = new System.Drawing.Size(219, 32);
             this.btnCance.TabIndex = 18;
             this.btnCance.Text = "CANCEL";
             this.btnCance.UseVisualStyleBackColor = true;
+            this.btnCance.Click += new System.EventHandler(this.btnCance_Click);
             // 
             // label4
             // 
@@ -96,10 +102,14 @@ namespace pos_with_points.ChangePasswordForm
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(7, 114);
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(95, 109);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(264, 32);
+            this.btnSave.Size = new System.Drawing.Size(219, 32);
             this.btnSave.TabIndex = 11;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -125,9 +135,11 @@ namespace pos_with_points.ChangePasswordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(594, 188);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ChangePassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
