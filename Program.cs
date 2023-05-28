@@ -11,6 +11,7 @@ using pos_with_points.AdminDashboardForms;
 using pos_with_points.POS;
 using pos_with_points.Login;
 using pos_with_points.ChangePasswordForm;
+using pos_with_points.ReceiptReportForm;
 
 namespace pos_with_points
 {

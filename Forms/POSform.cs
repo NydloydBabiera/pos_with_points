@@ -14,6 +14,8 @@ using pos_with_points.Login;
 using pos_with_points.ListProductItem;
 using pos_with_points.CustomerDialogForm;
 using pos_with_points.GetProductDialog;
+using CrystalDecisions.CrystalReports.Engine;
+using pos_with_points.ReceiptReportForm;
 
 
 namespace pos_with_points.POS
@@ -33,6 +35,7 @@ namespace pos_with_points.POS
         //object[] prodIds = new object[0];
         List<String> prodIds = new List<String>();
         int addCustPts = 0;
+        string transId = "";
 
         public POSform()
         {
@@ -41,10 +44,8 @@ namespace pos_with_points.POS
 
         private void POSform_Load(object sender, EventArgs e)
         {
-           
             txtCashier.Text = member.get_value("user_info_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", " user_info_id = " +  userId );
             timer1.Start();
-            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -170,12 +171,13 @@ namespace pos_with_points.POS
 
         private void btnNewTransaction_Click(object sender, EventArgs e)
         {
-            populateTransactionNum();
-            populateCustomer();
             DGV_Orders.Rows.Clear();
             txtCustomerName.Text = "";
             txtCustomerPoints.Text = "";
             customerSelected = "";
+            populateTransactionNum();
+            populateCustomer();
+           
         }
 
 
@@ -249,6 +251,9 @@ namespace pos_with_points.POS
                 saveLine();
                 addPointsCustomer();
                 MessageBox.Show("saved!");
+                ReceiptForm receiptForm = new ReceiptForm();
+                receiptForm.transactionId = transId;
+                receiptForm.ShowDialog();
             }
 
          
@@ -287,7 +292,7 @@ namespace pos_with_points.POS
             {
                 MessageBox.Show(DGV_Orders.Rows[x].Cells[3].Value.ToString());
 
-                string transId = member.get_value("transactions_tbl", "transaction_id", "transaction_code = " + txtTransactionNum.Text);
+                 transId = member.get_value("transactions_tbl", "transaction_id", "transaction_code = " + txtTransactionNum.Text);
                 member.clearItems();
                 member.setColumn("transaction_id");
                 member.setColumn("product_id");
@@ -343,8 +348,17 @@ namespace pos_with_points.POS
             return istrue;
         }
 
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            ReceiptForm receiptForm = new ReceiptForm();
+            receiptForm.transactionId = transId;
+            receiptForm.ShowDialog();
+        }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }
 

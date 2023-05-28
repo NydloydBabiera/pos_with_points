@@ -71,11 +71,11 @@ namespace pos_with_points.POS
             this.txtPointsDiscount = new System.Windows.Forms.TextBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.DGV_Orders = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.product_variant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.product_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -103,6 +103,7 @@ namespace pos_with_points.POS
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1344, 72);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
@@ -253,6 +254,7 @@ namespace pos_with_points.POS
             this.btnPrint.TabIndex = 6;
             this.btnPrint.Text = "PRINT";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnCustomer
             // 
@@ -529,22 +531,6 @@ namespace pos_with_points.POS
             this.DGV_Orders.Size = new System.Drawing.Size(902, 557);
             this.DGV_Orders.TabIndex = 0;
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.btnSearchProduct);
-            this.panel3.Controls.Add(this.btnTotalSales);
-            this.panel3.Controls.Add(this.btnLogout);
-            this.panel3.Controls.Add(this.btnNewCustomer);
-            this.panel3.Controls.Add(this.btnPrint);
-            this.panel3.Controls.Add(this.btnNewTransaction);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 657);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1344, 64);
-            this.panel3.TabIndex = 1;
-            // 
             // product_name
             // 
             this.product_name.HeaderText = "Item";
@@ -577,6 +563,22 @@ namespace pos_with_points.POS
             this.product_price.Name = "product_price";
             this.product_price.ReadOnly = true;
             this.product_price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.btnSearchProduct);
+            this.panel3.Controls.Add(this.btnTotalSales);
+            this.panel3.Controls.Add(this.btnLogout);
+            this.panel3.Controls.Add(this.btnNewCustomer);
+            this.panel3.Controls.Add(this.btnPrint);
+            this.panel3.Controls.Add(this.btnNewTransaction);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 657);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1344, 64);
+            this.panel3.TabIndex = 1;
             // 
             // POSform
             // 
