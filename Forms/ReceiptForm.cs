@@ -23,7 +23,6 @@ namespace pos_with_points.ReceiptReportForm
 
         private void ReceiptForm_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(Application.StartupPath);
             ReportDocument report = new ReportDocument();
             report.Load("E:/Nydloyd/Others/thesis2/AMA marbel/pos_with_points/Reports/receipt.rpt");
             report.SetDatabaseLogon("sa", "123456");

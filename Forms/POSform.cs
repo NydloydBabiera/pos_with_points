@@ -16,7 +16,7 @@ using pos_with_points.CustomerDialogForm;
 using pos_with_points.GetProductDialog;
 using CrystalDecisions.CrystalReports.Engine;
 using pos_with_points.ReceiptReportForm;
-
+using pos_with_points.SalesReportForm;
 
 namespace pos_with_points.POS
 {
@@ -44,7 +44,7 @@ namespace pos_with_points.POS
 
         private void POSform_Load(object sender, EventArgs e)
         {
-            txtCashier.Text = member.get_value("user_info_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", " user_info_id = " +  userId );
+            //txtCashier.Text = member.get_value("user_info_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", " user_info_id = " +  userId );
             timer1.Start();
         }
 
@@ -250,14 +250,19 @@ namespace pos_with_points.POS
                 saveHeader();
                 saveLine();
                 addPointsCustomer();
+                computeChange();
                 MessageBox.Show("saved!");
                 ReceiptForm receiptForm = new ReceiptForm();
                 receiptForm.transactionId = transId;
                 receiptForm.ShowDialog();
             }
 
-         
+        }
 
+        private void computeChange()
+        {
+            float pmtChange = float.Parse(txtAmtRendered.Text) - float.Parse(txtTotal.Text);
+            txtChange.Text = pmtChange.ToString();
         }
 
         private void saveHeader()
@@ -272,6 +277,7 @@ namespace pos_with_points.POS
             member.setColumn("transaction_date");
             member.setColumn("discountType");
             member.setColumn("points_used");
+            member.setColumn("amt_rendered");
 
             member.setValues(txtTransactionNum.Text);
             member.setValues("@" + customerSelected);
@@ -281,6 +287,7 @@ namespace pos_with_points.POS
             member.setValues(txtDate.Text);
             member.setValues(cbxDiscount.Text);
             member.setValues("@" + txtPointsDiscount.Text);
+            member.setValues(txtAmtRendered.Text);
 
             member.AddRecord("transactions_tbl");
 
@@ -290,7 +297,6 @@ namespace pos_with_points.POS
         {
            for (int x = 0; x < DGV_Orders.Rows.Count; x++)
             {
-                MessageBox.Show(DGV_Orders.Rows[x].Cells[3].Value.ToString());
 
                  transId = member.get_value("transactions_tbl", "transaction_id", "transaction_code = " + txtTransactionNum.Text);
                 member.clearItems();
@@ -339,9 +345,14 @@ namespace pos_with_points.POS
                 MessageBox.Show("No discount selected");
                 istrue = false ;
             }
-            if (DGV_Orders.Rows.Count == 0)
+            else if (DGV_Orders.Rows.Count == 0)
             {
                 MessageBox.Show("No product selected");
+                istrue = false;
+            }
+            else if (txtAmtRendered.Text == "0" || txtAmtRendered.Text == "0.00")
+            {
+                MessageBox.Show("No amount entered");
                 istrue = false;
             }
 
@@ -358,6 +369,17 @@ namespace pos_with_points.POS
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTotalSales_Click(object sender, EventArgs e)
+        {
+            SalesReportViewer salesReport = new SalesReportViewer();
+            salesReport.ShowDialog();
         }
     }
 }

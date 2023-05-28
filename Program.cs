@@ -12,6 +12,8 @@ using pos_with_points.POS;
 using pos_with_points.Login;
 using pos_with_points.ChangePasswordForm;
 using pos_with_points.ReceiptReportForm;
+using pos_with_points.SalesReportForm;
+
 
 namespace pos_with_points
 {
@@ -25,7 +27,7 @@ namespace pos_with_points
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(new POSform());
         }
     }
 }
