@@ -340,10 +340,10 @@ namespace pos_with_points.POS
         private bool restrictions()
         {
             bool istrue = true;
-            if (cbxDiscount.Text == "")
+            if (txtTransactionNum.Text == "")
             {
-                MessageBox.Show("No discount selected");
-                istrue = false ;
+                MessageBox.Show("No transaction found");
+                istrue = false;
             }
             else if (DGV_Orders.Rows.Count == 0)
             {
@@ -353,6 +353,16 @@ namespace pos_with_points.POS
             else if (txtAmtRendered.Text == "0" || txtAmtRendered.Text == "0.00")
             {
                 MessageBox.Show("No amount entered");
+                istrue = false;
+            }
+            else if (cbxDiscount.Text == "")
+            {
+                MessageBox.Show("No discount selected");
+                istrue = false ;
+            }
+            else if (transId != "")
+            {
+                MessageBox.Show("Transaction already done!");
                 istrue = false;
             }
 

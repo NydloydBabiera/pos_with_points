@@ -22,10 +22,11 @@ namespace pos_with_points.Login
         public string password = "";
         public string userRole = "";
 
-
         public LoginForm()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+            this.PreviewKeyDown += LoginForm_PreviewKeyDown;
         }
 
 
@@ -43,7 +44,7 @@ namespace pos_with_points.Login
         {
             //get_value(string dbTable, string dbColumn, string whereClause)
             userName = member.get_value("user_info_tbl", "userName", "userName = " + "'" +txtUsername.Text + "'");
-            password = member.get_value("user_info_tbl", "user_password", "user_password = " + "'" + txtPassword.Text + "'" );
+            password = member.get_value("user_info_tbl", "user_password", "userName = " + "'" + txtUsername.Text + "'" );
             userRole = member.get_value("user_info_tbl", "user_role", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
             
            
@@ -52,11 +53,15 @@ namespace pos_with_points.Login
             {
                 MessageBox.Show("User account does not exist!");
 
-            }else if(password == "")
+            }else if(txtPassword.Text == "")
+            {
+                MessageBox.Show("No password!");
+            }
+            else if (txtPassword.Text != password)
             {
                 MessageBox.Show("Wrong password!");
             }
-            
+
             if (userName == password)
             {
                 ChangePassword changePassword = new ChangePassword();
@@ -87,7 +92,24 @@ namespace pos_with_points.Login
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            btnLogin.Text = "&LOGIN";
 
+        }
+
+        private void LoginForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) // Check for the specific key combination (Ctrl+O in this case)
+            {
+                btnLogin.PerformClick(); // Simulate a button click event
+            }
+        }
+
+        private void LoginForm_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) // Check for the specific key combination (Ctrl+O in this case)
+            {
+                btnLogin.PerformClick(); // Simulate a button click event
+            }
         }
     }
 }
