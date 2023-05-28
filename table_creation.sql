@@ -54,19 +54,6 @@ CREATE TABLE product_inventory_tbl(
 );
 Go
 
---transaction line table
-IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'transactions_line_tbl' AND TABLE_SCHEMA = 'dbo')
-   DROP TABLE [dbo].transactions_line_tbl;
-GO
-CREATE TABLE transactions_line_tbl(
-    transactions_line_id BIGINT NOT NULL PRIMARY KEY,
-    transaction_code varchar(255),
-    product_id BIGINT REFERENCES product_tbl(product_id),
-    quantity BIGINT,
-    amount decimal(18,2),
-);
-GO
-
 --transaction table 
 IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'transactions_tbl' AND TABLE_SCHEMA = 'dbo')
    DROP TABLE [dbo].transactions_tbl;
@@ -75,11 +62,27 @@ CREATE TABLE transactions_tbl(
     transaction_id BIGINT NOT NULL PRIMARY KEY,
     transaction_code varchar(255),
     customer_id BIGINT REFERENCES customer_data_tbl(customer_id),
-	transactions_line_id BIGINT REFERENCES transactions_line_tbl(transactions_line_id),
     cashier_id BIGINT REFERENCES user_info_tbl(user_info_id),
     total_amount varchar(255),
     payment_type varchar(255) NOT NULL CHECK (payment_type IN('CASH','BANK')),
     check_no varchar(255),
     transaction_date DATE,
+	discountType varchar(255),
+	points_used bigint
 );
 GO
+
+--transaction line table
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'transactions_line_tbl' AND TABLE_SCHEMA = 'dbo')
+   DROP TABLE [dbo].transactions_line_tbl;
+GO
+CREATE TABLE transactions_line_tbl(
+    transactions_line_id BIGINT NOT NULL PRIMARY KEY,
+    transaction_code varchar(255),
+	transaction_id BIGINT REFERENCES transactions_tbl(transaction_id),
+    product_id BIGINT REFERENCES product_tbl(product_id),
+    quantity BIGINT,
+    amount decimal(18,2),
+);
+GO
+

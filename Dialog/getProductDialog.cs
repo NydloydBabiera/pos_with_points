@@ -18,6 +18,9 @@ namespace pos_with_points.GetProductDialog
         //public List<String> getIds { get; set; }
         public List<String> getIds = new List<string>();
         public DataGridView SelectedDataGridView { get; private set; }
+        // Define an event for data selection
+        private List<string> selectedData;
+        List<DataGridViewRow> selectedRows = new List<DataGridViewRow>();
 
         public getProductDialog()
         {
@@ -42,12 +45,16 @@ namespace pos_with_points.GetProductDialog
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-
-            for (int i = 0; i < DG_Product.SelectedRows.Count; i++) // dataGridView1.Rows[selectedCell.RowIndex].Selected
+            foreach (DataGridViewRow row in DG_Product.SelectedRows)
             {
-                getIds.Add(getRowValue("product_id"));
+                selectedRows.Add(row);
             }
+            Close();
+        }
 
+        public List<DataGridViewRow> GetSelectedData()
+        {
+            return selectedRows;
         }
         private String getRowValue(string colName)
         {

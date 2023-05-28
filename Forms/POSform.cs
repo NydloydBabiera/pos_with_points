@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,7 +24,15 @@ namespace pos_with_points.POS
         public string userId { get; set; }
         string transNum = "";
         string customerSelected = "";
-
+        float totalAmt = 0;
+        float subTotal = 0;
+        float ptsDiscount = 0;
+        float capDiscount = 0;
+        float discountTotal = 0;
+        float prodPrice = 0;
+        //object[] prodIds = new object[0];
+        List<String> prodIds = new List<String>();
+        int addCustPts = 0;
 
         public POSform()
         {
@@ -33,7 +42,7 @@ namespace pos_with_points.POS
         private void POSform_Load(object sender, EventArgs e)
         {
            
-            //  txtCashier.Text = member.get_value("user_info_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", " user_info_id = " +  userId );
+            txtCashier.Text = member.get_value("user_info_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", " user_info_id = " +  userId );
             timer1.Start();
             
         }
@@ -91,24 +100,68 @@ namespace pos_with_points.POS
         private void getProducts()
         {
             getProductDialog dialogForm = new getProductDialog();
-            DialogResult result = dialogForm.ShowDialog();
+            dialogForm.ShowDialog();
+
+            List<DataGridViewRow> selectedData = dialogForm.GetSelectedData();
+
+            DGV_Orders.Rows.Clear();
+
+            
+            foreach (DataGridViewRow row in selectedData)
+            {
+         
+                object[] rowData = new object[row.Cells.Count];
+                prodIds.Capacity = row.Cells.Count;
+                for (int x = 0; x < row.Cells.Count; x++)
+                {
+                    if (x == 0)
+                    {
+                        prodIds.Add(row.Cells[x].Value.ToString());
+                        rowData[x] = row.Cells[x + 1].Value;
+                    }
+                    else if (x == 1)
+                    {
+                        rowData[x] = row.Cells[x + 1].Value;
+                    }
+                    else if (x == 2)
+                    {
+                        rowData[x] = 1;
+                    }
+                    else
+                    {
+                        rowData[x] = row.Cells[x].Value;
+                        prodPrice += float.Parse(row.Cells[x].Value.ToString());
+                        computeTotal();
+                    }
+
+                }
+                DGV_Orders.Rows.Add(rowData);
+            }
            
 
-            if (result == System.Windows.Forms.DialogResult.OK)
+
+        }
+
+        private void computeTotal()
+        {
+            subTotal = prodPrice;
+
+            if(capDiscount > 0)
             {
-               
-                DataGridView selectedDataGridView = dialogForm.SelectedDataGridView;
-                MessageBox.Show(selectedDataGridView.Rows.ToString());
-                // Set the retrieved DataGridView as the data source of the target DataGridView
-                DGV_Orders.DataSource = selectedDataGridView.DataSource;
-               DisplayDataInMainForm(selectedDataGridView);
+                discountTotal = subTotal * capDiscount;
+            }
+            else
+            {
+                discountTotal = 0;
             }
             
+            totalAmt = subTotal - discountTotal - ptsDiscount;
+
+            txtSubTotal.Text = subTotal.ToString();
+            txtTotal.Text = totalAmt.ToString();
         }
-        public void DisplayDataInMainForm(DataGridView selectedDataGridView)
-        {
-            DGV_Orders.DataSource = selectedDataGridView.DataSource;
-        }
+
+
 
         public void LoadData(DataGridView sourceDataGridView)
         {
@@ -119,6 +172,10 @@ namespace pos_with_points.POS
         {
             populateTransactionNum();
             populateCustomer();
+            DGV_Orders.Rows.Clear();
+            txtCustomerName.Text = "";
+            txtCustomerPoints.Text = "";
+            customerSelected = "";
         }
 
 
@@ -128,36 +185,7 @@ namespace pos_with_points.POS
 
 
             MessageBox.Show("product selected");
-            // Clear existing rows in the destinationGrid
-           // DGV_Orders.Rows.Clear();
-
-            // Iterate over the selected rows in the sourceGrid
-            //foreach (DataGridViewRow row in DGV_ProductList.SelectedRows)
-            //{
-            //    // Extract the data from the selected row
-            //    object[] rowData = new object[row.Cells.Count];
-            //    for (int i = 0; i < row.Cells.Count; i++)
-            //    {
-            //        if(i == 2)
-            //        {
-            //            rowData[i] = 1;
-            //        }else if(i == 0)
-            //        {
-            //            rowData[i] = row.Cells[i + 1].Value;
-            //        }else if(i == 1)
-            //        {
-            //            rowData[i] = row.Cells[i + 1].Value;
-            //        }
-            //        else
-            //        {
-            //            rowData[i] = row.Cells[i].Value;
-            //        }
-                    
-            //    }
-
-            //    // Add the data to the destinationGrid
-            //    DGV_Orders.Rows.Add(rowData);
-            //}
+          
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -170,13 +198,152 @@ namespace pos_with_points.POS
             getProducts();
         }
 
-       
-        //private string getProdDetails(string columnName)
-        //{
-        //    int selectedrowindex = DGV_ProductList.SelectedCells[0].RowIndex;
-        //    DataGridViewRow selectedRow = DGV_ProductList.Rows[selectedrowindex];
-        //    return Convert.ToString(selectedRow.Cells[columnName].Value);
-        //}
+        private void cbxDiscount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void cbxDiscount_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cbxDiscount.Text != "None")
+            {
+                capDiscount = 0.20F;
+            }
+            else
+            {
+                capDiscount = 0F;
+            }
+            computeTotal();
+        }
+
+        private void btnUsePoints_Click(object sender, EventArgs e)
+        {
+            if (customerSelected == "")
+            {
+                MessageBox.Show("No customer selected or it is a walkin customer!", "Error", MessageBoxButtons.OK);
+            }
+
+            if (float.Parse(txtCustomerPoints.Text) <= 0)
+            {
+                MessageBox.Show("No points available yet for customer " + txtCustomerName.Text,"Error", MessageBoxButtons.OK);
+
+            } else
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to use customers points to get discount?", "Confirmation", MessageBoxButtons.YesNo);
+
+                // Check the user's choice
+                if (result == DialogResult.Yes)
+                {
+                    ptsDiscount = float.Parse(txtCustomerPoints.Text);
+                    txtPointsDiscount.Text = txtCustomerPoints.Text;
+                }
+            }
+          
+        }
+
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+            if (restrictions())
+            {
+                saveHeader();
+                saveLine();
+                addPointsCustomer();
+                MessageBox.Show("saved!");
+            }
+
+         
+
+        }
+
+        private void saveHeader()
+        {
+            //save header in transactions table
+            member.clearItems();
+            member.setColumn("transaction_code");
+            member.setColumn("customer_id");
+            member.setColumn("cashier_id");
+            member.setColumn("total_amount");
+            member.setColumn("payment_type");
+            member.setColumn("transaction_date");
+            member.setColumn("discountType");
+            member.setColumn("points_used");
+
+            member.setValues(txtTransactionNum.Text);
+            member.setValues("@" + customerSelected);
+            member.setValues("@" + userId);
+            member.setValues(txtTotal.Text);
+            member.setValues("CASH");
+            member.setValues(txtDate.Text);
+            member.setValues(cbxDiscount.Text);
+            member.setValues("@" + txtPointsDiscount.Text);
+
+            member.AddRecord("transactions_tbl");
+
+        }
+
+        private void saveLine()
+        {
+           for (int x = 0; x < DGV_Orders.Rows.Count; x++)
+            {
+                MessageBox.Show(DGV_Orders.Rows[x].Cells[3].Value.ToString());
+
+                string transId = member.get_value("transactions_tbl", "transaction_id", "transaction_code = " + txtTransactionNum.Text);
+                member.clearItems();
+                member.setColumn("transaction_id");
+                member.setColumn("product_id");
+                member.setColumn("quantity");
+                member.setColumn("amount");
+
+                member.setValues("@" + transId);
+                member.setValues("@" + prodIds[x]);
+                member.setValues(DGV_Orders.Rows[x].Cells[2].Value.ToString());
+                member.setValues(DGV_Orders.Rows[x].Cells[3].Value.ToString());
+
+                member.AddRecord("transactions_line_tbl");
+
+            }
+
+        }
+
+        private void addPointsCustomer()
+        {
+            addCustPts = Int32.Parse(txtCustomerPoints.Text) + 1;
+            member.clearItems();
+            member.setwhereClause("customer_id = " + customerSelected);
+            member.SetColumnUpdateRecord("customer_points", addCustPts.ToString());
+
+            member.updateRecords("customer_data_tbl");
+
+            txtCustomerName.Text = member.get_value("customer_data_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", "customer_id = " + customerSelected);
+            txtCustomerPoints.Text = member.get_value("customer_data_tbl", "customer_points", "customer_id = " + customerSelected);
+        }
+
+        private String getRowValue(string colName)
+        {
+            int selectedrowindex = DGV_Orders.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = DGV_Orders.Rows[selectedrowindex];
+            string cellValue = Convert.ToString(selectedRow.Cells[colName].Value);
+            return cellValue;
+        }
+
+        private bool restrictions()
+        {
+            bool istrue = true;
+            if (cbxDiscount.Text == "")
+            {
+                MessageBox.Show("No discount selected");
+                istrue = false ;
+            }
+            if (DGV_Orders.Rows.Count == 0)
+            {
+                MessageBox.Show("No product selected");
+                istrue = false;
+            }
+
+            return istrue;
+        }
+
+
 
     }
 }

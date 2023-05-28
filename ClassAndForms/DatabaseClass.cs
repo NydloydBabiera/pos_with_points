@@ -113,7 +113,9 @@ namespace pos_with_points.Classes
 
         public void AddRecord(string databaseTable)
         {
+            
             string sqlQry = "insert into " + databaseTable + "(" + c_Columname + ") values (" + c_Values + ")";
+            Console.WriteLine(sqlQry);
             c_Connection.Open();
             c_Command = new SqlCommand(sqlQry, c_Connection);
             c_Command.ExecuteNonQuery();
@@ -127,13 +129,49 @@ namespace pos_with_points.Classes
                 c_Columname = c_Columname + ", " + columnName;
         }
 
+        //public void setValues(string val)
+        //{
+        //    if (c_Values == string.Empty)
+        //        c_Values = "'" + val + "'";
+        //    else
+        //        c_Values = c_Values + ", '" + val + "'";
+        //}
+
         public void setValues(string val)
         {
             if (c_Values == string.Empty)
-                c_Values = "'" + val + "'";
+            {
+                if (val != "")
+                {
+                    if (val.Substring(0, 1) == "@")
+                        c_Values = " " + val.Substring(1) + " ";
+                    else
+                        c_Values = "'" + val + "'";
+                }
+               
+
+            }
             else
-                c_Values = c_Values + ", '" + val + "'";
+            {
+              
+                if(val != "")
+                {
+                    if (val.Substring(0, 1) == "@")
+                        c_Values = c_Values + ", " + val.Substring(1);
+                    else
+                        c_Values = c_Values + ", '" + val + "'";
+                }
+                else
+                {
+                    Console.WriteLine("val:" + val);
+                }
+               
+            }
+               
+           
         }
+            
+           
         public void updateRecords(string dbTable)
         {
             c_Connection.Open();

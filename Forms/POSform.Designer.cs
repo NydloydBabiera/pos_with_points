@@ -47,7 +47,6 @@ namespace pos_with_points.POS
             this.btnUsePoints = new System.Windows.Forms.Button();
             this.btnTotalSales = new System.Windows.Forms.Button();
             this.btnNewCustomer = new System.Windows.Forms.Button();
-            this.btnDiscount = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.txtTime = new System.Windows.Forms.TextBox();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -57,24 +56,26 @@ namespace pos_with_points.POS
             this.btnPay = new System.Windows.Forms.Button();
             this.btnNewTransaction = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtCustomerPoints = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtCustomerName = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.cbxDiscount = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtSubTotal = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.txtPointsDiscount = new System.Windows.Forms.TextBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.DGV_Orders = new System.Windows.Forms.DataGridView();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.product_variant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.product_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -86,6 +87,7 @@ namespace pos_with_points.POS
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Orders)).BeginInit();
             this.panel3.SuspendLayout();
@@ -190,6 +192,7 @@ namespace pos_with_points.POS
             this.btnUsePoints.TabIndex = 10;
             this.btnUsePoints.Text = "USE POINTS";
             this.btnUsePoints.UseVisualStyleBackColor = true;
+            this.btnUsePoints.Click += new System.EventHandler(this.btnUsePoints_Click);
             // 
             // btnTotalSales
             // 
@@ -217,20 +220,6 @@ namespace pos_with_points.POS
             this.btnNewCustomer.Text = "NEW CUSTOMER";
             this.btnNewCustomer.UseVisualStyleBackColor = true;
             this.btnNewCustomer.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // btnDiscount
-            // 
-            this.btnDiscount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnDiscount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
-            this.btnDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDiscount.Image = ((System.Drawing.Image)(resources.GetObject("btnDiscount.Image")));
-            this.btnDiscount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDiscount.Location = new System.Drawing.Point(255, 223);
-            this.btnDiscount.Name = "btnDiscount";
-            this.btnDiscount.Size = new System.Drawing.Size(178, 58);
-            this.btnDiscount.TabIndex = 7;
-            this.btnDiscount.Text = "DISCOUNT";
-            this.btnDiscount.UseVisualStyleBackColor = true;
             // 
             // groupBox9
             // 
@@ -307,6 +296,7 @@ namespace pos_with_points.POS
             this.btnPay.Size = new System.Drawing.Size(420, 109);
             this.btnPay.TabIndex = 1;
             this.btnPay.UseVisualStyleBackColor = true;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
             // btnNewTransaction
             // 
@@ -325,7 +315,7 @@ namespace pos_with_points.POS
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.Color.White;
-            this.groupBox5.Controls.Add(this.textBox5);
+            this.groupBox5.Controls.Add(this.txtTotal);
             this.groupBox5.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(13, 351);
             this.groupBox5.Name = "groupBox5";
@@ -334,15 +324,15 @@ namespace pos_with_points.POS
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "TOTAL";
             // 
-            // textBox5
+            // txtTotal
             // 
-            this.textBox5.Font = new System.Drawing.Font("Arial", 35.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(9, 48);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(399, 62);
-            this.textBox5.TabIndex = 0;
-            this.textBox5.Text = "9,999,999.99";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTotal.Font = new System.Drawing.Font("Arial", 35.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(9, 48);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(399, 62);
+            this.txtTotal.TabIndex = 0;
+            this.txtTotal.Text = "0.00";
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // groupBox4
             // 
@@ -387,7 +377,7 @@ namespace pos_with_points.POS
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.White;
-            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.cbxDiscount);
             this.groupBox3.Location = new System.Drawing.Point(13, 287);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(226, 58);
@@ -395,20 +385,25 @@ namespace pos_with_points.POS
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Discount";
             // 
-            // textBox3
+            // cbxDiscount
             // 
-            this.textBox3.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(9, 21);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(211, 32);
-            this.textBox3.TabIndex = 0;
-            this.textBox3.Text = "9,999,999.99";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.cbxDiscount.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxDiscount.FormattingEnabled = true;
+            this.cbxDiscount.Items.AddRange(new object[] {
+            "None",
+            "PWD",
+            "Senior Citizen"});
+            this.cbxDiscount.Location = new System.Drawing.Point(9, 21);
+            this.cbxDiscount.Name = "cbxDiscount";
+            this.cbxDiscount.Size = new System.Drawing.Size(211, 32);
+            this.cbxDiscount.TabIndex = 1;
+            this.cbxDiscount.SelectedIndexChanged += new System.EventHandler(this.cbxDiscount_SelectedIndexChanged);
+            this.cbxDiscount.SelectedValueChanged += new System.EventHandler(this.cbxDiscount_SelectedValueChanged);
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.txtSubTotal);
             this.groupBox2.Location = new System.Drawing.Point(13, 223);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(226, 58);
@@ -416,15 +411,15 @@ namespace pos_with_points.POS
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sub total";
             // 
-            // textBox2
+            // txtSubTotal
             // 
-            this.textBox2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(9, 21);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(211, 32);
-            this.textBox2.TabIndex = 0;
-            this.textBox2.Text = "9,999,999.99";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSubTotal.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubTotal.Location = new System.Drawing.Point(9, 21);
+            this.txtSubTotal.Name = "txtSubTotal";
+            this.txtSubTotal.Size = new System.Drawing.Size(211, 32);
+            this.txtSubTotal.TabIndex = 0;
+            this.txtSubTotal.Text = "0.00";
+            this.txtSubTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // timer1
             // 
@@ -433,6 +428,7 @@ namespace pos_with_points.POS
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.groupBox7);
             this.panel2.Controls.Add(this.btnCustomer);
             this.panel2.Controls.Add(this.btnUsePoints);
             this.panel2.Controls.Add(this.groupBox8);
@@ -441,7 +437,6 @@ namespace pos_with_points.POS
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Controls.Add(this.groupBox10);
             this.panel2.Controls.Add(this.groupBox5);
-            this.panel2.Controls.Add(this.btnDiscount);
             this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Controls.Add(this.btnPay);
             this.panel2.Controls.Add(this.groupBox4);
@@ -451,6 +446,27 @@ namespace pos_with_points.POS
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(443, 585);
             this.panel2.TabIndex = 3;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.BackColor = System.Drawing.Color.White;
+            this.groupBox7.Controls.Add(this.txtPointsDiscount);
+            this.groupBox7.Location = new System.Drawing.Point(245, 223);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(188, 58);
+            this.groupBox7.TabIndex = 1;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Points Discount";
+            // 
+            // txtPointsDiscount
+            // 
+            this.txtPointsDiscount.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPointsDiscount.Location = new System.Drawing.Point(6, 21);
+            this.txtPointsDiscount.Name = "txtPointsDiscount";
+            this.txtPointsDiscount.Size = new System.Drawing.Size(176, 32);
+            this.txtPointsDiscount.TabIndex = 0;
+            this.txtPointsDiscount.Text = "0.00";
+            this.txtPointsDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // groupBox11
             // 
@@ -513,6 +529,22 @@ namespace pos_with_points.POS
             this.DGV_Orders.Size = new System.Drawing.Size(902, 557);
             this.DGV_Orders.TabIndex = 0;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.btnSearchProduct);
+            this.panel3.Controls.Add(this.btnTotalSales);
+            this.panel3.Controls.Add(this.btnLogout);
+            this.panel3.Controls.Add(this.btnNewCustomer);
+            this.panel3.Controls.Add(this.btnPrint);
+            this.panel3.Controls.Add(this.btnNewTransaction);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 657);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1344, 64);
+            this.panel3.TabIndex = 1;
+            // 
             // product_name
             // 
             this.product_name.HeaderText = "Item";
@@ -545,22 +577,6 @@ namespace pos_with_points.POS
             this.product_price.Name = "product_price";
             this.product_price.ReadOnly = true;
             this.product_price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.btnSearchProduct);
-            this.panel3.Controls.Add(this.btnTotalSales);
-            this.panel3.Controls.Add(this.btnLogout);
-            this.panel3.Controls.Add(this.btnNewCustomer);
-            this.panel3.Controls.Add(this.btnPrint);
-            this.panel3.Controls.Add(this.btnNewTransaction);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 657);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1344, 64);
-            this.panel3.TabIndex = 1;
             // 
             // POSform
             // 
@@ -595,10 +611,11 @@ namespace pos_with_points.POS
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.groupBox11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Orders)).EndInit();
             this.panel3.ResumeLayout(false);
@@ -612,19 +629,17 @@ namespace pos_with_points.POS
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtCustomerName;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtSubTotal;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button btnPay;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox txtCustomerPoints;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TextBox txtTransactionNum;
         private System.Windows.Forms.Button btnTotalSales;
         private System.Windows.Forms.Button btnNewCustomer;
-        private System.Windows.Forms.Button btnDiscount;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.TextBox txtTime;
         private System.Windows.Forms.Button btnPrint;
@@ -643,6 +658,9 @@ namespace pos_with_points.POS
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSearchProduct;
+        private System.Windows.Forms.ComboBox cbxDiscount;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.TextBox txtPointsDiscount;
         private System.Windows.Forms.DataGridViewTextBoxColumn product_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn product_variant;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;

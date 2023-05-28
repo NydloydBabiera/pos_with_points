@@ -24,7 +24,7 @@ namespace pos_with_points
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new POSform());
+            Application.Run(new LoginForm());
         }
     }
 }
