@@ -35,6 +35,22 @@ namespace pos_with_points.Classes
             return c_DataTable;
         }
 
+        public DataTable getProddata(string databaseTable, string tableId)
+        {
+            c_DataTable = new DataTable();
+
+            string colRows = "product_id,product_name,product_variant,product_desc,is_active,product_price ,CASE when CAST(quantity as VARCHAR) = 0 then 'SOLD OUT' when quantity is null then 'SOLD OUT' else CAST(quantity as VARCHAR) END as quantity";
+
+            c_Connection.Open();
+            c_DataAdapter = new SqlDataAdapter("Select " + colRows + " from " + databaseTable + " ORDER BY " + tableId + " DESC ", c_Connection);
+            c_DataAdapter.SelectCommand.ExecuteNonQuery();
+            c_DataAdapter.Fill(c_DataTable);
+            c_Connection.Close();
+
+            return c_DataTable;
+        }
+
+
         public DataTable getProdStock()
         {
 

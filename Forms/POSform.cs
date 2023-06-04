@@ -183,8 +183,13 @@ namespace pos_with_points.POS
             txtCustomerName.Text = "";
             txtCustomerPoints.Text = "";
             customerSelected = "";
+            txtAmtRendered.Text = "0.00";
+            txtChange.Text = "0.00";
+            prodPrice = 0;
+            transId = "";
             populateTransactionNum();
             populateCustomer();
+            computeTotal();
            
         }
 
@@ -201,6 +206,9 @@ namespace pos_with_points.POS
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            //this.Close();
         }
 
         private void btnSearchProduct_Click(object sender, EventArgs e)
@@ -270,7 +278,7 @@ namespace pos_with_points.POS
         private void computeChange()
         {
             float pmtChange = float.Parse(txtAmtRendered.Text) - float.Parse(txtTotal.Text);
-            txtChange.Text = pmtChange.ToString();
+            txtChange.Text = pmtChange.ToString("F2");
         }
 
         private void saveHeader()
@@ -373,6 +381,12 @@ namespace pos_with_points.POS
                 MessageBox.Show("Transaction already done!");
                 istrue = false;
             }
+            else if (float.Parse(txtAmtRendered.Text) < float.Parse(txtTotal.Text))
+            {
+                MessageBox.Show("AMOUNT TENDERED is less than TOTAL amount!");
+                istrue = false;
+            }
+
 
             return istrue;
         }

@@ -56,6 +56,8 @@ namespace pos_with_points.ProductRegistrationForm
             this.DG_Product = new System.Windows.Forms.DataGridView();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtQty = new System.Windows.Forms.TextBox();
             this.product_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.product_variant = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,8 +65,6 @@ namespace pos_with_points.ProductRegistrationForm
             this.is_active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.product_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtQty = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DG_Product)).BeginInit();
@@ -367,6 +367,24 @@ namespace pos_with_points.ProductRegistrationForm
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(765, 114);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(42, 23);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Qty";
+            // 
+            // txtQty
+            // 
+            this.txtQty.Location = new System.Drawing.Point(820, 110);
+            this.txtQty.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.txtQty.Name = "txtQty";
+            this.txtQty.Size = new System.Drawing.Size(360, 30);
+            this.txtQty.TabIndex = 28;
+            // 
             // product_id
             // 
             this.product_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -429,30 +447,13 @@ namespace pos_with_points.ProductRegistrationForm
             // quantity
             // 
             this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.quantity.DataPropertyName = "quantity";
             this.quantity.HeaderText = "Stock";
             this.quantity.MinimumWidth = 6;
             this.quantity.Name = "quantity";
             this.quantity.ReadOnly = true;
             this.quantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.quantity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(765, 114);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 23);
-            this.label7.TabIndex = 29;
-            this.label7.Text = "Qty";
-            // 
-            // txtQty
-            // 
-            this.txtQty.Location = new System.Drawing.Point(820, 110);
-            this.txtQty.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(360, 30);
-            this.txtQty.TabIndex = 28;
             // 
             // ProductRegistration
             // 

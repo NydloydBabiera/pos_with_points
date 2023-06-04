@@ -95,6 +95,7 @@ namespace pos_with_points.GetProductDialog
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DG_Product.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DG_Product.RowHeadersVisible = false;
+            this.DG_Product.RowHeadersWidth = 51;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.DG_Product.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DG_Product.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -107,6 +108,7 @@ namespace pos_with_points.GetProductDialog
             this.product_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.product_id.DataPropertyName = "product_id";
             this.product_id.HeaderText = "ID";
+            this.product_id.MinimumWidth = 6;
             this.product_id.Name = "product_id";
             this.product_id.ReadOnly = true;
             this.product_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -116,6 +118,7 @@ namespace pos_with_points.GetProductDialog
             this.product_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.product_name.DataPropertyName = "product_name";
             this.product_name.HeaderText = "Product";
+            this.product_name.MinimumWidth = 6;
             this.product_name.Name = "product_name";
             this.product_name.ReadOnly = true;
             this.product_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -125,6 +128,7 @@ namespace pos_with_points.GetProductDialog
             this.product_variant.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.product_variant.DataPropertyName = "product_variant";
             this.product_variant.HeaderText = "Variant";
+            this.product_variant.MinimumWidth = 6;
             this.product_variant.Name = "product_variant";
             this.product_variant.ReadOnly = true;
             this.product_variant.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -134,6 +138,7 @@ namespace pos_with_points.GetProductDialog
             this.product_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.product_price.DataPropertyName = "product_price";
             this.product_price.HeaderText = "Price";
+            this.product_price.MinimumWidth = 6;
             this.product_price.Name = "product_price";
             this.product_price.ReadOnly = true;
             this.product_price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -152,13 +157,13 @@ namespace pos_with_points.GetProductDialog
             // 
             this.txtSearchProd.Location = new System.Drawing.Point(12, 10);
             this.txtSearchProd.Name = "txtSearchProd";
-            this.txtSearchProd.Size = new System.Drawing.Size(577, 22);
+            this.txtSearchProd.Size = new System.Drawing.Size(577, 26);
             this.txtSearchProd.TabIndex = 18;
             this.txtSearchProd.TextChanged += new System.EventHandler(this.txtSearchProd_TextChanged);
             // 
             // getProductDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 505);
             this.Controls.Add(this.btnSelect);
@@ -168,6 +173,7 @@ namespace pos_with_points.GetProductDialog
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "getProductDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "getProductDialog";
             this.Load += new System.EventHandler(this.getProductDialog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DG_Product)).EndInit();

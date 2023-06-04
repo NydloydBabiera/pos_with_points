@@ -34,6 +34,7 @@ namespace pos_with_points.ProductRegistrationForm
                 member.SetColumnUpdateRecord("product_desc", txtDescription.Text);
                 member.SetColumnUpdateRecord("is_active", cbActive.Text);
                 member.SetColumnUpdateRecord("product_price", txtPrice.Text);
+                member.SetColumnUpdateRecord("quantity", txtQty.Text);
 
                 member.updateRecords("product_tbl");
 
@@ -48,12 +49,14 @@ namespace pos_with_points.ProductRegistrationForm
                 member.setColumn("product_desc");
                 member.setColumn("is_active");
                 member.setColumn("product_price");
+                member.setColumn("quantity");
 
                 member.setValues(txtProductName.Text);
                 member.setValues(txtVariant.Text);
                 member.setValues(txtDescription.Text);
                 member.setValues(cbActive.Text == "AVAILABLE" ? "TRUE" : "FALSE");
                 member.setValues(txtPrice.Text);
+                member.setValues(txtQty.Text);
 
                 member.AddRecord("product_tbl");
 
@@ -68,7 +71,7 @@ namespace pos_with_points.ProductRegistrationForm
         private void ProductRegistration_Load(object sender, EventArgs e)
         {
             DG_Product.AutoGenerateColumns = false;
-            DG_Product.DataSource = member.getdata("product_tbl", "product_id");
+            DG_Product.DataSource = member.getProddata("product_tbl", "product_id");
             disableFields();
 
         }
@@ -103,6 +106,7 @@ namespace pos_with_points.ProductRegistrationForm
                 txtDescription.Text = getRowValue("product_desc");
                 cbActive.Text = getRowValue("is_active");
                 txtPrice.Text = getRowValue("product_price");
+                txtQty.Text = getRowValue("quantity");
 
                 enableFields();
                 btnSave.Text = "UPDATE";
@@ -118,6 +122,7 @@ namespace pos_with_points.ProductRegistrationForm
             txtDescription.Text = "";
             cbActive.Text = "";
             txtPrice.Text = "";
+            txtQty.Text = "";
         }
         private void disableFields()
         {
@@ -126,6 +131,7 @@ namespace pos_with_points.ProductRegistrationForm
             txtDescription.Enabled = false;
             cbActive.Enabled = false;
             txtPrice.Enabled = false;
+            txtQty.Enabled = false;
         }
         private void enableFields()
         {
@@ -134,6 +140,7 @@ namespace pos_with_points.ProductRegistrationForm
             txtDescription.Enabled = true;
             cbActive.Enabled = true;
             txtPrice.Enabled = true;
+            txtQty.Enabled = true;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
