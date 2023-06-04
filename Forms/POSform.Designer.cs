@@ -73,11 +73,11 @@ namespace pos_with_points.POS
             this.txtPointsDiscount = new System.Windows.Forms.TextBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.DGV_Orders = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.product_variant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.product_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox10.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox9.SuspendLayout();
@@ -140,7 +140,7 @@ namespace pos_with_points.POS
             this.txtCashier.Location = new System.Drawing.Point(6, 22);
             this.txtCashier.Name = "txtCashier";
             this.txtCashier.ReadOnly = true;
-            this.txtCashier.Size = new System.Drawing.Size(406, 26);
+            this.txtCashier.Size = new System.Drawing.Size(406, 22);
             this.txtCashier.TabIndex = 0;
             // 
             // groupBox6
@@ -161,7 +161,7 @@ namespace pos_with_points.POS
             this.txtTransactionNum.Location = new System.Drawing.Point(6, 19);
             this.txtTransactionNum.Name = "txtTransactionNum";
             this.txtTransactionNum.ReadOnly = true;
-            this.txtTransactionNum.Size = new System.Drawing.Size(403, 26);
+            this.txtTransactionNum.Size = new System.Drawing.Size(403, 22);
             this.txtTransactionNum.TabIndex = 0;
             // 
             // btnUsePoints
@@ -224,7 +224,7 @@ namespace pos_with_points.POS
             this.txtTime.Location = new System.Drawing.Point(6, 19);
             this.txtTime.Name = "txtTime";
             this.txtTime.ReadOnly = true;
-            this.txtTime.Size = new System.Drawing.Size(165, 26);
+            this.txtTime.Size = new System.Drawing.Size(165, 22);
             this.txtTime.TabIndex = 0;
             // 
             // btnPrint
@@ -271,7 +271,7 @@ namespace pos_with_points.POS
             this.txtDate.Location = new System.Drawing.Point(6, 19);
             this.txtDate.Name = "txtDate";
             this.txtDate.ReadOnly = true;
-            this.txtDate.Size = new System.Drawing.Size(223, 26);
+            this.txtDate.Size = new System.Drawing.Size(223, 22);
             this.txtDate.TabIndex = 0;
             // 
             // btnPay
@@ -318,7 +318,7 @@ namespace pos_with_points.POS
             this.txtTotal.Location = new System.Drawing.Point(9, 48);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(399, 75);
+            this.txtTotal.Size = new System.Drawing.Size(399, 62);
             this.txtTotal.TabIndex = 0;
             this.txtTotal.Text = "0.00";
             this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -341,7 +341,7 @@ namespace pos_with_points.POS
             this.txtCustomerPoints.Location = new System.Drawing.Point(6, 22);
             this.txtCustomerPoints.Name = "txtCustomerPoints";
             this.txtCustomerPoints.ReadOnly = true;
-            this.txtCustomerPoints.Size = new System.Drawing.Size(58, 26);
+            this.txtCustomerPoints.Size = new System.Drawing.Size(58, 22);
             this.txtCustomerPoints.TabIndex = 0;
             // 
             // groupBox1
@@ -362,7 +362,7 @@ namespace pos_with_points.POS
             this.txtCustomerName.Location = new System.Drawing.Point(6, 22);
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.ReadOnly = true;
-            this.txtCustomerName.Size = new System.Drawing.Size(267, 26);
+            this.txtCustomerName.Size = new System.Drawing.Size(267, 22);
             this.txtCustomerName.TabIndex = 0;
             // 
             // groupBox3
@@ -386,7 +386,7 @@ namespace pos_with_points.POS
             "Senior Citizen"});
             this.cbxDiscount.Location = new System.Drawing.Point(9, 21);
             this.cbxDiscount.Name = "cbxDiscount";
-            this.cbxDiscount.Size = new System.Drawing.Size(211, 39);
+            this.cbxDiscount.Size = new System.Drawing.Size(211, 32);
             this.cbxDiscount.TabIndex = 1;
             this.cbxDiscount.SelectedIndexChanged += new System.EventHandler(this.cbxDiscount_SelectedIndexChanged);
             this.cbxDiscount.SelectedValueChanged += new System.EventHandler(this.cbxDiscount_SelectedValueChanged);
@@ -408,7 +408,7 @@ namespace pos_with_points.POS
             this.txtSubTotal.Location = new System.Drawing.Point(9, 21);
             this.txtSubTotal.Name = "txtSubTotal";
             this.txtSubTotal.ReadOnly = true;
-            this.txtSubTotal.Size = new System.Drawing.Size(211, 38);
+            this.txtSubTotal.Size = new System.Drawing.Size(211, 32);
             this.txtSubTotal.TabIndex = 0;
             this.txtSubTotal.Text = "0.00";
             this.txtSubTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -459,7 +459,7 @@ namespace pos_with_points.POS
             this.txtChange.Location = new System.Drawing.Point(15, 34);
             this.txtChange.Name = "txtChange";
             this.txtChange.ReadOnly = true;
-            this.txtChange.Size = new System.Drawing.Size(211, 49);
+            this.txtChange.Size = new System.Drawing.Size(211, 41);
             this.txtChange.TabIndex = 0;
             this.txtChange.Text = "0.00";
             this.txtChange.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -481,7 +481,7 @@ namespace pos_with_points.POS
             this.txtAmtRendered.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmtRendered.Location = new System.Drawing.Point(15, 34);
             this.txtAmtRendered.Name = "txtAmtRendered";
-            this.txtAmtRendered.Size = new System.Drawing.Size(211, 49);
+            this.txtAmtRendered.Size = new System.Drawing.Size(211, 41);
             this.txtAmtRendered.TabIndex = 0;
             this.txtAmtRendered.Text = "0.00";
             this.txtAmtRendered.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -504,9 +504,9 @@ namespace pos_with_points.POS
             this.txtPointsDiscount.Location = new System.Drawing.Point(6, 21);
             this.txtPointsDiscount.Name = "txtPointsDiscount";
             this.txtPointsDiscount.ReadOnly = true;
-            this.txtPointsDiscount.Size = new System.Drawing.Size(176, 38);
+            this.txtPointsDiscount.Size = new System.Drawing.Size(176, 32);
             this.txtPointsDiscount.TabIndex = 0;
-            this.txtPointsDiscount.Text = "0.00";
+            this.txtPointsDiscount.Text = "0";
             this.txtPointsDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // groupBox11
@@ -552,8 +552,9 @@ namespace pos_with_points.POS
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DGV_Orders.DefaultCellStyle = dataGridViewCellStyle3;
             this.DGV_Orders.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGV_Orders.Location = new System.Drawing.Point(3, 31);
+            this.DGV_Orders.Location = new System.Drawing.Point(3, 25);
             this.DGV_Orders.Name = "DGV_Orders";
+            this.DGV_Orders.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -567,27 +568,13 @@ namespace pos_with_points.POS
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.DGV_Orders.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DGV_Orders.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DGV_Orders.Size = new System.Drawing.Size(902, 623);
+            this.DGV_Orders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGV_Orders.Size = new System.Drawing.Size(902, 629);
             this.DGV_Orders.TabIndex = 0;
             this.DGV_Orders.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Orders_CellClick);
             this.DGV_Orders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Orders_CellContentClick);
+            this.DGV_Orders.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Orders_CellDoubleClick);
             this.DGV_Orders.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Orders_CellEndEdit);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.btnSearchProduct);
-            this.panel3.Controls.Add(this.btnTotalSales);
-            this.panel3.Controls.Add(this.btnLogout);
-            this.panel3.Controls.Add(this.btnNewCustomer);
-            this.panel3.Controls.Add(this.btnPrint);
-            this.panel3.Controls.Add(this.btnNewTransaction);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 657);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1344, 64);
-            this.panel3.TabIndex = 1;
             // 
             // product_name
             // 
@@ -613,6 +600,7 @@ namespace pos_with_points.POS
             this.quantity.HeaderText = "Qty";
             this.quantity.MinimumWidth = 6;
             this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
             this.quantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.quantity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -625,9 +613,25 @@ namespace pos_with_points.POS
             this.product_price.ReadOnly = true;
             this.product_price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.btnSearchProduct);
+            this.panel3.Controls.Add(this.btnTotalSales);
+            this.panel3.Controls.Add(this.btnLogout);
+            this.panel3.Controls.Add(this.btnNewCustomer);
+            this.panel3.Controls.Add(this.btnPrint);
+            this.panel3.Controls.Add(this.btnNewTransaction);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 657);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1344, 64);
+            this.panel3.TabIndex = 1;
+            // 
             // POSform
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1344, 721);
             this.Controls.Add(this.groupBox11);

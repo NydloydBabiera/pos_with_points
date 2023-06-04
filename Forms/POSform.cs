@@ -17,6 +17,8 @@ using pos_with_points.GetProductDialog;
 using CrystalDecisions.CrystalReports.Engine;
 using pos_with_points.ReceiptReportForm;
 using pos_with_points.SalesReportForm;
+using pos_with_points.CustomerPointsDialog;
+using pos_with_points.QuantityStock;
 
 namespace pos_with_points.POS
 {
@@ -35,6 +37,7 @@ namespace pos_with_points.POS
         //object[] prodIds = new object[0];
         List<String> prodIds = new List<String>();
         int addCustPts = 0;
+        int lessCustPts = 0;
         string transId = "";
         int getEditedCell = 0;
 
@@ -187,6 +190,7 @@ namespace pos_with_points.POS
             txtChange.Text = "0.00";
             prodPrice = 0;
             transId = "";
+            prodIds.Clear();
             populateTransactionNum();
             populateCustomer();
             computeTotal();
@@ -238,25 +242,23 @@ namespace pos_with_points.POS
         {
             if (customerSelected == "")
             {
-                MessageBox.Show("No customer selected or it is a walkin customer!", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("No customer selected");
             }
-
-            if (float.Parse(txtCustomerPoints.Text) <= 0)
+            else
             {
-                MessageBox.Show("No points available yet for customer " + txtCustomerName.Text,"Error", MessageBoxButtons.OK);
-
-            } else
-            {
-                DialogResult result = MessageBox.Show("Are you sure you want to use customers points to get discount?", "Confirmation", MessageBoxButtons.YesNo);
-
-                // Check the user's choice
-                if (result == DialogResult.Yes)
+                using (CustomerPoints customerPoints = new CustomerPoints())
                 {
-                    ptsDiscount = float.Parse(txtCustomerPoints.Text);
-                    txtPointsDiscount.Text = txtCustomerPoints.Text;
+                    customerPoints.customerName = txtCustomerName.Text;
+                    customerPoints.customerPoints = txtCustomerPoints.Text;
+                    if (customerPoints.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        this.txtPointsDiscount.Text = customerPoints.customerDesire;
+                        ptsDiscount = float.Parse(customerPoints.customerDesire);
+                        computeTotal();
+                    }
                 }
             }
-          
+
         }
 
         private void btnPay_Click(object sender, EventArgs e)
@@ -265,12 +267,13 @@ namespace pos_with_points.POS
             {
                 saveHeader();
                 saveLine();
+                lessPointsCustomer();
                 addPointsCustomer();
                 computeChange();
                 MessageBox.Show("saved!");
-                ReceiptForm receiptForm = new ReceiptForm();
-                receiptForm.transactionId = transId;
-                receiptForm.ShowDialog();
+                //ReceiptForm receiptForm = new ReceiptForm();
+                //receiptForm.transactionId = transId;
+                //receiptForm.ShowDialog();
             }
 
         }
@@ -328,7 +331,21 @@ namespace pos_with_points.POS
 
                 member.AddRecord("transactions_line_tbl");
 
+                lessProdStock(DGV_Orders.Rows[x].Cells[2].Value.ToString(), prodIds[x]);
+
             }
+
+        }
+
+        private void lessProdStock(String quantity, String prodId)
+        {
+            string getProdStock = member.get_value("product_tbl", "quantity", "product_id = " + prodId);
+            int stockRemains = Int32.Parse(getProdStock) - Int32.Parse(quantity);
+            member.clearItems();
+            member.setwhereClause("product_id = " + prodId);
+            member.SetColumnUpdateRecord("quantity", stockRemains.ToString());
+
+            member.updateRecords("product_tbl");
 
         }
 
@@ -342,6 +359,19 @@ namespace pos_with_points.POS
             member.updateRecords("customer_data_tbl");
 
            // txtCustomerName.Text = member.get_value("customer_data_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", "customer_id = " + customerSelected);
+            txtCustomerPoints.Text = member.get_value("customer_data_tbl", "customer_points", "customer_id = " + customerSelected);
+        }
+
+        private void lessPointsCustomer()
+        {
+            lessCustPts = Int32.Parse(txtCustomerPoints.Text) - Int32.Parse(txtPointsDiscount.Text);
+            member.clearItems();
+            member.setwhereClause("customer_id = " + customerSelected);
+            member.SetColumnUpdateRecord("customer_points", lessCustPts.ToString());
+
+            member.updateRecords("customer_data_tbl");
+
+            // txtCustomerName.Text = member.get_value("customer_data_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", "customer_id = " + customerSelected);
             txtCustomerPoints.Text = member.get_value("customer_data_tbl", "customer_points", "customer_id = " + customerSelected);
         }
 
@@ -421,30 +451,68 @@ namespace pos_with_points.POS
 
         private void DGV_Orders_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            //QuantityStockDialog quantityStockDialog = new QuantityStockDialog();
+            //foreach (DataGridViewRow row in DGV_Orders.SelectedRows)
+            //{
+            //    quantityStockDialog.prodDetails = row.Cells[0].Value.ToString() + " -  " + row.Cells[1].Value.ToString();
+            //    quantityStockDialog.prodId = prodIds[row.Index];
+
+            //    if (quantityStockDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            //    {
+            //        row.Cells[3].Value = quantityStockDialog.desiredStocks;
+
+            //        double lineTotal = 0;
+            //        lineTotal = Convert.ToDouble(row.Cells[2].Value) * Convert.ToDouble(row.Cells[3].Value);
+            //        DGV_Orders.Rows[e.RowIndex].Cells["product_price"].Value = lineTotal;
+            //        computeTotal();
+            //    }
+            //}
+            //quantityStockDialog.Show();
+            //prodPrice = 0;
+            //var row = DGV_Orders.Rows[DGV_Orders.CurrentCell.RowIndex];
+            //double lineTotal = 0;
+            //    lineTotal = Convert.ToDouble(row.Cells[2].Value) * Convert.ToDouble(row.Cells[3].Value);
+            //    DGV_Orders.Rows[e.RowIndex].Cells["product_price"].Value = lineTotal;
+
+            //foreach (DataGridViewRow rows in DGV_Orders.Rows)
+            //{
+            //    prodPrice += float.Parse(rows.Cells[3].Value.ToString());
+            //    computeTotal();
+            //}
+        }
+
+        private void DGV_Orders_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+
+           
+        }
+
+        private void DGV_Orders_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
             prodPrice = 0;
+            QuantityStockDialog quantityStockDialog = new QuantityStockDialog();
+            foreach (DataGridViewRow row in DGV_Orders.SelectedRows)
+            {
+                quantityStockDialog.prodDetails = row.Cells[0].Value.ToString() + " -  " + row.Cells[1].Value.ToString();
+                quantityStockDialog.prodId = prodIds[row.Index];
 
-            //double lineTotal = Convert.ToDouble(row.Cells[2].Value) * Convert.ToDouble(DGV_Orders.Rows[0].Cells[3].Value);
-            //MessageBox.Show(lvineTotal.ToString());
+                if (quantityStockDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    row.Cells[2].Value = quantityStockDialog.desiredStocks;
 
-            //DGV_Orders.Rows[0].Cells["product_price"].Value = lineTotal;
-
-          
-            var row = DGV_Orders.Rows[DGV_Orders.CurrentCell.RowIndex];
-            double lineTotal = 0;
-                lineTotal = Convert.ToDouble(row.Cells[2].Value) * Convert.ToDouble(row.Cells[3].Value);
-                DGV_Orders.Rows[e.RowIndex].Cells["product_price"].Value = lineTotal;
-
+                    double lineTotal = 0;
+                    lineTotal = Convert.ToDouble(row.Cells[2].Value) * Convert.ToDouble(row.Cells[3].Value);
+                    DGV_Orders.Rows[e.RowIndex].Cells["product_price"].Value = lineTotal;
+                }
+            }
             foreach (DataGridViewRow rows in DGV_Orders.Rows)
             {
                 prodPrice += float.Parse(rows.Cells[3].Value.ToString());
                 computeTotal();
             }
-            //prodPrice
-        }
-
-        private void DGV_Orders_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //getEditedCell = 
+            quantityStockDialog.Show();
+            btnSearchProduct.Focus();
         }
     }
 }
