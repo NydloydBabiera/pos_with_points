@@ -21,6 +21,7 @@ namespace pos_with_points.Login
         public string userName = "";
         public string password = "";
         public string userRole = "";
+        public string userId { get; set; }
 
         public LoginForm()
         {
@@ -52,14 +53,17 @@ namespace pos_with_points.Login
             if (userName == "")
             {
                 MessageBox.Show("User account does not exist!");
-
-            }else if(txtPassword.Text == "")
+                return;
+            }
+            else if(txtPassword.Text == "")
             {
                 MessageBox.Show("No password!");
+                return;
             }
             else if (txtPassword.Text != password)
             {
                 MessageBox.Show("Wrong password!");
+                return;
             }
 
             if (userName == password)
@@ -82,6 +86,7 @@ namespace pos_with_points.Login
                 else if (userRole == "ADMIN")
                 {
                     AdminDashboard adminDashboard = new AdminDashboard();
+                    adminDashboard.userId = member.get_value("user_info_tbl", "user_info_id", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
                     adminDashboard.Show();
                     this.Hide();
                 }

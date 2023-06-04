@@ -24,7 +24,7 @@ namespace pos_with_points.SalesReportForm
         private void SalesReportViewer_Load(object sender, EventArgs e)
         {
             ReportDocument report = new ReportDocument();
-            report.Load("E:/Nydloyd/Others/thesis2/AMA marbel/pos_with_points/Reports/Sales.rpt");
+            report.Load("C:/Users/user/Desktop/thesis/pos_with_points/Reports/Sales.rpt");
             report.SetDatabaseLogon("sa", "123456");
             report.SetParameterValue("dateFrom", dpDateFrom.Value);
             report.SetParameterValue("dateTo", dpDateTo.Value);

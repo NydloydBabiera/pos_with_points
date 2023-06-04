@@ -57,5 +57,10 @@ namespace pos_with_points.CustomerDialogForm
             customerSelect = "";
             this.Close();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            DGV_Customer.DataSource = member.searchData("customer_data_tbl", " firstName like " + "'%" + textBox1.Text + "%'" + " OR middleName like " + "'%" + textBox1.Text + "%'" + " OR lastName like " + "'%" + textBox1.Text + "%'" + " OR customer_address like " + "'%" + textBox1.Text + "%'");
+        }
     }
 }

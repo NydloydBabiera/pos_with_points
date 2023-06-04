@@ -52,7 +52,7 @@ namespace pos_with_points.ProductRegistrationForm
                 member.setValues(txtProductName.Text);
                 member.setValues(txtVariant.Text);
                 member.setValues(txtDescription.Text);
-                member.setValues(cbActive.Text);
+                member.setValues(cbActive.Text == "AVAILABLE" ? "TRUE" : "FALSE");
                 member.setValues(txtPrice.Text);
 
                 member.AddRecord("product_tbl");

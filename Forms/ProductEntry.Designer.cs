@@ -29,11 +29,11 @@ namespace pos_with_points.ProductEntryForm
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductEntry));
             this.DGV_ProdStocks = new System.Windows.Forms.DataGridView();
             this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,17 +64,17 @@ namespace pos_with_points.ProductEntryForm
             // 
             this.DGV_ProdStocks.AllowUserToAddRows = false;
             this.DGV_ProdStocks.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DGV_ProdStocks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DGV_ProdStocks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DGV_ProdStocks.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_ProdStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_ProdStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DGV_ProdStocks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_ProdStocks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.product_name,
@@ -83,31 +83,32 @@ namespace pos_with_points.ProductEntryForm
             this.product_price,
             this.quantity,
             this.entry_date});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_ProdStocks.DefaultCellStyle = dataGridViewCellStyle8;
-            this.DGV_ProdStocks.Location = new System.Drawing.Point(15, 279);
-            this.DGV_ProdStocks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_ProdStocks.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DGV_ProdStocks.Location = new System.Drawing.Point(15, 258);
+            this.DGV_ProdStocks.Margin = new System.Windows.Forms.Padding(4);
             this.DGV_ProdStocks.Name = "DGV_ProdStocks";
             this.DGV_ProdStocks.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_ProdStocks.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_ProdStocks.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DGV_ProdStocks.RowHeadersVisible = false;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DGV_ProdStocks.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.DGV_ProdStocks.RowHeadersWidth = 51;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DGV_ProdStocks.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DGV_ProdStocks.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DGV_ProdStocks.Size = new System.Drawing.Size(807, 324);
+            this.DGV_ProdStocks.Size = new System.Drawing.Size(807, 345);
             this.DGV_ProdStocks.TabIndex = 15;
             // 
             // product_name
@@ -115,6 +116,7 @@ namespace pos_with_points.ProductEntryForm
             this.product_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.product_name.DataPropertyName = "product_name";
             this.product_name.HeaderText = "Product";
+            this.product_name.MinimumWidth = 6;
             this.product_name.Name = "product_name";
             this.product_name.ReadOnly = true;
             this.product_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -124,6 +126,7 @@ namespace pos_with_points.ProductEntryForm
             this.product_variant.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.product_variant.DataPropertyName = "product_variant";
             this.product_variant.HeaderText = "Variant";
+            this.product_variant.MinimumWidth = 6;
             this.product_variant.Name = "product_variant";
             this.product_variant.ReadOnly = true;
             this.product_variant.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -133,6 +136,7 @@ namespace pos_with_points.ProductEntryForm
             this.product_desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.product_desc.DataPropertyName = "product_desc";
             this.product_desc.HeaderText = "Description";
+            this.product_desc.MinimumWidth = 6;
             this.product_desc.Name = "product_desc";
             this.product_desc.ReadOnly = true;
             this.product_desc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -142,6 +146,7 @@ namespace pos_with_points.ProductEntryForm
             this.product_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.product_price.DataPropertyName = "product_price";
             this.product_price.HeaderText = "Price";
+            this.product_price.MinimumWidth = 6;
             this.product_price.Name = "product_price";
             this.product_price.ReadOnly = true;
             this.product_price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -151,6 +156,7 @@ namespace pos_with_points.ProductEntryForm
             this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.quantity.DataPropertyName = "quantity";
             this.quantity.HeaderText = "Quantity";
+            this.quantity.MinimumWidth = 6;
             this.quantity.Name = "quantity";
             this.quantity.ReadOnly = true;
             this.quantity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -160,6 +166,7 @@ namespace pos_with_points.ProductEntryForm
             this.entry_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.entry_date.DataPropertyName = "entry_date";
             this.entry_date.HeaderText = "Date";
+            this.entry_date.MinimumWidth = 6;
             this.entry_date.Name = "entry_date";
             this.entry_date.ReadOnly = true;
             this.entry_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -207,7 +214,7 @@ namespace pos_with_points.ProductEntryForm
             this.label3.Location = new System.Drawing.Point(117, 141);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 18);
+            this.label3.Size = new System.Drawing.Size(83, 23);
             this.label3.TabIndex = 23;
             this.label3.Text = "Quantity";
             // 
@@ -216,16 +223,16 @@ namespace pos_with_points.ProductEntryForm
             this.txtQuantity.Location = new System.Drawing.Point(195, 136);
             this.txtQuantity.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(510, 26);
+            this.txtQuantity.Size = new System.Drawing.Size(510, 30);
             this.txtQuantity.TabIndex = 22;
             // 
             // dateTimeEntryDate
             // 
             this.dateTimeEntryDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimeEntryDate.Location = new System.Drawing.Point(195, 105);
-            this.dateTimeEntryDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimeEntryDate.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimeEntryDate.Name = "dateTimeEntryDate";
-            this.dateTimeEntryDate.Size = new System.Drawing.Size(510, 26);
+            this.dateTimeEntryDate.Size = new System.Drawing.Size(510, 30);
             this.dateTimeEntryDate.TabIndex = 21;
             // 
             // label5
@@ -234,7 +241,7 @@ namespace pos_with_points.ProductEntryForm
             this.label5.Location = new System.Drawing.Point(100, 110);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 18);
+            this.label5.Size = new System.Drawing.Size(104, 23);
             this.label5.TabIndex = 20;
             this.label5.Text = "Entry Date";
             // 
@@ -259,7 +266,7 @@ namespace pos_with_points.ProductEntryForm
             this.label4.Location = new System.Drawing.Point(675, 37);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 18);
+            this.label4.Size = new System.Drawing.Size(0, 23);
             this.label4.TabIndex = 17;
             // 
             // label2
@@ -268,7 +275,7 @@ namespace pos_with_points.ProductEntryForm
             this.label2.Location = new System.Drawing.Point(129, 71);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 18);
+            this.label2.Size = new System.Drawing.Size(71, 23);
             this.label2.TabIndex = 13;
             this.label2.Text = "Variant";
             // 
@@ -278,7 +285,7 @@ namespace pos_with_points.ProductEntryForm
             this.label1.Location = new System.Drawing.Point(73, 42);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 18);
+            this.label1.Size = new System.Drawing.Size(135, 23);
             this.label1.TabIndex = 12;
             this.label1.Text = "Product Name";
             // 
@@ -303,7 +310,7 @@ namespace pos_with_points.ProductEntryForm
             this.txtDescription.Location = new System.Drawing.Point(195, 68);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(510, 26);
+            this.txtDescription.Size = new System.Drawing.Size(510, 30);
             this.txtDescription.TabIndex = 10;
             // 
             // txtProductName
@@ -312,7 +319,7 @@ namespace pos_with_points.ProductEntryForm
             this.txtProductName.Location = new System.Drawing.Point(195, 37);
             this.txtProductName.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(510, 26);
+            this.txtProductName.Size = new System.Drawing.Size(510, 30);
             this.txtProductName.TabIndex = 9;
             // 
             // button1
@@ -332,7 +339,7 @@ namespace pos_with_points.ProductEntryForm
             // 
             // ProductEntry
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(849, 665);
@@ -341,7 +348,7 @@ namespace pos_with_points.ProductEntryForm
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ProductEntry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProductEntry";

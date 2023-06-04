@@ -153,7 +153,7 @@ namespace pos_with_points.CustomerForm
             this.label5.Location = new System.Drawing.Point(300, 181);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 18);
+            this.label5.Size = new System.Drawing.Size(83, 23);
             this.label5.TabIndex = 20;
             this.label5.Text = "Address";
             // 
@@ -163,7 +163,7 @@ namespace pos_with_points.CustomerForm
             this.txtAddress.Location = new System.Drawing.Point(432, 174);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(377, 26);
+            this.txtAddress.Size = new System.Drawing.Size(377, 30);
             this.txtAddress.TabIndex = 19;
             // 
             // btnCancel
@@ -187,7 +187,7 @@ namespace pos_with_points.CustomerForm
             this.label4.Location = new System.Drawing.Point(761, 47);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 18);
+            this.label4.Size = new System.Drawing.Size(0, 23);
             this.label4.TabIndex = 17;
             // 
             // label3
@@ -196,7 +196,7 @@ namespace pos_with_points.CustomerForm
             this.label3.Location = new System.Drawing.Point(300, 143);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 18);
+            this.label3.Size = new System.Drawing.Size(105, 23);
             this.label3.TabIndex = 15;
             this.label3.Text = "Last Name";
             // 
@@ -205,7 +205,7 @@ namespace pos_with_points.CustomerForm
             this.txtLastName.Location = new System.Drawing.Point(432, 136);
             this.txtLastName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(377, 26);
+            this.txtLastName.Size = new System.Drawing.Size(377, 30);
             this.txtLastName.TabIndex = 14;
             // 
             // label2
@@ -214,7 +214,7 @@ namespace pos_with_points.CustomerForm
             this.label2.Location = new System.Drawing.Point(300, 107);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 18);
+            this.label2.Size = new System.Drawing.Size(125, 23);
             this.label2.TabIndex = 13;
             this.label2.Text = "Middle Name";
             // 
@@ -224,7 +224,7 @@ namespace pos_with_points.CustomerForm
             this.label1.Location = new System.Drawing.Point(300, 56);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 18);
+            this.label1.Size = new System.Drawing.Size(106, 23);
             this.label1.TabIndex = 12;
             this.label1.Text = "First Name";
             // 
@@ -248,7 +248,7 @@ namespace pos_with_points.CustomerForm
             this.txtMiddleName.Location = new System.Drawing.Point(432, 100);
             this.txtMiddleName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtMiddleName.Name = "txtMiddleName";
-            this.txtMiddleName.Size = new System.Drawing.Size(377, 26);
+            this.txtMiddleName.Size = new System.Drawing.Size(377, 30);
             this.txtMiddleName.TabIndex = 10;
             // 
             // txtFirstName
@@ -256,7 +256,7 @@ namespace pos_with_points.CustomerForm
             this.txtFirstName.Location = new System.Drawing.Point(432, 56);
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(377, 26);
+            this.txtFirstName.Size = new System.Drawing.Size(377, 30);
             this.txtFirstName.TabIndex = 9;
             // 
             // DGV_CustomerData
@@ -303,10 +303,12 @@ namespace pos_with_points.CustomerForm
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DGV_CustomerData.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DGV_CustomerData.RowHeadersVisible = false;
+            this.DGV_CustomerData.RowHeadersWidth = 51;
             this.DGV_CustomerData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.DGV_CustomerData.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DGV_CustomerData.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DGV_CustomerData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_CustomerData.Size = new System.Drawing.Size(888, 269);
             this.DGV_CustomerData.TabIndex = 11;
             this.DGV_CustomerData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CustomerData_CellClick);
@@ -316,6 +318,7 @@ namespace pos_with_points.CustomerForm
             this.customer_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.customer_id.DataPropertyName = "customer_id";
             this.customer_id.HeaderText = "ID";
+            this.customer_id.MinimumWidth = 6;
             this.customer_id.Name = "customer_id";
             this.customer_id.ReadOnly = true;
             this.customer_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -325,6 +328,7 @@ namespace pos_with_points.CustomerForm
             this.firstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.firstName.DataPropertyName = "firstName";
             this.firstName.HeaderText = "First Name";
+            this.firstName.MinimumWidth = 6;
             this.firstName.Name = "firstName";
             this.firstName.ReadOnly = true;
             this.firstName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -334,6 +338,7 @@ namespace pos_with_points.CustomerForm
             this.middleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.middleName.DataPropertyName = "middleName";
             this.middleName.HeaderText = "Middle Name";
+            this.middleName.MinimumWidth = 6;
             this.middleName.Name = "middleName";
             this.middleName.ReadOnly = true;
             this.middleName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -343,6 +348,7 @@ namespace pos_with_points.CustomerForm
             this.lastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.lastName.DataPropertyName = "lastName";
             this.lastName.HeaderText = "Last Name";
+            this.lastName.MinimumWidth = 6;
             this.lastName.Name = "lastName";
             this.lastName.ReadOnly = true;
             this.lastName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -352,6 +358,7 @@ namespace pos_with_points.CustomerForm
             this.customer_address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.customer_address.DataPropertyName = "customer_address";
             this.customer_address.HeaderText = "Address";
+            this.customer_address.MinimumWidth = 6;
             this.customer_address.Name = "customer_address";
             this.customer_address.ReadOnly = true;
             this.customer_address.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -361,6 +368,7 @@ namespace pos_with_points.CustomerForm
             this.customer_points.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.customer_points.DataPropertyName = "customer_points";
             this.customer_points.HeaderText = "Points";
+            this.customer_points.MinimumWidth = 6;
             this.customer_points.Name = "customer_points";
             this.customer_points.ReadOnly = true;
             this.customer_points.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -370,7 +378,7 @@ namespace pos_with_points.CustomerForm
             this.txtSearch.Location = new System.Drawing.Point(18, 312);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(887, 26);
+            this.txtSearch.Size = new System.Drawing.Size(887, 30);
             this.txtSearch.TabIndex = 12;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -391,7 +399,7 @@ namespace pos_with_points.CustomerForm
             // 
             // CustomerRegistration
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(925, 681);

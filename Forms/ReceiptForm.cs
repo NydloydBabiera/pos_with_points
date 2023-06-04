@@ -24,8 +24,8 @@ namespace pos_with_points.ReceiptReportForm
         private void ReceiptForm_Load(object sender, EventArgs e)
         {
             ReportDocument report = new ReportDocument();
-            report.Load("E:/Nydloyd/Others/thesis2/AMA marbel/pos_with_points/Reports/receipt.rpt");
-            report.SetDatabaseLogon("sa", "123456");
+            report.Load("C:/Users/user/Desktop/thesis/pos_with_points/Reports/receipt.rpt");
+            report.SetDatabaseLogon("user_thesis", "123456");
             report.SetParameterValue("transactionId", transactionId);
             // Display the report in a Crystal Reports Viewer
             crystalReportViewer1.ReportSource = report;

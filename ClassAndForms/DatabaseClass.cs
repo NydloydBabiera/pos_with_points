@@ -10,7 +10,7 @@ namespace pos_with_points.Classes
 {
     public class DatabaseClass
     {
-        private SqlConnection c_Connection = new SqlConnection(@"Data Source=DESKTOP-FV3MKIT\SQL;Initial Catalog=DB_POS_w_Points;User ID=sa;Password=123456");
+        private SqlConnection c_Connection = new SqlConnection(@"Data Source=DESKTOP-MV4LUQ6;Initial Catalog=DB_POS_w_Points;User ID=user_thesis;Password=123456");
         private SqlCommand c_Command = new SqlCommand();
         private SqlDataAdapter c_DataAdapter = new SqlDataAdapter();
         private DataTable c_DataTable = new DataTable();

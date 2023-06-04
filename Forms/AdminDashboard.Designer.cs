@@ -31,7 +31,6 @@ namespace pos_with_points.AdminDashboardForms
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
-            this.btnInventory = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
             this.btnCustomer = new System.Windows.Forms.Button();
@@ -42,26 +41,10 @@ namespace pos_with_points.AdminDashboardForms
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnInventory = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnInventory
-            // 
-            this.btnInventory.FlatAppearance.BorderSize = 0;
-            this.btnInventory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInventory.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInventory.Image = ((System.Drawing.Image)(resources.GetObject("btnInventory.Image")));
-            this.btnInventory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInventory.Location = new System.Drawing.Point(1, 41);
-            this.btnInventory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnInventory.Name = "btnInventory";
-            this.btnInventory.Size = new System.Drawing.Size(365, 86);
-            this.btnInventory.TabIndex = 0;
-            this.btnInventory.Text = "INVENTORY";
-            this.btnInventory.UseVisualStyleBackColor = true;
-            this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
             // 
             // btnProduct
             // 
@@ -153,7 +136,7 @@ namespace pos_with_points.AdminDashboardForms
             this.lblDataTime.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDataTime.Location = new System.Drawing.Point(12, 662);
             this.lblDataTime.Name = "lblDataTime";
-            this.lblDataTime.Size = new System.Drawing.Size(81, 29);
+            this.lblDataTime.Size = new System.Drawing.Size(100, 35);
             this.lblDataTime.TabIndex = 6;
             this.lblDataTime.Text = "label1";
             this.lblDataTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -196,9 +179,27 @@ namespace pos_with_points.AdminDashboardForms
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnInventory
+            // 
+            this.btnInventory.FlatAppearance.BorderSize = 0;
+            this.btnInventory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInventory.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventory.Image = ((System.Drawing.Image)(resources.GetObject("btnInventory.Image")));
+            this.btnInventory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInventory.Location = new System.Drawing.Point(1, 41);
+            this.btnInventory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnInventory.Name = "btnInventory";
+            this.btnInventory.Size = new System.Drawing.Size(365, 86);
+            this.btnInventory.TabIndex = 0;
+            this.btnInventory.Text = "INVENTORY";
+            this.btnInventory.UseVisualStyleBackColor = true;
+            this.btnInventory.Visible = false;
+            this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
+            // 
             // AdminDashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1344, 721);
@@ -220,8 +221,6 @@ namespace pos_with_points.AdminDashboardForms
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnInventory;
         private System.Windows.Forms.Button btnProduct;
         private System.Windows.Forms.Button btnUser;
         private System.Windows.Forms.Button btnCustomer;
@@ -232,5 +231,6 @@ namespace pos_with_points.AdminDashboardForms
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblDataTime;
+        private System.Windows.Forms.Button btnInventory;
     }
 }

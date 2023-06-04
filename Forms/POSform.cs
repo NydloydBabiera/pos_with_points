@@ -36,6 +36,7 @@ namespace pos_with_points.POS
         List<String> prodIds = new List<String>();
         int addCustPts = 0;
         string transId = "";
+        int getEditedCell = 0;
 
         public POSform()
         {
@@ -44,7 +45,14 @@ namespace pos_with_points.POS
 
         private void POSform_Load(object sender, EventArgs e)
         {
-            //txtCashier.Text = member.get_value("user_info_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", " user_info_id = " +  userId );
+            if (userId != null)
+            {
+                txtCashier.Text = member.get_value("user_info_tbl", "firstName + ' ' + middleName + ' ' + lastName", " user_info_id = " + userId);
+            }
+            else
+            {
+                txtCashier.Text = "ADMIN";
+            }
             timer1.Start();
         }
 
@@ -89,7 +97,7 @@ namespace pos_with_points.POS
                     }
                     else
                     {
-                        this.txtCustomerName.Text = member.get_value("customer_data_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", "customer_id = " + customerDialog.customerSelect);
+                        this.txtCustomerName.Text = member.get_value("customer_data_tbl", "customer_id", "customer_id = " + customerDialog.customerSelect).PadLeft(6, '0'); ;
                         this.txtCustomerPoints.Text = member.get_value("customer_data_tbl", "customer_points", "customer_id = " + customerDialog.customerSelect);
                         this.customerSelected = customerDialog.customerSelect;
                     }
@@ -105,7 +113,7 @@ namespace pos_with_points.POS
 
             List<DataGridViewRow> selectedData = dialogForm.GetSelectedData();
 
-            DGV_Orders.Rows.Clear();
+           // DGV_Orders.Rows.Clear();
 
             
             foreach (DataGridViewRow row in selectedData)
@@ -281,7 +289,7 @@ namespace pos_with_points.POS
 
             member.setValues(txtTransactionNum.Text);
             member.setValues("@" + customerSelected);
-            member.setValues("@" + userId);
+            member.setValues( "@" + userId);
             member.setValues(txtTotal.Text);
             member.setValues("CASH");
             member.setValues(txtDate.Text);
@@ -325,7 +333,7 @@ namespace pos_with_points.POS
 
             member.updateRecords("customer_data_tbl");
 
-            txtCustomerName.Text = member.get_value("customer_data_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", "customer_id = " + customerSelected);
+           // txtCustomerName.Text = member.get_value("customer_data_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", "customer_id = " + customerSelected);
             txtCustomerPoints.Text = member.get_value("customer_data_tbl", "customer_points", "customer_id = " + customerSelected);
         }
 
@@ -390,6 +398,39 @@ namespace pos_with_points.POS
         {
             SalesReportViewer salesReport = new SalesReportViewer();
             salesReport.ShowDialog();
+        }
+
+        private void DGV_Orders_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void DGV_Orders_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            prodPrice = 0;
+
+            //double lineTotal = Convert.ToDouble(row.Cells[2].Value) * Convert.ToDouble(DGV_Orders.Rows[0].Cells[3].Value);
+            //MessageBox.Show(lvineTotal.ToString());
+
+            //DGV_Orders.Rows[0].Cells["product_price"].Value = lineTotal;
+
+          
+            var row = DGV_Orders.Rows[DGV_Orders.CurrentCell.RowIndex];
+            double lineTotal = 0;
+                lineTotal = Convert.ToDouble(row.Cells[2].Value) * Convert.ToDouble(row.Cells[3].Value);
+                DGV_Orders.Rows[e.RowIndex].Cells["product_price"].Value = lineTotal;
+
+            foreach (DataGridViewRow rows in DGV_Orders.Rows)
+            {
+                prodPrice += float.Parse(rows.Cells[3].Value.ToString());
+                computeTotal();
+            }
+            //prodPrice
+        }
+
+        private void DGV_Orders_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //getEditedCell = 
         }
     }
 }

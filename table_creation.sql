@@ -23,7 +23,7 @@ CREATE TABLE customer_data_tbl(
     firstName varchar(255),
     middleName varchar(255),
     lastName varchar(255),
-	address text,
+	customer_address text,
 	customer_points bigint,
 );
 Go

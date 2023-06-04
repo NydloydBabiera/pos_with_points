@@ -118,17 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnInventory.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAARBJREFUeF7t2jFKxEAYhuEUgufwNip6Aj2HeBRt9V4uiKWl2Oo3rZvshJFsMuzz
-        wFtmNuFnp/oHAAAAAABOxHXapZ/OKu98laa0flfrubXnZntPfw/vpY805T/f1XruoedmM5D9Vh1I+Zu9
-        pbEf2HLlnS/TlNbvaj239hwAAAAAAADADGttnXyn13SelmDrpLH7tIRulxzWHshdWkK3A1lr66RcWS9p
-        qSvL1gkAAAAAAADQobW2Tmp9psfUytbJQl2kFt0uORjIfie5dVKrXFkPqZWtEwAAAAAAAKBDW906Gesr
-        PaezVGPr5Ijdpppulxx6HMhNqul2IFvdOhmrXFlPac6VZesEAAAAAADg6IbhF1zY5xLvLUE9AAAAAElF
-        TkSuQmCC
-</value>
-  </data>
   <data name="btnProduct.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -261,6 +250,17 @@
         ZEBjyPOSD2gMeV7yAY0hz0s+oDHkeckHNIY8L/mAxpDnJR/QGPK85AMaQ56XfEBjyPOSD2gMeV7yAY0h
         z0s+oDHkeR3COGALmjzMJmbF7KqzB+OQHbgJzTQs4zmMWe3C6uR25NluPoDVWYcHMDfQln0DuaNRwgbc
         h7nBdta3kJlJYdvb8BXkVsnchayyzITZ8GVK9JmxtvYXpq1Ii8EcjVoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnInventory.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAARBJREFUeF7t2jFKxEAYhuEUgufwNip6Aj2HeBRt9V4uiKWl2Oo3rZvshJFsMuzz
+        wFtmNuFnp/oHAAAAAABOxHXapZ/OKu98laa0flfrubXnZntPfw/vpY805T/f1XruoedmM5D9Vh1I+Zu9
+        pbEf2HLlnS/TlNbvaj239hwAAAAAAADADGttnXyn13SelmDrpLH7tIRulxzWHshdWkK3A1lr66RcWS9p
+        qSvL1gkAAAAAAADQobW2Tmp9psfUytbJQl2kFt0uORjIfie5dVKrXFkPqZWtEwAAAAAAAKBDW906Gesr
+        PaezVGPr5Ijdpppulxx6HMhNqul2IFvdOhmrXFlPac6VZesEAAAAAADg6IbhF1zY5xLvLUE9AAAAAElF
+        TkSuQmCC
 </value>
   </data>
   <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

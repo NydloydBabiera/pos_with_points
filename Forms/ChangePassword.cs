@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using pos_with_points.Classes;
+using pos_with_points.Login;
 
 
 namespace pos_with_points.ChangePasswordForm
@@ -41,6 +42,8 @@ namespace pos_with_points.ChangePasswordForm
 
         private void btnCance_Click(object sender, EventArgs e)
         {
+            LoginForm login = new LoginForm();
+            login.ShowDialog();
             this.Close();
         }
     }

@@ -18,6 +18,7 @@ namespace pos_with_points.AdminDashboardForms
 {
     public partial class AdminDashboard : Form
     {
+        public string userId { get; set; }
         public AdminDashboard()
         {
             InitializeComponent();
