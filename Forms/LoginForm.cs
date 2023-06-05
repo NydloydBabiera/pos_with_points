@@ -33,7 +33,7 @@ namespace pos_with_points.Login
 
         private void btnCance_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -47,8 +47,8 @@ namespace pos_with_points.Login
             userName = member.get_value("user_info_tbl", "userName", "userName = " + "'" +txtUsername.Text + "'");
             password = member.get_value("user_info_tbl", "user_password", "userName = " + "'" + txtUsername.Text + "'" );
             userRole = member.get_value("user_info_tbl", "user_role", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
-            
-           
+
+
 
             if (userName == "")
             {
@@ -68,27 +68,31 @@ namespace pos_with_points.Login
 
             if (userName == password)
             {
+                
                 ChangePassword changePassword = new ChangePassword();
                 changePassword.userId = member.get_value("user_info_tbl", "user_info_id", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
                 changePassword.ShowDialog();
-                this.Hide();
 
             }
             else
             {
+
                 if (userRole == "CASHIER")
                 {
+                    this.Hide();
                     POSform pos = new POSform();
                     pos.userId = member.get_value("user_info_tbl", "user_info_id", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
                     pos.ShowDialog();
-                    this.Hide();
+                    this.Close();
                 }
                 else if (userRole == "ADMIN")
                 {
+                    this.Hide();
                     AdminDashboard adminDashboard = new AdminDashboard();
                     adminDashboard.userId = member.get_value("user_info_tbl", "user_info_id", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
-                    adminDashboard.Show();
-                    this.Hide();
+                    adminDashboard.ShowDialog();
+                    this.Close();
+
                 }
 
             }
@@ -98,6 +102,9 @@ namespace pos_with_points.Login
         private void LoginForm_Load(object sender, EventArgs e)
         {
             btnLogin.Text = "&LOGIN";
+            userName = "";
+            userRole = "";
+            password = "";
 
         }
 
