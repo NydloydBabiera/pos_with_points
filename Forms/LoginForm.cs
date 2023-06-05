@@ -33,7 +33,7 @@ namespace pos_with_points.Login
 
         private void btnCance_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void label1_Click(object sender, EventArgs e)

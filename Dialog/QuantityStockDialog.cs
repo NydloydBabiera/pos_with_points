@@ -45,6 +45,10 @@ namespace pos_with_points.QuantityStock
             {
                 MessageBox.Show("No quantity entered");
             }
+            else if (Int32.Parse(txtQuantity.Text) > Int32.Parse(lblStock.Text))
+            {
+                MessageBox.Show("Stocks are not enough");
+            }
             else
             {
                 desiredStocks = txtQuantity.Text;

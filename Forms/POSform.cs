@@ -190,6 +190,8 @@ namespace pos_with_points.POS
             txtChange.Text = "0.00";
             prodPrice = 0;
             transId = "";
+            ptsDiscount = 0;
+            txtPointsDiscount.Text = "0";
             prodIds.Clear();
             populateTransactionNum();
             populateCustomer();
@@ -253,7 +255,7 @@ namespace pos_with_points.POS
                     if (customerPoints.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
                         this.txtPointsDiscount.Text = customerPoints.customerDesire;
-                        ptsDiscount = float.Parse(customerPoints.customerDesire);
+                        ptsDiscount = float.Parse(txtPointsDiscount.Text);
                         computeTotal();
                     }
                 }
@@ -271,9 +273,9 @@ namespace pos_with_points.POS
                 addPointsCustomer();
                 computeChange();
                 MessageBox.Show("saved!");
-                //ReceiptForm receiptForm = new ReceiptForm();
-                //receiptForm.transactionId = transId;
-                //receiptForm.ShowDialog();
+                ReceiptForm receiptForm = new ReceiptForm();
+                receiptForm.transactionId = transId;
+                receiptForm.ShowDialog();
             }
 
         }
@@ -511,7 +513,6 @@ namespace pos_with_points.POS
                 prodPrice += float.Parse(rows.Cells[3].Value.ToString());
                 computeTotal();
             }
-            quantityStockDialog.Show();
             btnSearchProduct.Focus();
         }
     }

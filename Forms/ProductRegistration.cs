@@ -64,7 +64,7 @@ namespace pos_with_points.ProductRegistrationForm
             }
             
 
-            DG_Product.DataSource = member.getdata("product_tbl", "product_id");
+            DG_Product.DataSource = member.getProddata("product_tbl", "product_id");
             disableFields();
         }
 
@@ -177,7 +177,7 @@ namespace pos_with_points.ProductRegistrationForm
                 member.DeleteRecords("product_tbl", "product_id = " + prod_id);
 
                 MessageBox.Show("Data deleted successfully!");
-                DG_Product.DataSource = member.getdata("product_tbl", "product_id");
+                DG_Product.DataSource = member.getProddata("product_tbl", "product_id");
             }
         }
     }

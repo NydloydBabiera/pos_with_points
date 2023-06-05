@@ -30,12 +30,12 @@ namespace pos_with_points.GetProductDialog
         private void getProductDialog_Load(object sender, EventArgs e)
         {
             DG_Product.AutoGenerateColumns = false;
-            DG_Product.DataSource = member.getdata("product_tbl", "product_id");
+            DG_Product.DataSource = member.getdataRestricted("product_tbl", "quantity > 0");
         }
-
+        
         private void txtSearchProd_TextChanged(object sender, EventArgs e)
         {
-            DG_Product.DataSource = member.searchData("product_tbl", " product_name like " + "'%" + txtSearchProd.Text + "%'" + " OR product_desc like " + "'%" + txtSearchProd.Text + "%'" + " OR product_variant like " + "'%" + txtSearchProd.Text + "%'" + " OR product_price like " + "'%" + txtSearchProd.Text + "%'");
+            DG_Product.DataSource = member.searchData("product_tbl", " (quantity > 0) and (product_name like " + "'%" + txtSearchProd.Text + "%'" + " OR product_desc like " + "'%" + txtSearchProd.Text + "%'" + " OR product_variant like " + "'%" + txtSearchProd.Text + "%'" + " OR product_price like " + "'%" + txtSearchProd.Text + "%')");
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
