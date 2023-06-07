@@ -124,12 +124,15 @@ namespace pos_with_points.UserRegistration
             }
             else
             {
+                clearTexts();
+                enableFields();
                 txtFirstName.Text = getRowValue("firstName");
                 txtMiddleName.Text = getRowValue("middleName");
                 txtLastName.Text = getRowValue("lastName");
                 cbUserRole.Text = getRowValue("user_role");
 
                 btnSave.Text = "UPDATE";
+                
             }
         }
 
@@ -176,15 +179,31 @@ namespace pos_with_points.UserRegistration
         private void btnDelete_Click(object sender, EventArgs e)
         {
             // Display a message box with buttons Yes, No, and Cancel
-            DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo);
-
-            // Check the user's choice
-            if (result == DialogResult.Yes)
+            if (userId == "")
             {
-                member.DeleteRecords("user_info_tbl", "user_info_id = " + userId);
+                MessageBox.Show("No user selected");
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo);
+                DataTable userList = new DataTable();
+                userList = member.searchData("transactions_tbl", "cashier_id = " + userId);// Check the user's choice
 
-                MessageBox.Show("Data deleted successfully!");
-                DGV_UserData.DataSource = member.getdata("user_info_tbl", "user_info_id");
+                // Check the user's choice
+                if (result == DialogResult.Yes)
+                {
+                    if (userList.Rows.Count > 0)
+                    {
+                        MessageBox.Show("You cannot delete this user, user was already used in transaction!");
+                    }
+                    else
+                    {
+                        member.DeleteRecords("user_info_tbl", "user_info_id = " + userId);
+
+                        MessageBox.Show("Data deleted successfully!");
+                        DGV_UserData.DataSource = member.getdata("user_info_tbl", "user_info_id");
+                    }
+                }
             }
         }
     }

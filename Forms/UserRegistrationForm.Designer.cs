@@ -149,6 +149,7 @@ namespace pos_with_points.UserRegistration
             // 
             // cbUserRole
             // 
+            this.cbUserRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbUserRole.FormattingEnabled = true;
             this.cbUserRole.Items.AddRange(new object[] {
             "CASHIER",

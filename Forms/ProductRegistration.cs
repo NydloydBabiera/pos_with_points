@@ -32,7 +32,7 @@ namespace pos_with_points.ProductRegistrationForm
                 member.SetColumnUpdateRecord("product_name", txtProductName.Text);
                 member.SetColumnUpdateRecord("product_variant", txtVariant.Text);
                 member.SetColumnUpdateRecord("product_desc", txtDescription.Text);
-                member.SetColumnUpdateRecord("is_active", cbActive.Text);
+                member.SetColumnUpdateRecord("is_active", cbActive.Text == "AVAILABLE" ? "TRUE" : "FALSE");
                 member.SetColumnUpdateRecord("product_price", txtPrice.Text);
                 member.SetColumnUpdateRecord("quantity", txtQty.Text);
 
@@ -104,7 +104,7 @@ namespace pos_with_points.ProductRegistrationForm
                 txtProductName.Text = getRowValue("product_name");
                 txtVariant.Text = getRowValue("product_variant");
                 txtDescription.Text = getRowValue("product_desc");
-                cbActive.Text = getRowValue("is_active");
+                cbActive.Text = getRowValue("is_active") != "TRUE" ? "AVAILABLE" : "NOT AVAILABLE";
                 txtPrice.Text = getRowValue("product_price");
                 txtQty.Text = getRowValue("quantity");
 
@@ -169,16 +169,34 @@ namespace pos_with_points.ProductRegistrationForm
         private void btnDelete_Click(object sender, EventArgs e)
         {
             // Display a message box with buttons Yes, No, and Cancel
-            DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo);
 
             // Check the user's choice
-            if (result == DialogResult.Yes)
+            if (prod_id == "")
             {
-                member.DeleteRecords("product_tbl", "product_id = " + prod_id);
-
-                MessageBox.Show("Data deleted successfully!");
-                DG_Product.DataSource = member.getProddata("product_tbl", "product_id");
+                MessageBox.Show("No product selected");
             }
+            else
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo);
+                DataTable prodList = new DataTable();
+                prodList = member.searchData("transactions_line_tbl", "product_id = " + prod_id);// Check the user's choice
+                if (result == DialogResult.Yes)
+                {
+                    MessageBox.Show(prodList.Rows.Count.ToString());
+                    if (prodList.Rows.Count > 0)
+                    {
+                        MessageBox.Show("You cannot delete this product, product was already used in transaction!");
+                    }
+                    else
+                    {
+                        member.DeleteRecords("product_tbl", "product_id = " + prod_id);
+
+                        MessageBox.Show("Data deleted successfully!");
+                        DG_Product.DataSource = member.getProddata("product_tbl", "product_id");
+                    }
+                }
+            }
+
         }
     }
 }

@@ -57,6 +57,7 @@ namespace pos_with_points.AdminDashboardForms
         private void btnPOS_Click(object sender, EventArgs e)
         {
             POSform pOSForm = new POSform();
+            pOSForm.userId = userId;
             pOSForm.ShowDialog();
         }
 

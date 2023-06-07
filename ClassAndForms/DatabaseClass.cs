@@ -236,6 +236,19 @@ namespace pos_with_points.Classes
             return c_DataTable;
         }
 
+        public DataTable searchUsedData(string databaseTable)
+        {
+            c_DataTable = new DataTable();
+
+            c_Connection.Open();
+            c_DataAdapter = new SqlDataAdapter("Select * from " + databaseTable , c_Connection);
+            c_DataAdapter.SelectCommand.ExecuteNonQuery();
+            c_DataAdapter.Fill(c_DataTable);
+            c_Connection.Close();
+
+            return c_DataTable;
+        }
+
         public string getDataNoCondition(string dbTable, string dbColumn)
         {
 

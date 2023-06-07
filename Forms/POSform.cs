@@ -40,6 +40,8 @@ namespace pos_with_points.POS
         int lessCustPts = 0;
         string transId = "";
         int getEditedCell = 0;
+        string userRole = "";
+
 
         public POSform()
         {
@@ -56,6 +58,8 @@ namespace pos_with_points.POS
             {
                 txtCashier.Text = "ADMIN";
             }
+            userRole = member.get_value("user_info_tbl", "user_role", "user_info_id = " + userId);
+            cbxDiscount.SelectedIndex = 0;
             timer1.Start();
         }
 
@@ -211,10 +215,18 @@ namespace pos_with_points.POS
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.Close();
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
-            //this.Close();
+            if (userRole == "CASHIER")
+            {
+                this.Hide();
+                LoginForm loginForm = new LoginForm();
+                loginForm.ShowDialog();
+                //this.Close();
+            }
+            else
+            {
+                this.Close();
+            }
+
         }
 
         private void btnSearchProduct_Click(object sender, EventArgs e)
@@ -291,7 +303,11 @@ namespace pos_with_points.POS
             //save header in transactions table
             member.clearItems();
             member.setColumn("transaction_code");
-            member.setColumn("customer_id");
+            if (customerSelected != "")
+            {
+                member.setColumn("customer_id");
+            }
+           
             member.setColumn("cashier_id");
             member.setColumn("total_amount");
             member.setColumn("payment_type");
@@ -301,7 +317,7 @@ namespace pos_with_points.POS
             member.setColumn("amt_rendered");
 
             member.setValues(txtTransactionNum.Text);
-            member.setValues("@" + customerSelected);
+            member.setValues(customerSelected == "" ? "" : "@" + customerSelected);
             member.setValues( "@" + userId);
             member.setValues(txtTotal.Text);
             member.setValues("CASH");
@@ -319,7 +335,7 @@ namespace pos_with_points.POS
            for (int x = 0; x < DGV_Orders.Rows.Count; x++)
             {
 
-                 transId = member.get_value("transactions_tbl", "transaction_id", "transaction_code = " + txtTransactionNum.Text);
+                transId = member.get_value("transactions_tbl", "transaction_id", "transaction_code = " + txtTransactionNum.Text);
                 member.clearItems();
                 member.setColumn("transaction_id");
                 member.setColumn("product_id");
@@ -353,28 +369,44 @@ namespace pos_with_points.POS
 
         private void addPointsCustomer()
         {
-            addCustPts = Int32.Parse(txtCustomerPoints.Text) + 1;
-            member.clearItems();
-            member.setwhereClause("customer_id = " + customerSelected);
-            member.SetColumnUpdateRecord("customer_points", addCustPts.ToString());
+            if (customerSelected != "")
+            {
+                float amtSpent = Int32.Parse(txtTotal.Text) / 200;
 
-            member.updateRecords("customer_data_tbl");
+                if(amtSpent > 0)
+                {
+                   
 
-           // txtCustomerName.Text = member.get_value("customer_data_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", "customer_id = " + customerSelected);
-            txtCustomerPoints.Text = member.get_value("customer_data_tbl", "customer_points", "customer_id = " + customerSelected);
+                    addCustPts = Int32.Parse(txtCustomerPoints.Text) + (1 * (int)amtSpent);
+                    member.clearItems();
+                    member.setwhereClause("customer_id = " + customerSelected);
+                    member.SetColumnUpdateRecord("customer_points", addCustPts.ToString());
+
+                    member.updateRecords("customer_data_tbl");
+
+                    // txtCustomerName.Text = member.get_value("customer_data_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", "customer_id = " + customerSelected);
+                    txtCustomerPoints.Text = member.get_value("customer_data_tbl", "customer_points", "customer_id = " + customerSelected);
+                }
+               
+            }
+            
         }
 
         private void lessPointsCustomer()
         {
-            lessCustPts = Int32.Parse(txtCustomerPoints.Text) - Int32.Parse(txtPointsDiscount.Text);
-            member.clearItems();
-            member.setwhereClause("customer_id = " + customerSelected);
-            member.SetColumnUpdateRecord("customer_points", lessCustPts.ToString());
+            if (customerSelected != "")
+            {
+                lessCustPts = Int32.Parse(txtCustomerPoints.Text) - Int32.Parse(txtPointsDiscount.Text);
+                member.clearItems();
+                member.setwhereClause("customer_id = " + customerSelected);
+                member.SetColumnUpdateRecord("customer_points", lessCustPts.ToString());
 
-            member.updateRecords("customer_data_tbl");
+                member.updateRecords("customer_data_tbl");
 
-            // txtCustomerName.Text = member.get_value("customer_data_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", "customer_id = " + customerSelected);
-            txtCustomerPoints.Text = member.get_value("customer_data_tbl", "customer_points", "customer_id = " + customerSelected);
+                // txtCustomerName.Text = member.get_value("customer_data_tbl", "CONCAT(firstName, ' ' , middleName, ' ', lastName)", "customer_id = " + customerSelected);
+                txtCustomerPoints.Text = member.get_value("customer_data_tbl", "customer_points", "customer_id = " + customerSelected);
+            }
+            
         }
 
         private String getRowValue(string colName)
@@ -506,6 +538,8 @@ namespace pos_with_points.POS
                     double lineTotal = 0;
                     lineTotal = Convert.ToDouble(row.Cells[2].Value) * Convert.ToDouble(row.Cells[3].Value);
                     DGV_Orders.Rows[e.RowIndex].Cells["product_price"].Value = lineTotal;
+
+                    quantityStockDialog.Close();
                 }
             }
             foreach (DataGridViewRow rows in DGV_Orders.Rows)
@@ -513,8 +547,35 @@ namespace pos_with_points.POS
                 prodPrice += float.Parse(rows.Cells[3].Value.ToString());
                 computeTotal();
             }
+            //quantityStockDialog.ShowDialog();
             btnSearchProduct.Focus();
+        }
+
+        private void DGV_Orders_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                foreach (DataGridViewRow row in DGV_Orders.SelectedRows)
+                {
+                    //Display a message box with buttons Yes, No, and Cancel
+                    DialogResult result = MessageBox.Show("Remove " + row.Cells[0].Value.ToString() +" from orders?", "Confirmation", MessageBoxButtons.YesNo);
+
+                    // Check the user's choice
+                    if (result == DialogResult.Yes)
+                    {
+                        prodPrice = 0;
+                        DGV_Orders.Rows.RemoveAt(row.Index);
+                        foreach (DataGridViewRow rows in DGV_Orders.Rows)
+                        {
+                            prodPrice += float.Parse(rows.Cells[3].Value.ToString());
+                            computeTotal();
+                        }
+                    }
+                }
+              
+            }
         }
     }
 }
+
 

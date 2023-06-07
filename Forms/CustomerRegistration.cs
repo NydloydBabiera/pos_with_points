@@ -153,16 +153,43 @@ namespace pos_with_points.CustomerForm
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // Display a message box with buttons Yes, No, and Cancel
-            DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo);
+            //// Display a message box with buttons Yes, No, and Cancel
+            //DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo);
 
-            // Check the user's choice
-            if (result == DialogResult.Yes)
+            //// Check the user's choice
+            //if (result == DialogResult.Yes)
+            //{
+            //    member.DeleteRecords("customer_data_tbl", "customer_id = " + customerId);
+
+            //    MessageBox.Show("Data deleted successfully!");
+            //    DGV_CustomerData.DataSource = member.getdata("customer_data_tbl", "customer_id");
+            //}
+
+            if (customerId == "")
             {
-                member.DeleteRecords("customer_data_tbl", "customer_id = " + customerId);
+                MessageBox.Show("No user selected");
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo);
+                DataTable custrList = new DataTable();
+                custrList = member.searchData("transactions_tbl", "customer_id = " + customerId);// Check the user's choice
 
-                MessageBox.Show("Data deleted successfully!");
-                DGV_CustomerData.DataSource = member.getdata("customer_data_tbl", "customer_id");
+                // Check the user's choice
+                if (result == DialogResult.Yes)
+                {
+                    if (custrList.Rows.Count > 0)
+                    {
+                        MessageBox.Show("You cannot delete this user, user was already used in transaction!");
+                    }
+                    else
+                    {
+                        member.DeleteRecords("customer_data_tbl", "customer_id = " + customerId);
+
+                        MessageBox.Show("Data deleted successfully!");
+                        DGV_CustomerData.DataSource = member.getdata("customer_data_tbl", "customer_id");
+                    }
+                }
             }
         }
     }

@@ -36,6 +36,8 @@ namespace pos_with_points.ProductRegistrationForm
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtQty = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -54,10 +56,6 @@ namespace pos_with_points.ProductRegistrationForm
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.DG_Product = new System.Windows.Forms.DataGridView();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtQty = new System.Windows.Forms.TextBox();
             this.product_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.product_variant = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +63,8 @@ namespace pos_with_points.ProductRegistrationForm
             this.is_active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.product_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DG_Product)).BeginInit();
@@ -99,6 +99,24 @@ namespace pos_with_points.ProductRegistrationForm
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Product Registration";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(785, 115);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(42, 23);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Qty";
+            // 
+            // txtQty
+            // 
+            this.txtQty.Location = new System.Drawing.Point(836, 110);
+            this.txtQty.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.txtQty.Name = "txtQty";
+            this.txtQty.Size = new System.Drawing.Size(344, 30);
+            this.txtQty.TabIndex = 28;
             // 
             // btnDelete
             // 
@@ -142,14 +160,15 @@ namespace pos_with_points.ProductRegistrationForm
             // 
             // cbActive
             // 
+            this.cbActive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbActive.FormattingEnabled = true;
             this.cbActive.Items.AddRange(new object[] {
             "AVAILABLE",
             "NOT AVAILABLE"});
-            this.cbActive.Location = new System.Drawing.Point(820, 29);
+            this.cbActive.Location = new System.Drawing.Point(836, 29);
             this.cbActive.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbActive.Name = "cbActive";
-            this.cbActive.Size = new System.Drawing.Size(358, 31);
+            this.cbActive.Size = new System.Drawing.Size(342, 31);
             this.cbActive.TabIndex = 24;
             // 
             // label6
@@ -158,9 +177,9 @@ namespace pos_with_points.ProductRegistrationForm
             this.label6.Location = new System.Drawing.Point(757, 31);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 23);
+            this.label6.Size = new System.Drawing.Size(101, 23);
             this.label6.TabIndex = 23;
-            this.label6.Text = "Active";
+            this.label6.Text = "Availability";
             // 
             // btnEdit
             // 
@@ -180,7 +199,7 @@ namespace pos_with_points.ProductRegistrationForm
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(762, 70);
+            this.label5.Location = new System.Drawing.Point(782, 71);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 23);
@@ -189,10 +208,10 @@ namespace pos_with_points.ProductRegistrationForm
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(819, 66);
+            this.txtPrice.Location = new System.Drawing.Point(835, 66);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(360, 30);
+            this.txtPrice.Size = new System.Drawing.Size(344, 30);
             this.txtPrice.TabIndex = 19;
             // 
             // btnCance
@@ -343,48 +362,6 @@ namespace pos_with_points.ProductRegistrationForm
             this.DG_Product.TabIndex = 12;
             this.DG_Product.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_Product_CellClick);
             // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(18, 268);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(1178, 30);
-            this.txtSearch.TabIndex = 13;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(1032, 647);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(196, 40);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "EXIT";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(765, 114);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 23);
-            this.label7.TabIndex = 29;
-            this.label7.Text = "Qty";
-            // 
-            // txtQty
-            // 
-            this.txtQty.Location = new System.Drawing.Point(820, 110);
-            this.txtQty.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(360, 30);
-            this.txtQty.TabIndex = 28;
-            // 
             // product_id
             // 
             this.product_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -454,6 +431,30 @@ namespace pos_with_points.ProductRegistrationForm
             this.quantity.ReadOnly = true;
             this.quantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.quantity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(18, 268);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(1178, 30);
+            this.txtSearch.TabIndex = 13;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(1032, 647);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(196, 40);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "EXIT";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ProductRegistration
             // 
