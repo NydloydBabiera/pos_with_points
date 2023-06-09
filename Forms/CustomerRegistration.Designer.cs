@@ -308,6 +308,7 @@ namespace pos_with_points.CustomerForm
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.DGV_CustomerData.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DGV_CustomerData.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DGV_CustomerData.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.DGV_CustomerData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_CustomerData.Size = new System.Drawing.Size(888, 269);
             this.DGV_CustomerData.TabIndex = 11;

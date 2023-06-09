@@ -326,6 +326,7 @@ namespace pos_with_points.UserRegistration
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.DGV_UserData.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DGV_UserData.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DGV_UserData.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.DGV_UserData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_UserData.Size = new System.Drawing.Size(977, 338);
             this.DGV_UserData.TabIndex = 10;

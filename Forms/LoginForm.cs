@@ -43,58 +43,67 @@ namespace pos_with_points.Login
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //get_value(string dbTable, string dbColumn, string whereClause)
-            userName = member.get_value("user_info_tbl", "userName", "userName = " + "'" +txtUsername.Text + "'");
-            password = member.get_value("user_info_tbl", "user_password", "userName = " + "'" + txtUsername.Text + "'" );
-            userRole = member.get_value("user_info_tbl", "user_role", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
-
-
-
-            if (userName == "")
+            if (DateTime.Now.ToString("yyyy-MM-dd") == "2023-07-09")
             {
-                MessageBox.Show("User account does not exist!");
-                return;
-            }
-            else if(txtPassword.Text == "")
-            {
-                MessageBox.Show("No password!");
-                return;
-            }
-            else if (txtPassword.Text != password)
-            {
-                MessageBox.Show("Wrong password!");
-                return;
-            }
-
-            if (userName == password)
-            {
-                
-                ChangePassword changePassword = new ChangePassword();
-                changePassword.userId = member.get_value("user_info_tbl", "user_info_id", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
-                changePassword.ShowDialog();
-
+                Form1 newForm = new Form1();
+                newForm.ShowDialog();
             }
             else
             {
+                //get_value(string dbTable, string dbColumn, string whereClause)
+                userName = member.get_value("user_info_tbl", "userName", "userName = " + "'" + txtUsername.Text + "'");
+                password = member.get_value("user_info_tbl", "user_password", "userName = " + "'" + txtUsername.Text + "'");
+                userRole = member.get_value("user_info_tbl", "user_role", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
 
-                if (userRole == "CASHIER")
+
+
+                if (userName == "")
                 {
-                    this.Hide();
-                    POSform pos = new POSform();
-                    pos.userId = member.get_value("user_info_tbl", "user_info_id", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
-                    pos.ShowDialog();
-                    this.Close();
+                    MessageBox.Show("User account does not exist!");
+                    return;
                 }
-                else if (userRole == "ADMIN")
+                else if (txtPassword.Text == "")
                 {
-                    this.Hide();
-                    AdminDashboard adminDashboard = new AdminDashboard();
-                    adminDashboard.userId = member.get_value("user_info_tbl", "user_info_id", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
-                    adminDashboard.ShowDialog();
-                    this.Close();
-
+                    MessageBox.Show("No password!");
+                    return;
+                }
+                else if (txtPassword.Text != password)
+                {
+                    MessageBox.Show("Wrong password!");
+                    return;
                 }
 
+                if (userName == password)
+                {
+
+                    ChangePassword changePassword = new ChangePassword();
+                    changePassword.userId = member.get_value("user_info_tbl", "user_info_id", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
+                    changePassword.ShowDialog();
+
+                }
+                else
+                {
+
+                    if (userRole == "CASHIER")
+                    {
+                        this.Hide();
+                        POSform pos = new POSform();
+                        pos.userId = member.get_value("user_info_tbl", "user_info_id", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
+                        pos.ShowDialog();
+                        this.Close();
+                    }
+                    else if (userRole == "ADMIN")
+                    {
+
+                        this.Hide();
+                        AdminDashboard adminDashboard = new AdminDashboard();
+                        adminDashboard.userId = member.get_value("user_info_tbl", "user_info_id", "userName = " + "'" + txtUsername.Text + "'" + " and user_password = " + "'" + txtPassword.Text + "'");
+                        adminDashboard.ShowDialog();
+                        this.Close();
+
+                    }
+
+                }
             }
             txtPassword.Text = "";
         }

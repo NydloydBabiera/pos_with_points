@@ -131,9 +131,11 @@ namespace pos_with_points.POS
                 for (int x = 0; x < row.Cells.Count; x++)
                 {
                     if (x == 0)
-                    {
+                   {
+                        string desc = member.get_value("product_tbl", "product_desc", "product_id = " + row.Cells[x].Value.ToString());
+
                         prodIds.Add(row.Cells[x].Value.ToString());
-                        rowData[x] = row.Cells[x + 1].Value;
+                        rowData[x] = row.Cells[x + 1].Value + " - " + desc;
                     }
                     else if (x == 1)
                     {
@@ -335,7 +337,10 @@ namespace pos_with_points.POS
            for (int x = 0; x < DGV_Orders.Rows.Count; x++)
             {
 
+                
+
                 transId = member.get_value("transactions_tbl", "transaction_id", "transaction_code = " + txtTransactionNum.Text);
+           
                 member.clearItems();
                 member.setColumn("transaction_id");
                 member.setColumn("product_id");

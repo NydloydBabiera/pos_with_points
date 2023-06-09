@@ -36,6 +36,7 @@ namespace pos_with_points.ProductRegistrationForm
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbSize = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtQty = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@ namespace pos_with_points.ProductRegistrationForm
             this.btnCance = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtVariant = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
@@ -72,6 +72,7 @@ namespace pos_with_points.ProductRegistrationForm
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbSize);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtQty);
             this.groupBox1.Controls.Add(this.btnDelete);
@@ -85,7 +86,6 @@ namespace pos_with_points.ProductRegistrationForm
             this.groupBox1.Controls.Add(this.btnCance);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtVariant);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnSave);
@@ -99,6 +99,18 @@ namespace pos_with_points.ProductRegistrationForm
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Product Registration";
+            // 
+            // cbSize
+            // 
+            this.cbSize.FormattingEnabled = true;
+            this.cbSize.Items.AddRange(new object[] {
+            "Small",
+            "Medium",
+            "Large"});
+            this.cbSize.Location = new System.Drawing.Point(396, 68);
+            this.cbSize.Name = "cbSize";
+            this.cbSize.Size = new System.Drawing.Size(354, 31);
+            this.cbSize.TabIndex = 30;
             // 
             // label7
             // 
@@ -248,14 +260,6 @@ namespace pos_with_points.ProductRegistrationForm
             this.label3.TabIndex = 15;
             this.label3.Text = "Size";
             // 
-            // txtVariant
-            // 
-            this.txtVariant.Location = new System.Drawing.Point(390, 71);
-            this.txtVariant.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.txtVariant.Name = "txtVariant";
-            this.txtVariant.Size = new System.Drawing.Size(360, 30);
-            this.txtVariant.TabIndex = 14;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -357,6 +361,7 @@ namespace pos_with_points.ProductRegistrationForm
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.DG_Product.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DG_Product.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DG_Product.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.DG_Product.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DG_Product.Size = new System.Drawing.Size(1213, 335);
             this.DG_Product.TabIndex = 12;
@@ -490,7 +495,6 @@ namespace pos_with_points.ProductRegistrationForm
         private System.Windows.Forms.Button btnCance;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtVariant;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSave;
@@ -514,5 +518,6 @@ namespace pos_with_points.ProductRegistrationForm
         private System.Windows.Forms.DataGridViewCheckBoxColumn is_active;
         private System.Windows.Forms.DataGridViewTextBoxColumn product_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.ComboBox cbSize;
     }
 }

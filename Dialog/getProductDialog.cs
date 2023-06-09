@@ -63,5 +63,14 @@ namespace pos_with_points.GetProductDialog
             string cellValue = Convert.ToString(selectedRow.Cells[colName].Value);
             return cellValue;
         }
+
+        private void DG_Product_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in DG_Product.SelectedRows)
+            {
+                selectedRows.Add(row);
+            }
+            Close();
+        }
     }
 }

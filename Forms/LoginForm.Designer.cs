@@ -29,6 +29,7 @@ namespace pos_with_points.Login
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -39,6 +40,7 @@ namespace pos_with_points.Login
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -93,7 +95,7 @@ namespace pos_with_points.Login
             this.label4.Location = new System.Drawing.Point(444, 30);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 18);
+            this.label4.Size = new System.Drawing.Size(0, 23);
             this.label4.TabIndex = 17;
             // 
             // label2
@@ -102,7 +104,7 @@ namespace pos_with_points.Login
             this.label2.Location = new System.Drawing.Point(129, 68);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 18);
+            this.label2.Size = new System.Drawing.Size(98, 23);
             this.label2.TabIndex = 13;
             this.label2.Text = "Password";
             // 
@@ -112,7 +114,7 @@ namespace pos_with_points.Login
             this.label1.Location = new System.Drawing.Point(124, 30);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 18);
+            this.label1.Size = new System.Drawing.Size(99, 23);
             this.label1.TabIndex = 12;
             this.label1.Text = "Username";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -137,7 +139,7 @@ namespace pos_with_points.Login
             this.txtPassword.Location = new System.Drawing.Point(221, 65);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(341, 26);
+            this.txtPassword.Size = new System.Drawing.Size(341, 30);
             this.txtPassword.TabIndex = 10;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
@@ -146,12 +148,12 @@ namespace pos_with_points.Login
             this.txtUsername.Location = new System.Drawing.Point(218, 26);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(344, 26);
+            this.txtUsername.Size = new System.Drawing.Size(344, 30);
             this.txtUsername.TabIndex = 9;
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(617, 171);
@@ -182,5 +184,6 @@ namespace pos_with_points.Login
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

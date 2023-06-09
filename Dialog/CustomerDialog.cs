@@ -62,5 +62,20 @@ namespace pos_with_points.CustomerDialogForm
         {
             DGV_Customer.DataSource = member.searchData("customer_data_tbl", " firstName like " + "'%" + textBox1.Text + "%'" + " OR middleName like " + "'%" + textBox1.Text + "%'" + " OR lastName like " + "'%" + textBox1.Text + "%'" + " OR customer_address like " + "'%" + textBox1.Text + "%'");
         }
+
+        private void DGV_Customer_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            customerSelect = getRowValue("customer_id");
+
+            if (customerSelect == "")
+            {
+                MessageBox.Show("No customer selected!");
+            }
+            else
+            {
+                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                this.Close();
+            }
+        }
     }
 }

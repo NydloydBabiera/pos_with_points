@@ -30,7 +30,7 @@ namespace pos_with_points.ProductRegistrationForm
                 member.clearItems();
                 member.setwhereClause("product_id = " + prod_id);
                 member.SetColumnUpdateRecord("product_name", txtProductName.Text);
-                member.SetColumnUpdateRecord("product_variant", txtVariant.Text);
+                member.SetColumnUpdateRecord("product_variant", cbSize.Text);
                 member.SetColumnUpdateRecord("product_desc", txtDescription.Text);
                 member.SetColumnUpdateRecord("is_active", cbActive.Text == "AVAILABLE" ? "TRUE" : "FALSE");
                 member.SetColumnUpdateRecord("product_price", txtPrice.Text);
@@ -52,7 +52,7 @@ namespace pos_with_points.ProductRegistrationForm
                 member.setColumn("quantity");
 
                 member.setValues(txtProductName.Text);
-                member.setValues(txtVariant.Text);
+                member.setValues(cbSize.Text);
                 member.setValues(txtDescription.Text);
                 member.setValues(cbActive.Text == "AVAILABLE" ? "TRUE" : "FALSE");
                 member.setValues(txtPrice.Text);
@@ -102,7 +102,7 @@ namespace pos_with_points.ProductRegistrationForm
             else
             {
                 txtProductName.Text = getRowValue("product_name");
-                txtVariant.Text = getRowValue("product_variant");
+                cbSize.Text = getRowValue("product_variant");
                 txtDescription.Text = getRowValue("product_desc");
                 cbActive.Text = getRowValue("is_active") != "TRUE" ? "AVAILABLE" : "NOT AVAILABLE";
                 txtPrice.Text = getRowValue("product_price");
@@ -118,7 +118,7 @@ namespace pos_with_points.ProductRegistrationForm
         private void clearTexts()
         {
             txtProductName.Text = "";
-            txtVariant.Text = "";
+            cbSize.Text = "";
             txtDescription.Text = "";
             cbActive.Text = "";
             txtPrice.Text = "";
@@ -127,7 +127,7 @@ namespace pos_with_points.ProductRegistrationForm
         private void disableFields()
         {
             txtProductName.Enabled = false;
-            txtVariant.Enabled = false;
+            cbSize.Enabled = false;
             txtDescription.Enabled = false;
             cbActive.Enabled = false;
             txtPrice.Enabled = false;
@@ -136,7 +136,7 @@ namespace pos_with_points.ProductRegistrationForm
         private void enableFields()
         {
             txtProductName.Enabled = true;
-            txtVariant.Enabled = true;
+            cbSize.Enabled = true;
             txtDescription.Enabled = true;
             cbActive.Enabled = true;
             txtPrice.Enabled = true;

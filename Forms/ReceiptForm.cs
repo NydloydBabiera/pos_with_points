@@ -23,6 +23,7 @@ namespace pos_with_points.ReceiptReportForm
 
         private void ReceiptForm_Load(object sender, EventArgs e)
         {
+
             ReportDocument report = new ReportDocument();
             report.Load("C:/Users/user/Desktop/thesis/pos_with_points/Reports/receipt.rpt");
             report.SetDatabaseLogon("user_thesis", "123456");
@@ -30,6 +31,8 @@ namespace pos_with_points.ReceiptReportForm
             // Display the report in a Crystal Reports Viewer
             crystalReportViewer1.ReportSource = report;
             crystalReportViewer1.Refresh();
+            report.PrintOptions.PrinterName = "XP-58";
+            report.PrintToPrinter(1, true, 1, 1);
         }
     }
 }
