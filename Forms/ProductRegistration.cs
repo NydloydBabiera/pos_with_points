@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using pos_with_points.Classes;
+using pos_with_points.lowStock;
 
 namespace pos_with_points.ProductRegistrationForm
 {
@@ -16,7 +17,7 @@ namespace pos_with_points.ProductRegistrationForm
         DatabaseClass member = new DatabaseClass();
         Boolean isEdit = false;
         string prod_id = "";
-
+        string prodLowStock ="";
 
         public ProductRegistration()
         {
@@ -37,6 +38,8 @@ namespace pos_with_points.ProductRegistrationForm
                 member.SetColumnUpdateRecord("quantity", txtQty.Text);
 
                 member.updateRecords("product_tbl");
+                prodLowStock = member.get_value("product_tbl", "COUNT(product_id)", "quantity <= 5");
+                button2.Text = Int32.Parse(prodLowStock) == 0 ? "" :" (" + prodLowStock + ")";
 
                 MessageBox.Show("Update successfull!");
 
@@ -73,6 +76,14 @@ namespace pos_with_points.ProductRegistrationForm
             DG_Product.AutoGenerateColumns = false;
             DG_Product.DataSource = member.getProddata("product_tbl", "product_id");
             disableFields();
+
+            prodLowStock = member.get_value("product_tbl", "COUNT(product_id)", "quantity <= 5");
+            button2.Text = Int32.Parse(prodLowStock) == 0 ? "" : " " + button2.Text + " (" + prodLowStock + ")";
+            if (Int32.Parse(prodLowStock) > 0)
+            {
+                button2.ForeColor = Color.Red;
+            }
+            
 
         }
 
@@ -182,7 +193,6 @@ namespace pos_with_points.ProductRegistrationForm
                 prodList = member.searchData("transactions_line_tbl", "product_id = " + prod_id);// Check the user's choice
                 if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show(prodList.Rows.Count.ToString());
                     if (prodList.Rows.Count > 0)
                     {
                         MessageBox.Show("You cannot delete this product, product was already used in transaction!");
@@ -196,6 +206,21 @@ namespace pos_with_points.ProductRegistrationForm
                     }
                 }
             }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (Int32.Parse(prodLowStock) == 0)
+            {
+                MessageBox.Show("No product/s low in stock");
+            }
+            else
+            {
+                lowStockDialog stock = new lowStockDialog();
+                stock.Show();
+            }
+           
 
         }
     }

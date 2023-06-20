@@ -29,12 +29,12 @@ namespace pos_with_points.ProductRegistrationForm
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductRegistration));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbSize = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -65,6 +65,7 @@ namespace pos_with_points.ProductRegistrationForm
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DG_Product)).BeginInit();
@@ -72,6 +73,7 @@ namespace pos_with_points.ProductRegistrationForm
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.cbSize);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtQty);
@@ -109,7 +111,7 @@ namespace pos_with_points.ProductRegistrationForm
             "Large"});
             this.cbSize.Location = new System.Drawing.Point(396, 68);
             this.cbSize.Name = "cbSize";
-            this.cbSize.Size = new System.Drawing.Size(354, 31);
+            this.cbSize.Size = new System.Drawing.Size(354, 26);
             this.cbSize.TabIndex = 30;
             // 
             // label7
@@ -118,7 +120,7 @@ namespace pos_with_points.ProductRegistrationForm
             this.label7.Location = new System.Drawing.Point(785, 115);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 23);
+            this.label7.Size = new System.Drawing.Size(31, 18);
             this.label7.TabIndex = 29;
             this.label7.Text = "Qty";
             // 
@@ -127,7 +129,7 @@ namespace pos_with_points.ProductRegistrationForm
             this.txtQty.Location = new System.Drawing.Point(836, 110);
             this.txtQty.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
             this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(344, 30);
+            this.txtQty.Size = new System.Drawing.Size(344, 26);
             this.txtQty.TabIndex = 28;
             // 
             // btnDelete
@@ -180,7 +182,7 @@ namespace pos_with_points.ProductRegistrationForm
             this.cbActive.Location = new System.Drawing.Point(836, 29);
             this.cbActive.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbActive.Name = "cbActive";
-            this.cbActive.Size = new System.Drawing.Size(342, 31);
+            this.cbActive.Size = new System.Drawing.Size(342, 26);
             this.cbActive.TabIndex = 24;
             // 
             // label6
@@ -189,7 +191,7 @@ namespace pos_with_points.ProductRegistrationForm
             this.label6.Location = new System.Drawing.Point(757, 31);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(101, 23);
+            this.label6.Size = new System.Drawing.Size(82, 18);
             this.label6.TabIndex = 23;
             this.label6.Text = "Availability";
             // 
@@ -214,7 +216,7 @@ namespace pos_with_points.ProductRegistrationForm
             this.label5.Location = new System.Drawing.Point(782, 71);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 23);
+            this.label5.Size = new System.Drawing.Size(45, 18);
             this.label5.TabIndex = 20;
             this.label5.Text = "Price";
             // 
@@ -223,7 +225,7 @@ namespace pos_with_points.ProductRegistrationForm
             this.txtPrice.Location = new System.Drawing.Point(835, 66);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(344, 30);
+            this.txtPrice.Size = new System.Drawing.Size(344, 26);
             this.txtPrice.TabIndex = 19;
             // 
             // btnCance
@@ -247,7 +249,7 @@ namespace pos_with_points.ProductRegistrationForm
             this.label4.Location = new System.Drawing.Point(780, 32);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 23);
+            this.label4.Size = new System.Drawing.Size(0, 18);
             this.label4.TabIndex = 17;
             // 
             // label3
@@ -256,7 +258,7 @@ namespace pos_with_points.ProductRegistrationForm
             this.label3.Location = new System.Drawing.Point(335, 71);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 23);
+            this.label3.Size = new System.Drawing.Size(39, 18);
             this.label3.TabIndex = 15;
             this.label3.Text = "Size";
             // 
@@ -266,7 +268,7 @@ namespace pos_with_points.ProductRegistrationForm
             this.label2.Location = new System.Drawing.Point(288, 112);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 23);
+            this.label2.Size = new System.Drawing.Size(88, 18);
             this.label2.TabIndex = 13;
             this.label2.Text = "Description";
             // 
@@ -276,7 +278,7 @@ namespace pos_with_points.ProductRegistrationForm
             this.label1.Location = new System.Drawing.Point(266, 36);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 23);
+            this.label1.Size = new System.Drawing.Size(108, 18);
             this.label1.TabIndex = 12;
             this.label1.Text = "Product Name";
             // 
@@ -301,7 +303,7 @@ namespace pos_with_points.ProductRegistrationForm
             this.txtDescription.Location = new System.Drawing.Point(390, 109);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(360, 30);
+            this.txtDescription.Size = new System.Drawing.Size(360, 26);
             this.txtDescription.TabIndex = 10;
             // 
             // txtProductName
@@ -309,24 +311,24 @@ namespace pos_with_points.ProductRegistrationForm
             this.txtProductName.Location = new System.Drawing.Point(391, 32);
             this.txtProductName.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(358, 30);
+            this.txtProductName.Size = new System.Drawing.Size(358, 26);
             this.txtProductName.TabIndex = 9;
             // 
             // DG_Product
             // 
             this.DG_Product.AllowUserToAddRows = false;
             this.DG_Product.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DG_Product.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DG_Product.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.DG_Product.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DG_Product.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DG_Product.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.DG_Product.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_Product.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.product_id,
@@ -336,30 +338,30 @@ namespace pos_with_points.ProductRegistrationForm
             this.is_active,
             this.product_price,
             this.quantity});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DG_Product.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DG_Product.DefaultCellStyle = dataGridViewCellStyle8;
             this.DG_Product.Location = new System.Drawing.Point(15, 304);
             this.DG_Product.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DG_Product.Name = "DG_Product";
             this.DG_Product.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DG_Product.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DG_Product.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.DG_Product.RowHeadersVisible = false;
             this.DG_Product.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DG_Product.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DG_Product.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.DG_Product.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.DG_Product.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.DG_Product.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -442,7 +444,7 @@ namespace pos_with_points.ProductRegistrationForm
             this.txtSearch.Location = new System.Drawing.Point(18, 268);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(1178, 30);
+            this.txtSearch.Size = new System.Drawing.Size(1178, 26);
             this.txtSearch.TabIndex = 13;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -461,9 +463,24 @@ namespace pos_with_points.ProductRegistrationForm
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(271, 147);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(105, 57);
+            this.button2.TabIndex = 31;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // ProductRegistration
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1239, 698);
@@ -519,5 +536,6 @@ namespace pos_with_points.ProductRegistrationForm
         private System.Windows.Forms.DataGridViewTextBoxColumn product_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.ComboBox cbSize;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -13,32 +13,49 @@ using pos_with_points.ProductRegistrationForm;
 using pos_with_points.ProductEntryForm;
 using pos_with_points.POS;
 using pos_with_points.Login;
+using pos_with_points.notrificationForm;
+using pos_with_points.Classes;
 
 namespace pos_with_points.AdminDashboardForms
 {
     public partial class AdminDashboard : Form
     {
         public string userId { get; set; }
+        bool expand = false;
+        DatabaseClass member = new DatabaseClass();
+        string prodLowStock = "";
+
         public AdminDashboard()
         {
             InitializeComponent();
         }
 
+
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
             timer1.Start();
+            prodLowStock = member.get_value("product_tbl", "COUNT(product_id)", "quantity <= 5");
+            btnProduct.Text = Int32.Parse(prodLowStock) == 0 ? btnProduct.Text : " " + btnProduct.Text + " (" + prodLowStock + ")";
+        }
+
+        public void alert(string msg)
+        {
+            notificationDialog notif = new notificationDialog();
+            notif.showAlert(msg);
         }
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
-            ProductEntry productEntry = new ProductEntry();
-            productEntry.ShowDialog();
+            this.alert("Low stock");
+
         }
 
         private void btnProduct_Click(object sender, EventArgs e)
         {
             ProductRegistration productRegistration = new ProductRegistration();
             productRegistration.ShowDialog();
+            prodLowStock = member.get_value("product_tbl", "COUNT(product_id)", "quantity <= 5");
+            btnProduct.Text = Int32.Parse(prodLowStock) == 0 ? btnProduct.Text : " " + "PRODUCTS" + " (" + prodLowStock + ")";
         }
 
         private void btnUser_Click(object sender, EventArgs e)
@@ -79,6 +96,13 @@ namespace pos_with_points.AdminDashboardForms
             
                 lblDataTime.Text = DateTime.Now.ToString("MMMM dd, yyyy") + "\n" + DateTime.Now.ToLongTimeString(); ;
             
+        }
+
+       
+
+        private void btnNotif_Click(object sender, EventArgs e)
+        {
+            notifTimer.Start();
         }
     }
 }
