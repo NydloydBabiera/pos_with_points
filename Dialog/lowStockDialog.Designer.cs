@@ -37,7 +37,7 @@ namespace pos_with_points.lowStock
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 22;
-            this.listBox1.Location = new System.Drawing.Point(12, 53);
+            this.listBox1.Location = new System.Drawing.Point(12, 50);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(434, 378);
             this.listBox1.TabIndex = 0;
